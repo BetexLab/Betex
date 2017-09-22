@@ -1,0 +1,16 @@
+.main-info{
+  padding: 90px 0 43px;
+  &__title{
+    margin-left: 104px;
+    line-height: 1.5;
+  }
+  &__text{
+    padding: 10px 0 0 11px;
+    letter-spacing: -0.006em;
+    line-height: 1.5;
+    max-width: 465px;
+    p{
+      margin: 0 0 23px;
+    }
+  }
+}

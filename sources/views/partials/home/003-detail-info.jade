@@ -1,0 +1,23 @@
+-
+  var count = 1;
+
+  var detailInfo = {
+    1: ['42px' , '34px', 'Transparent', 'Blockchain technology completely wards off a possibility of market data alterations, retaining open access to the records, thereby, ensuring crystal clear system and equal conditions for everyone.'],
+    2: ['48px', '37px', 'Provably fair', 'Whatever is the outcome of your bet, we profit only from the service fees. For that reason, it would be totally unreasonable and pointless for us to even try manipulating results.'],
+    3: ['37px', '36px', 'Common liquidity pool', 'The goal is to consolidate maximum liquidity from the derivatives markets into a single pool, instead of creating multiple tiny ones. In other words, there will be a common pool of liquidity formed for each trading asset.'],
+    4: ['39px', '40px', 'Native Token', 'ERC-20 standard compatible Ethereum Token, executing primarily the reward function.',],
+    5: ['33px', '45px', 'No deposits', 'Users are not required to put any deposits in order to participate.'],
+    6: ['46px', '46px', 'Instant payouts', 'Payments are automatically released by smart contracts straight to your ETH wallet, allowing immediate, frictionless and irreversible withdrawals without delays or cancellations.']
+  }
+
+
+section.detail-info
+  .container
+    .row
+      each item, i in detailInfo
+        .col-lg-4.detail-info__item
+          .detail-info__item-icon
+            svg(width=item[0], height=item[1])
+              use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#deatail-info-" + count++)
+          h5.detail-info__item-title=item[2]
+          p.detail-info__item-text=item[3]

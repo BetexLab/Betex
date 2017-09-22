@@ -1,0 +1,35 @@
+.betex-mvp{
+  padding: 120px 0 50px;
+  &__descript{
+    padding: 95px 0 0 10px;
+  }
+  &__text{
+    max-width: 355px;
+    padding: 40px 0 35px;
+    @include line-height(24, 16);
+  }
+  &__links{
+    width: 280px;
+    margin-left: 10px;
+    @extend %l_flex--align-center;
+    @extend %l_justify-content--space-between;
+  }
+  &__link{
+    @include font-size(24);
+    @extend %t_bold;
+    padding-bottom: 3px;
+    border-bottom: 2px solid #15bc5a;
+    transition: .3s;
+    &:hover{
+      border-bottom-color: transparent;
+    }
+  }
+
+  &__img{
+    max-width: 100%;
+    &-wrap{
+      @extend %l_flex--align-flex-start;
+      @extend %l_justify-content--flex-end;
+    }
+  }
+}

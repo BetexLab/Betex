@@ -1,0 +1,24 @@
+- var page = 'home';
+
+doctype html
+html(lang="en")
+    head
+        include ./partials/global/head
+    body.home
+        include ./partials/global/sprite
+
+        include ./partials/global/header
+
+        main
+            include partials/home/001-main-block
+            include partials/home/002-main-info
+            include partials/home/003-detail-info
+            include partials/home/004-business-model
+
+            include partials/home/007-betex-token
+            include partials/home/008-betex-mvp
+            include partials/home/009-team
+
+        include ./partials/global/footer
+        include ./partials/global/scripts
+

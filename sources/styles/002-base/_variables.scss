@@ -1,0 +1,76 @@
+//-----------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------
+
+//-------------------------------------------------
+// Colors
+
+// use with color mixin. 400 is default.
+
+// EXAMPLE:
+// background: color('grey', 100);
+// color: color('grey');
+
+$colors: (
+	'grey': (
+		1: #9aa1ab, // .t_color--grey-1
+		2: #8c8c96, // .t_color--grey-2
+	),
+
+	'red': (
+		//1: #333433, // .t_color--кув-2
+	),
+
+	'blue': (
+		//1: #1186c0, // .t_color--blue-1
+	),
+
+	'green': (
+		//1: #1ac604, // .t_color--green-1
+	),
+);
+
+$primary: #38393c;
+$primary-light: #171623;
+$purple: #cf4ca7;
+$yellow: #f7c045;
+$grey: #6e7aa4;
+
+/////
+
+$grad-green: linear-gradient(135deg, #0c0 0%, #3c9 100%);
+$grad-blue: linear-gradient(135deg, #0099cc 0%, #0066cc 100%);
+$grad-red: linear-gradient(113deg, #cc0000, #ff6600);
+$grad-gray: linear-gradient(113deg, #999999, #666666);
+//-------------------------------------------------
+// Fonts
+
+$arial-sans: Arial, sans-serif;
+$Helvetica: 'Helvetica', $arial-sans;
+//$Oxygen: 'Oxygen', $arial-sans;
+
+////
+
+$weight-thin: 100;
+$weight-light: 300;
+$weight-regular: 400;
+$weight-medium: 500;
+$weight-semibold: 600;
+$weight-bold: 700;
+$weight-black: 900;
+
+//-------------------------------------------------
+// Break points
+
+$sm: 320;
+$sm-roomy: 375;
+$md: 760;
+$lg: 980;
+$xl: 1280;
+$xxl: 1400;
+$xxxl: 1920;
+
+//-------------------------------------------------
+// MISC
+
+$transition-time: 0.3s;

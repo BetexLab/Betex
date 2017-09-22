@@ -1,0 +1,15 @@
+# IDE
+/.idea
+
+# Git
+/.git
+
+# Node
+/node_modules
+
+# Build
+/css
+/js
+/fonts
+/img
+/*.html

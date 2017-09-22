@@ -1,0 +1,140 @@
+.betex-tokens{
+   padding: 0 0 98px;
+   &__chart{
+     margin: 5px 0 0 -5px;
+     &-wrap{
+       padding: 0 120px;
+       position: relative;
+     }
+   }
+
+   &__title{
+     @extend %font-size-32;
+     padding-left: 10px;
+   }
+   &__list{
+     $grey: #9aa1ab;
+     $lightblue: #00c5de;
+     $yellow: #ffdd00;
+     $red: #ff505a;
+     $blue: #3f4fc9;
+     padding: 10px 0 0 15px;
+     max-width: 360px;
+     &-item{
+       padding: 0 0 16px;
+       display: flex;
+       position: relative;
+       line-height: 1.4;
+       &:before{
+         content: '';
+         width: 11px;
+         height: 11px;
+         display: inline-block;
+         vertical-align: middle;
+         border-radius: 100%;
+         margin-right: 10px;
+         margin-top: 3px;
+         position: relative;
+         z-index: 2;
+       }
+       &.active{
+         &:after{
+           content: '';
+           width: 17px;
+           height: 17px;
+           position: absolute;
+           top: 0;
+           left: -3px;
+           display: block;
+           border-radius: 100%;
+           opacity: .5;
+           z-index: 1;
+         }
+         &.grey {
+           &:after{
+             background: $grey;
+           }
+         }
+         &.light-blue {
+           &:after{
+             background: $lightblue;
+           }
+         }
+         &.yellow {
+           &:after{
+             background: $yellow;
+           }
+         }
+         &.red {
+           &:after{
+             background: $red;
+           }
+         }
+         &.blue {
+           &:after{
+             background: $blue;
+           }
+         }
+       }
+       &.grey {
+         &:before{
+           background: $grey;
+         }
+       }
+       &.light-blue {
+         &:before{
+           background: $lightblue;
+         }
+       }
+       &.yellow {
+         &:before{
+           background: $yellow;
+         }
+       }
+       &.red {
+         &:before{
+           background: $red;
+         }
+       }
+       &.blue {
+         &:before{
+           background: $blue;
+         }
+       }
+       b{
+         padding-right: 10px;
+         flex: 0 1 45px;
+       }
+       span{
+         flex: 0 1 280px;
+       }
+     }
+   }
+   .locked{
+     display: flex;
+     flex-direction: column;
+     flex: 0 1 280px;
+     span{
+       flex: 0 1 auto;
+     }
+     &-list{
+       color: #88909b;
+       padding: 25px 0 0;
+       &-item{
+         padding: 0 5px;
+         position: relative;
+         &:before{
+           content: '';
+           width: 4px;
+           height: 4px;
+           border-radius: 100%;
+           background: #88909b;
+           display: block;
+           position: absolute;
+           left: -2px;
+           top: 6px;
+         }
+       }
+     }
+   }
+ }

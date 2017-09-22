@@ -1,0 +1,109 @@
+.business-model{
+  background-image: linear-gradient(180deg, #eef1f5 0%, #ffffff 100%);
+  padding: 98px 0 0;
+  overflow: hidden;
+  &__title{
+    margin-left: 10px;
+  }
+  &__text{
+   @include line-height(24, 16);
+    padding: 41px 100px 0 14px;
+    letter-spacing: -0.005em;
+  }
+ }
+
+.payouts{
+  margin: 100px 0 181px;
+  &__title{
+    @extend %t_bold;
+    @extend %t_text-align--center;
+  }
+
+  &__wrap{
+    @extend %l_flex--align-center;
+    @extend %l_justify-content--space-between;
+    position: relative;
+    //padding: 0 103px 0 80px;
+    margin: 75px 0 0;
+    width: 100%;
+  }
+  &__circle{
+    width: 302px;
+    height: 302px;
+    box-shadow: 0 19px 29px rgba(197, 206, 218, 0.6);
+    background-color: rgb(63, 79, 201);
+    color: #ffffff;
+    @extend %l_flex--center;
+    @extend %l_flex--align-center;
+    position: relative;
+    z-index: 1;
+    border-radius: 100%;
+    margin: 0 auto;
+    left: -23px;
+    &-percent{
+      @include font-size(47);
+      font-weight: $weight-bold;
+    }
+    &-title{
+      @include font-size(32);
+    }
+  }
+  &__left-img{
+    margin: 42px auto 0;
+    position: relative;
+    left: -30px;
+  }
+  &__right-img{
+    margin: 36px auto 0;
+  }
+  &__line{
+    width: 707px;
+    height: 21px;
+    background-image: url("../img/home-page/payouts-line.png");
+    top: 27px;
+    left: 30px;
+    margin: auto;
+    @extend .u_overlay;
+  }
+
+  &__rest{
+    width: 82px;
+    height: 82px;
+    background-color: rgb(63, 79, 201);
+    color: #ffffff;
+    border-radius: 100%;
+    @include font-size(33);
+    @extend %l_flex--justify-center;
+    margin: 53px auto 67px;
+
+    &-info{
+      display: flex;
+      justify-content: space-between;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 900px;
+
+    }
+    &-item{
+      width: 100%;
+      text-align: center;
+    }
+    &-circle{
+      width: 66px;
+      height: 66px;
+      background-color: rgb(63, 79, 201);
+      border-radius: 100%;
+      margin: 0 auto;
+      @extend %l_flex--justify-center;
+      color: #ffffff;
+      @include font-size(24);
+    }
+    &-text{
+      @include font-size(14);
+      font-weight: $weight-bold;
+      color: #8c8c96;
+      margin-top: 32px;
+    }
+  }
+}
+

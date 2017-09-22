@@ -1,0 +1,26 @@
+.nav{
+  &__list{
+    @extend %l_flex--align-center;
+    justify-content: space-around;
+    padding: 6px 0 0 0;
+    &-item{
+      @include font-size(14);
+      transition: .3s;
+      &:hover{
+        opacity: .7;
+      }
+    }
+  }
+}
+
+.header{
+  padding: 30px 0 0;
+  position: relative;
+  z-index: 100;
+  &__logo{
+    display: block;
+    //width: 117px;
+    margin-left: 10px;
+    @extend .i-logo;
+  }
+}

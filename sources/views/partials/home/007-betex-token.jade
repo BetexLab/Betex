@@ -1,0 +1,243 @@
+-
+  var detailCol = {
+    'Start of whitelist register':'23.10.2017 at 14:00 GMT',
+    'End of whitelist registration:': '28.10.2017 at 14:00 GMT',
+    'Start of crowdsale for whitelisted addresses:': '01.11.2017 at 14:00 GMT',
+    'Start of crowdsale for all without limits:': '03.11.2017 at 14:00 GMT',
+    'End of crowdsale:': '01.12.2017 at 14:00 GMT or once Max Cap is reached'
+  },
+  detailCol2 = {
+    'Crowdsale betex token price:': '$5.00 - $18.80',
+    'Max amount of tokens to be sold:': '5,000,000 out of 10,000,000 (50%)',
+    'Max guaranteed whitelisted buy:': '20ETH',
+    'Min cap:': '$2M',
+    'Max cap:': '$94M'
+  }
+
+section.betex-token
+  .container
+    .betex-token__header
+      h2.betex-token__title.title-line Betex Token
+      ul.tabs.betex-token__tabs-caption(data-tabgroup='token-tab')
+        li.betex-token__tabs-item
+          a.betex-token__tabs-link(href='#pre-sale') Pre - Sale
+        li.betex-token__tabs-item.active
+          a.betex-token__tabs-link(href='#sale') Sale
+
+
+    #token-tab.tabgroup
+      #sale.active
+        .row
+          .col-lg-4
+            .betex-token__text
+              p Our Whitelist will be open for submission throughout the period:
+                br
+                b from October, 23rd until October, 28th 2017.
+          .col-lg-4
+            .betex-token__text
+              p Make sure to subscribe with your ETH address in order to participate in the BETEX Token distribution and secure yourself a chance to enter the Crowdsale (up to 20 ETH)
+          .col-lg-4
+            .betex-token__text
+              p Contributors, subscribed to the Whitelist, will be granted a prerogative right to make a purchase in the first 48 hours of the sale and an exclusive 20% bonus on top of that.
+        .benefits-line
+          .braces.braces_small
+            .curly
+              span Whitelist
+
+          .braces.braces_big
+            .curly
+              span Crowdsale
+
+          .benefits-line__wrap
+            .benefits-line__item
+              .benefits-line__dot
+                .benefits-line__date 23 oct
+            .benefits-line__item
+              .benefits-line__dot
+                .benefits-line__date 28 oct
+            .benefits-line__item
+              span.benefits-line__info 20% WL only
+              .benefits-line__dot
+                .benefits-line__date 1 nov
+            .benefits-line__item
+              span.benefits-line__info 10%
+              .benefits-line__dot
+                .benefits-line__date 3 nov
+            .benefits-line__item
+              span.benefits-line__info 5%
+              .benefits-line__dot
+                .benefits-line__date 10 nov
+            .benefits-line__item
+              span.benefits-line__info No bonus
+              .benefits-line__dot
+                .benefits-line__date 20 nov
+            .benefits-line__item
+              .benefits-line__dot
+                .benefits-line__date 1 dec
+
+        .betex-token__detail
+          p.betex-token__more.open More details
+            svg.betex-token__more-icon(width="32px", height="32px")
+              use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#dropdown")
+          .row
+            .col-lg-6.betex-token__detail-col
+              each key, item in detailCol
+                .betex-token__detail-item
+                  p.betex-token__detail-item-title=item
+                  p=key
+              //-for(var i = 0; i<5; i++)
+                .betex-token__detail-item
+                  p.betex-token__detail-item-title Start of whitelist register
+                  p 23.10.2017 at 14:00 GMT
+            .col-lg-6.betex-token__detail-col
+              each key, item in detailCol2
+                .betex-token__detail-item
+                  p.betex-token__detail-item-title=item
+                  p=key
+              //-for(var i = 0; i<5; i++)
+                .betex-token__detail-item
+                  p.betex-token__detail-item-title Start of whitelist register
+                  p 23.10.2017 at 14:00 GMT
+
+            .money-line
+              .money-line__dot.active
+                span.money-line__money 2M
+                .money-line__dot-cloud
+                  p 2 million
+                  p.money-line__dot-cloud-title Beta version launch
+                  p Irregular events markets adding
+              .money-line__dot
+                span.money-line__money 3M
+                .money-line__dot-cloud
+                  p 2 million
+                  p.money-line__dot-cloud-title Beta version launch
+                  p Irregular events markets adding
+              .money-line__dot
+                span.money-line__money 5M
+                .money-line__dot-cloud
+                  p 2 million
+                  p.money-line__dot-cloud-title Beta version launch
+                  p Irregular events markets adding
+              .money-line__dot
+                span.money-line__money 10M
+                .money-line__dot-cloud
+                  p 2 million
+                  p.money-line__dot-cloud-title Beta version launch
+                  p Irregular events markets adding
+              .money-line__dot
+                span.money-line__money 15M
+                .money-line__dot-cloud
+                  p 2 million
+                  p.money-line__dot-cloud-title Beta version launch
+                  p Irregular events markets adding
+              .money-line__dot
+                span.money-line__money 25M
+                .money-line__dot-cloud
+                  p 2 million
+                  p.money-line__dot-cloud-title Beta version launch
+                  p Irregular events markets adding
+              .money-line__dot
+                span.money-line__money 30M
+                .money-line__dot-cloud
+                  p 2 million
+                  p.money-line__dot-cloud-title Beta version launch
+                  p Irregular events markets adding
+              .money-line__dot
+                span.money-line__money 40M
+                .money-line__dot-cloud
+                  p 2 million
+                  p.money-line__dot-cloud-title Beta version launch
+                  p Irregular events markets adding
+              .money-line__dot
+                span.money-line__money 50M
+                .money-line__dot-cloud
+                  p 2 million
+                  p.money-line__dot-cloud-title Beta version launch
+                  p Irregular events markets adding
+              .money-line__dot
+                span.money-line__money 70M
+                .money-line__dot-cloud
+                  p 2 million
+                  p.money-line__dot-cloud-title Beta version launch
+                  p Irregular events markets adding
+              .money-line__dot
+                span.money-line__money 94M
+                .money-line__dot-cloud
+                  p 2 million
+                  p.money-line__dot-cloud-title Beta version launch
+                  p Irregular events markets adding
+
+      #pre-sale
+        .row
+          .col-lg-6.betex-token__pre-sale-col
+            .betex-token__detail-item
+              p.betex-token__detail-item-title Start of pre-sale:
+              p 09.10.2017 at 14:00 GMT
+            .betex-token__detail-item
+              p.betex-token__detail-item-title End of pre-sale:
+              p 16.10.2017 at 14:00 GMT or
+                br
+                | 500,000 of BETEX tokens are sold out
+            .betex-token__detail-item
+              p.betex-token__detail-item-title Pre-sale Betex token price:
+              p $3.00
+            .betex-token__detail-item
+              p.betex-token__detail-item-title Max amount of tokens to be sold:
+              p 500,000 out of 10,000,000 (5%)
+            .betex-token__detail-item
+              p.betex-token__detail-item-title Min amount of tokens that can be bought:
+              p 10,000 BETEX
+            .betex-token__detail-item.betex-token__detail-item_half
+              .betex-token__detail-item-wrap
+                p.betex-token__detail-item-title Min cap:
+                p $ 500,000
+              .betex-token__detail-item-wrap
+                p.betex-token__detail-item-title Max cap:
+                p $ 1,500,000
+          .col-lg-6
+            .funds-disribution
+              .funds-disribution__wrap.row
+                img.funds-disribution__chart(src="img/home-page/token-chart.png")
+                .funds-disribution__descript
+                  p.funds-disribution__descript-title Funds Distribution
+                  ul.funds-disribution__list
+                    li.funds-disribution__list-item.grey
+                      b="10% "
+                      | Reserve
+                    li.funds-disribution__list-item.light-blue
+                      b="10% "
+                      | R&D
+                    li.funds-disribution__list-item.yellow
+                      b="20% "
+                      | Marketing
+                    li.funds-disribution__list-item.red
+                      b="20% "
+                      | Operational costs
+                    li.funds-disribution__list-item.blue
+                      b="40% "
+                      | Product development
+              .funds-disribution__line
+                .funds-disribution__line-item
+                  span.funds-disribution__line-info +10%
+                  .funds-disribution__line-dot
+                    span.funds-disribution__line-date 9 oct
+                .funds-disribution__line-item
+                  span.funds-disribution__line-info +20%
+                  .funds-disribution__line-dot
+                    span.funds-disribution__line-date 10 oct
+                .funds-disribution__line-item
+                  span.funds-disribution__line-info No bonus
+                  .funds-disribution__line-dot
+                    span.funds-disribution__line-date 13 oct
+                .funds-disribution__line-item
+                  .funds-disribution__line-dot
+                    span.funds-disribution__line-date 16 oct
+
+
+
+    .join-block
+      .join-block__title Join to crowdsale
+      .join-block__wrap
+        a(href="#").btn Contribute
+        a(href="#", target="_blank", rel="nofollow").link-doc Terms of Tokens Sale
+

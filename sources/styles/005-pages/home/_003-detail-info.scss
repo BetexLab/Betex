@@ -1,0 +1,25 @@
+.detail-info{
+  &>.container{
+    padding: 67px 0 5px;
+    border-top: 2px solid #d8d8d8;
+  }
+  &__item{
+    padding: 0 60px 77px 10px;
+    &-title{
+      padding: 5px 0 17px;
+      margin: 0;
+      @include font-size(20);
+      @extend %t_bold;
+      @include line-height(28, 20);
+    }
+    &-text{
+      margin: 0;
+      @include font-size(14);
+      @include line-height(21, 14);
+      color: color('grey', 2);
+    }
+    &-icon{
+      min-height: 51px;
+    }
+  }
+}

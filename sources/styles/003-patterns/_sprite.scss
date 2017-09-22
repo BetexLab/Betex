@@ -1,0 +1,25 @@
+%svg-common {
+	background: url("svg-sprite-4b0cc148.svg") no-repeat;
+}
+
+.i-doc-icon {
+	@extend %svg-common;
+	background-position: 0 0;
+	width: 14px;
+	height: 18px;
+}
+
+.i-dropdown {
+	@extend %svg-common;
+	background-position: 0 31.03448275862069%;
+	width: 32px;
+	height: 32px;
+}
+
+.i-logo {
+	@extend %svg-common;
+	background-position: 0 100%;
+	width: 117px;
+	height: 40px;
+}
+

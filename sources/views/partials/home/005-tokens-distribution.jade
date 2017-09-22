@@ -1,0 +1,27 @@
+section.row.betex-tokens
+  .col-lg-6.betex-tokens__chart-wrap
+    canvas.betex-tokens__chart#myChart(width="330", height="330", style="display: block;height: 330px;width: 330px;")
+  .col-lg-6
+    p.betex-tokens__title Betex tokens distribution
+
+    ul.betex-tokens__list
+      li(data-doughnut-index="4").betex-tokens__list-item.blue
+        b 50%
+        span Tokens sale
+      li(data-doughnut-index="3").betex-tokens__list-item.red
+        b 12%
+        span Reserve for development and strategic aliances
+      li(data-doughnut-index="2").betex-tokens__list-item.yellow
+        b 5%
+        span Tokens pre-sale
+      li(data-doughnut-index="1").betex-tokens__list-item.light-blue
+        b 3%
+        span Bounty campaign
+      li(data-doughnut-index="0").betex-tokens__list-item.grey
+        b 30%
+        div.locked
+          span For founders and team are locked on smart contracts:
+          ul.locked-list
+            li.locked-list-item 5% for 6 Months
+            li.locked-list-item 10% for 1,5 years
+            li.locked-list-item 15% 3 years
