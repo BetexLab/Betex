@@ -5,15 +5,17 @@ section.main-block
         h1.main-block__title Peer-to-peer binary options platform
         p.main-block__sub-title Powered by ethereum smart contracts
 
-        //.timer timer
         #timer.timer
 
-        form(method="").subscribe-form
+        form(method="POST").subscribe-form
           input.subscribe-form__input(type="email", placeholder="Email")
-          input.subscribe-form__submit(type="submit", value="Subscribe")
+          input.subscribe-form__submit.btn.btn_default(type="submit", value="Subscribe")
+
+        .main-block__img-mob-wrap
+          img.main-block__img-mob(src="img/home-page/main-block_mob.png", alt="tablet")
 
         .main-block__links
-          a(href="#", target="_blank", rel="nofollow").main-block__link.link-doc Terms of Tokens Sale
-          a(href="#", target="_blank", rel="nofollow").main-block__link.link-doc Download Whitepaper
+          a(href="./go-pro.pdf", target="_blank", rel="nofollow").main-block__link.link-doc Terms of Tokens Sale
+          a(href="./go-pro.pdf", target="_blank", rel="nofollow").main-block__link.link-doc Download Whitepaper
   .main-block__img-wrap
-    img.main-block__img(src="img/home-page/main-block.png", alt="binary-platform")
+    img.main-block__img(src="img/home-page/main-block.png", alt="binary-platform",data-top-bottom="top: 350px",data-bottom-top="top: -250px")

@@ -1,18 +1,17 @@
 .footer{
   border-top: 1px solid #d8d8d8;
   background-color: #eef1f5;
-  padding: 35px 0 19px;
+  padding: 26px 0 19px;
   overflow: hidden;
 
   &__copyright{
     color: #9aa1ab;
-    padding: 3px 0 0 8px;
   }
 
   &__soc{
-   @extend %l_flex--justify-center;
+    @extend %l_flex--column-end;
     &-link{
-      margin: 0 16px;
+      margin: 0 16px 3px;
       transition: .3s;
       &:hover{
         opacity: .8;
@@ -22,17 +21,97 @@
 
   &__nav{
     &-list{
-      @extend %l_flex--align-center;
-      @extend %l_justify-content--flex-end;
-      padding: 3px 12px 0;
+      padding: 3px 8px 0;
     }
     &-item{
       color: #38393c;
-      margin-left: 27px;
       transition: .3s;
       &:hover{
         opacity: .8;
       }
+    }
+  }
+
+  @media (min-width: 768px){
+    padding: 35px 0 19px;
+    &__soc {
+      //@extend .l_flex--justify-center;
+      align-items: center;
+      flex-direction: row;
+      justify-content: flex-end;
+      &-link {
+        margin: 0 16px;
+      }
+    }
+    &__nav{
+      &-list{
+        padding: 3px 12px 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      &-item {
+        margin-right: 27px;
+      }
+    }
+    &__copyright {
+      padding: 3px 0 0 8px;
+    }
+  }
+  @media (min-width: 1024px) {
+    &__nav {
+      &-list {
+        justify-content: flex-end;
+      }
+      &-item {
+        margin-left: 27px;
+        margin-right: 0;
+      }
+    }
+    &__soc{
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    &__copyright{
+      text-align: center;
+      &-col{
+        order: 3;
+        flex: 0 1 100%;
+        max-width: 100%;
+      }
+    }
+
+    &__soc{
+      &-col{
+        order: 2;
+        flex: 0 1 50%;
+        max-width: 50%;
+      }
+    }
+
+    &__nav{
+      &-col{
+        order: 1;
+        flex: 0 1 50%;
+        max-width: 50%;
+      }
+    }
+  }
+  @media (max-width: 767px) {
+    &__copyright{
+      @include font-size(12);
+      padding: 19px 0 24px;
+    }
+    &__nav{
+      &-item{
+        padding-bottom: 8px;
+        @include font-size(14);
+      }
+    }
+    &__soc{
+      padding: 5px 31px 0 0;
     }
   }
 }

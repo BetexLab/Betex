@@ -37,9 +37,13 @@ $bootstrap4: true;
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    padding-right: $gutter;
-    padding-left: $gutter;
+    padding-right: 15px;
+    padding-left: 15px;
     max-width: 100%;
+    @media (min-width: $sm) {
+      padding-right: $gutter;
+      padding-left: $gutter;
+    }
   }
 
   @if $flex-box {

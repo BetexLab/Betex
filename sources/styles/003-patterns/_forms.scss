@@ -1,28 +1,21 @@
 .subscribe-form{
-  width: 450px;
-  height: 45px;
-  border: 1px solid #f0f2f4;
-  display: flex;
-  justify-content: space-between;
-  border-radius: 8px;
-  &__input{
-    background:transparent;
-    @include font-size(14);
-    border: none;
-    padding:0 20px;
-    width: calc(100% - 165px);
-  }
-  &__submit{
-    width: 165px;
+  display: none;
+  @media screen and (min-width: 1024px){
+    width: 450px;
     height: 45px;
-    @include font-size(16);
-    font-weight: $weight-bold;
-    color: #ffffff;
+    border: 1px solid #f0f2f4;
+    display: flex;
+    justify-content: space-between;
     border-radius: 8px;
-    background: linear-gradient(to top, #0eb955 0%, #5bd488 100%);
-    transition: .3s;
-    &:hover{
-      background: linear-gradient(to top, #0eb955 0%, #0eb955 100%);
+    &__input{
+      background:transparent;
+      @include font-size(14);
+      border: none;
+      padding:0 20px;
+      width: calc(100% - 165px);
+    }
+    &__submit{
+      @include font-size(16);
     }
   }
 }

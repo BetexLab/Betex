@@ -36,5 +36,7 @@
     "require": "^2.4.20",
     "rimraf": "^2.6.1",
     "stylus": "^0.54.5"
-  }
+  },
+  "dependencies": {},
+  "optionalDependencies": {}
 }

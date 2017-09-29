@@ -8,7 +8,8 @@
 // LIBS
 //-----------------------------------------------------------
 
-@import "008-libs/_slick";                 // styles that need to be refactored, or that are hacky because of browser compatibility etc.
+@import "008-libs/_slick";                       // styles that need to be refactored, or that are hacky because of browser compatibility etc.
+@import "008-libs/custom-scrollbar";             //scrollbar
 
 //-----------------------------------------------------------
 // PROJECT BASE
@@ -32,6 +33,7 @@
 @import "003-patterns/icons";                 // icon styles
 @import "003-patterns/modals";                // modal styles
 @import "003-patterns/sprite-png";
+@import "003-patterns/accordion";
 
 //-----------------------------------------------------------
 // PAGES

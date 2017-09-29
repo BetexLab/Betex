@@ -1,16 +1,30 @@
-.betex-tokens{
-   padding: 0 0 98px;
+.tokens-distribution{
+
+  &__title-block{
+    border-top: 1px solid #d8d8d8;
+  }
+  &__title-mob{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: $weight-bold;
+    margin: 0;
+    padding: 19px 7px;
+    &-icon{
+      transform: rotate(-90deg);
+      transition: .3s;
+      .tokens-distribution__title-block.open &{
+        transform: rotate(90deg);
+      }
+    }
+  }
+
    &__chart{
      margin: 5px 0 0 -5px;
      &-wrap{
-       padding: 0 120px;
+       //padding: 10px 35px 0;
        position: relative;
      }
-   }
-
-   &__title{
-     @extend %font-size-32;
-     padding-left: 10px;
    }
    &__list{
      $grey: #9aa1ab;
@@ -18,22 +32,23 @@
      $yellow: #ffdd00;
      $red: #ff505a;
      $blue: #3f4fc9;
-     padding: 10px 0 0 15px;
+     padding: 6px 8px 18px;
      max-width: 360px;
      &-item{
-       padding: 0 0 16px;
+       padding: 0 0 6px;
        display: flex;
        position: relative;
-       line-height: 1.4;
+       line-height: 1.75;
        &:before{
          content: '';
          width: 11px;
+         min-width: 11px;
          height: 11px;
          display: inline-block;
          vertical-align: middle;
          border-radius: 100%;
          margin-right: 10px;
-         margin-top: 3px;
+         margin-top: 8px;
          position: relative;
          z-index: 2;
        }
@@ -43,7 +58,7 @@
            width: 17px;
            height: 17px;
            position: absolute;
-           top: 0;
+           top: 5px;
            left: -3px;
            display: block;
            border-radius: 100%;
@@ -103,7 +118,7 @@
        }
        b{
          padding-right: 10px;
-         flex: 0 1 45px;
+         flex: 0 1 60px;
        }
        span{
          flex: 0 1 280px;
@@ -117,9 +132,9 @@
      span{
        flex: 0 1 auto;
      }
-     &-list{
+     &__list{
+       padding: 2px 4px 0;
        color: #88909b;
-       padding: 25px 0 0;
        &-item{
          padding: 0 5px;
          position: relative;
@@ -132,9 +147,125 @@
            display: block;
            position: absolute;
            left: -2px;
-           top: 6px;
+           top: 10px;
          }
        }
      }
    }
+
+  @media (min-width: 768px){
+    //padding: 0 0 98px;
+    padding: 40px 0 98px;
+    &__title{
+      padding-left: 10px;
+      margin-bottom: 1em;
+      font-weight: $weight-bold;
+    }
+    &__title-block{
+      display: none;
+    }
+    &__list{
+      padding: 10px 0 0 15px;
+      &-item{
+        line-height: 1.4;
+        padding: 0 0 16px;
+        &:before{
+          margin-top: 5px;
+        }
+        &.active{
+          &:after{
+            top: 2px;
+          }
+        }
+        b{
+          flex: 0 1 45px;
+        }
+      }
+    }
+    .locked{
+      &__list {
+        padding: 25px 0 0;
+        &-item{
+          &:before{
+            top: 6px;
+          }
+        }
+      }
+    }
+  }
+  @media (min-width: 1024px) {
+    &__chart{
+      &-wrap{
+        //padding: 0 120px;
+      }
+    }
+  }
+  @media (max-width: 767px){
+    padding-top: 30px;
+    border-bottom: 1px solid #d8d8d8;
+    &__title{
+      display: none;
+    }
+    &__list{
+      &-item{
+        span{
+          @include font-size(14);
+        }
+      }
+    }
+    .locked{
+      &__list{
+        &-item{
+          @include font-size(14);
+        }
+      }
+    }
+    &__chart{
+      &-wrap{
+        margin-bottom: 27px;
+      }
+    }
+  }
+  @media (max-width: 550px){
+    #donutchart{
+      height: 320px;
+      margin-top: -100px;
+      &>div>div{
+        height: 320px !important;
+      }
+    }
+  }
  }
+
+
+#tooltip{
+  position: absolute;
+  min-width: 200px;
+  transition: .3s;
+  z-index: 5;
+  font-weight: $weight-bold;
+
+}
+#chartjs-tooltip{
+  position: absolute;
+  //top: 0;
+
+}
+.chartjs-tooltip-key{
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+  z-index: 2;
+  &:before{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100px;
+    height: 2px;
+    background: inherit;
+    transform: rotate(-30deg);
+    bottom: 0;
+    left: -60px;
+    z-index: -1;
+  }
+}

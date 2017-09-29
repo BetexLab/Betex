@@ -1,21 +1,23 @@
 .betex-mvp{
-  padding: 120px 0 50px;
+  padding: 50px 0 20px;
+  &__row{
+
+  }
   &__descript{
-    padding: 95px 0 0 10px;
+    padding: 28px 0 0 8px;
   }
   &__text{
     max-width: 355px;
-    padding: 40px 0 35px;
-    @include line-height(24, 16);
+    padding: 12px 0 37px;
+    line-height: 1.75;
   }
   &__links{
-    width: 280px;
-    margin-left: 10px;
+    width: 225px;
     @extend %l_flex--align-center;
     @extend %l_justify-content--space-between;
   }
   &__link{
-    @include font-size(24);
+    @include font-size(19);
     @extend %t_bold;
     padding-bottom: 3px;
     border-bottom: 2px solid #15bc5a;
@@ -23,13 +25,299 @@
     &:hover{
       border-bottom-color: transparent;
     }
+    &.not-active {
+      pointer-events: none;
+      cursor: default;
+      opacity: .5;
+    }
   }
 
   &__img{
     max-width: 100%;
+
     &-wrap{
-      @extend %l_flex--align-flex-start;
-      @extend %l_justify-content--flex-end;
+      height: 230px;
+    }
+
+    position: absolute;
+    @media (min-width: 650px){
+      width: 76%;
+      left: 23%;
+      top: 0%;
+      transition: 1s;
+      &:not(.active){
+        opacity: .7;
+      }
+      .change &{
+        animation: 2s monitorDeactivated forwards;
+      }
+      animation-fill-mode: forwards;
+      &.active{
+        left: 13.7%;
+        top: 12%;
+        animation: 2s monitorToActive forwards;
+      }
+    }
+  }
+
+
+  @media (min-width: 350px){
+    &__img{
+      &-wrap{
+        height: 280px;
+      }
+    }
+  }
+  @media (min-width: 400px){
+    &__img{
+      &-wrap{
+        height: 355px;
+      }
+    }
+  }
+  @media (min-width: 500px){
+    &__img{
+      &-wrap{
+        height: 430px;
+      }
+    }
+  }
+  @media (min-width: 768px){
+    padding: 0 0 50px;
+    &__descript {
+      padding: 55px 0 40px 10px;
+    }
+    &__text {
+      padding: 40px 0 35px;
+      @include line-height(24, 16);
+    }
+    &__links {
+      width: 280px;
+      margin-left: 10px;
+    }
+    &__link {
+      @include font-size(24);
+    }
+    &__img{
+      &-wrap{
+        height: 480px;
+      }
+    }
+  }
+  @media (min-width: 1024px){
+    padding: 120px 0 50px;
+    &__descript {
+      padding: 95px 0 0 10px;
+    }
+  }
+  @media (max-width: 767px){
+    &__row{
+      flex-direction: column-reverse;
+    }
+    &__text{
+      @include font-size(14);
+    }
+    &__links{
+      @include font-size(13);
+    }
+  }
+  @media (max-width: 649px){
+    &__img{
+      left: 23%;
+      top: 0%;
+      width: 100%;
+      transition: 1s;
+      &:not(.active){
+        opacity: .7;
+      }
+      .change &{
+        //animation: 2s monitorDeactivated--mob forwards;
+      }
+      //animation-fill-mode: forwards;
+      &.active{
+        left: -23%;
+        top: 0;
+        z-index: 1;
+        //animation: 2s monitorToActive--mob forwards;
+      }
     }
   }
 }
+
+
+@keyframes monitorToActive {
+  0%{
+    left: 23%;
+    top: 0%;
+    opacity: .7;
+    z-index: 1;
+  }
+  50%{
+    left: 0;
+    top: 50%;
+    width: 45%;
+    opacity: .7;
+    z-index: 1;
+  }
+  51%{
+    opacity: .7;
+    z-index: 2;
+  }
+  75%{
+    opacity: .85;
+    z-index: 2;
+  }
+  100%{
+    left: 13.7%;
+    top: 12%;
+    opacity: 1;
+    z-index: 2;
+  }
+}
+@keyframes monitorDeactivated {
+  0%{
+    left: 13.7%;
+    top: 12%;
+    opacity: 1;
+    z-index: 2;
+  }
+  50%{
+    left: 50%;
+    top: 12%;
+    width: 45%;
+    opacity: 1;
+    z-index: 2;
+  }
+  51%{
+    opacity: 1;
+    z-index: 1;
+  }
+  75%{
+    opacity: .85;
+    z-index: 1;
+  }
+  100%{
+    left: 23%;
+    top: 0%;
+    opacity: .75;
+    z-index: 1;
+  }
+}
+
+@keyframes monitorToActive--mob {
+  0%{
+    left: 23%;
+    top: 0%;
+    opacity: .7;
+    z-index: 1;
+  }
+  50%{
+    left: 50%;
+    top: 12%;
+    width: 45%;
+    opacity: .7;
+    z-index: 1;
+  }
+  51%{
+    opacity: .7;
+    z-index: 2;
+  }
+  75%{
+    opacity: .85;
+    z-index: 2;
+  }
+  100%{
+    left: -23%;
+    top: 0;
+    opacity: 1;
+    z-index: 2;
+  }
+}
+@keyframes monitorDeactivated--mob {
+  0%{
+    left: -23%;
+    top: 0;
+    opacity: 1;
+    z-index: 2;
+  }
+  50%{
+    left: -50%;
+    top: 12%;
+    width: 45%;
+    opacity: 1;
+    z-index: 2;
+  }
+  51%{
+    opacity: 1;
+    z-index: 1;
+  }
+  75%{
+    opacity: .85;
+    z-index: 1;
+  }
+  100%{
+    left: 23%;
+    top: 0%;
+    opacity: .75;
+    z-index: 1;
+  }
+}
+
+/*@keyframes monitorToActive {
+  0%{
+    left: 23%;
+    top: 0%;
+    opacity: .7;
+    z-index: 1;
+  }
+  50%{
+    width: 45%;
+    left: 55%;
+    top: 13%;
+    opacity: .7;
+    z-index: 1;
+  }
+  51%{
+    opacity: .7;
+    z-index: 2;
+  }
+  75%{
+    opacity: .85;
+    z-index: 2;
+  }
+  100%{
+    left: 13.7%;
+    top: 12%;
+    opacity: 1;
+    z-index: 2;
+  }
+}
+@keyframes monitorDeactivated {
+  0%{
+    left: 13.7%;
+    top: 12%;
+    opacity: 1;
+    z-index: 2;
+  }
+  50%{
+    left: 0;
+    top: 13%;
+    width: 45%;
+    opacity: 1;
+    z-index: 2;
+  }
+  51%{
+    opacity: 1;
+    z-index: 1;
+  }
+  75%{
+    opacity: .85;
+    z-index: 1;
+  }
+  100%{
+    left: 23%;
+    top: 0%;
+    opacity: .75;
+    z-index: 1;
+  }
+}*/

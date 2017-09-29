@@ -1,16 +1,38 @@
 .main-info{
-  padding: 90px 0 43px;
+  padding: 10px 0;
   &__title{
-    margin-left: 104px;
-    line-height: 1.5;
+    line-height: 1.3;
+    margin-left: 7px;
   }
   &__text{
-    padding: 10px 0 0 11px;
+    line-height: 1.75;
+    padding: 16px 0 0 10px;
     letter-spacing: -0.006em;
-    line-height: 1.5;
     max-width: 465px;
     p{
       margin: 0 0 23px;
+    }
+  }
+  @media (min-width: 768px){
+    padding: 90px 0 43px;
+    &__title {
+      margin-left: 11px;
+      line-height: 1.5;
+    }
+    &__text {
+      line-height: 1.5;
+      padding: 10px 0 0 11px;
+    }
+  }
+  @media (min-width: 1024px){
+    &__title{
+      margin-left: 104px;
+    }
+  }
+
+  @media (max-width: 767px){
+    &__text{
+      @include font-size(14);
     }
   }
 }

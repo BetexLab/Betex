@@ -3,23 +3,25 @@
       roadMapCenter = ['Q4 2016','Q1 2017','Q2 2017','Q3 2017','Q4 2017','Q4 2017','Q4 2017','Q4 2017'],
       roadMapDescript = ['','','','website launch Alpha version launch','Tokens pre-sale & crowd sale Brokers launch','Tokens pre-sale & crowd sale Brokers launch','Tokens pre-sale & crowd sale Brokers launch','Tokens pre-sale & crowd sale Brokers launch'];
 
-h2.roadmap-title.title-line Roadmap
-.roadmap-slider
-  -for(var i = 0; i < 8; i++)
-    if(i >= 4)
-      .roadmap-slider__item.roadmap-slider__item_light
-        .roadmap-slider__item-wrap
-          span.roadmap-slider__item-center=roadMapCenter[i]
-          p.roadmap-slider__item-title=roadMapTitle[i]
-          p.roadmap-slider__item-descript=roadMapDescript[i]
-    else if(i == 3)
-      .roadmap-slider__item.roadmap-slider__item_dashed
-        .roadmap-slider__item-wrap
-          span.roadmap-slider__item-center=roadMapCenter[i]
-          p.roadmap-slider__item-title=roadMapTitle[i]
-          p.roadmap-slider__item-descript=roadMapDescript[i]
-    else
-      .roadmap-slider__item
-        .roadmap-slider__item-wrap
-          span.roadmap-slider__item-center=roadMapCenter[i]
-          p.roadmap-slider__item-title=roadMapTitle[i]
+#roadmap.roadmap
+  h2.roadmap-title.title-line Roadmap
+    span.title-line__line
+  .roadmap-slider
+    -for(var i = 0; i < 8; i++)
+      if(i >= 4)
+        .roadmap-slider__item.roadmap-slider__item_light
+          .roadmap-slider__item-wrap
+            span.roadmap-slider__item-center=roadMapCenter[i]
+            p.roadmap-slider__item-title=roadMapTitle[i]
+            p.roadmap-slider__item-descript=roadMapDescript[i]
+      else if(i == 3)
+        .roadmap-slider__item.roadmap-slider__item_dashed
+          .roadmap-slider__item-wrap
+            span.roadmap-slider__item-center=roadMapCenter[i]
+            p.roadmap-slider__item-title=roadMapTitle[i]
+            p.roadmap-slider__item-descript=roadMapDescript[i]
+      else
+        .roadmap-slider__item
+          .roadmap-slider__item-wrap
+            span.roadmap-slider__item-center=roadMapCenter[i]
+            p.roadmap-slider__item-title=roadMapTitle[i]

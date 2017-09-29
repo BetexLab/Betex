@@ -5,8 +5,10 @@ a {
 }
 h1,
 .t_h1 {
-	@include font-size(40);
+  //@include font-size(40);
+  @extend %font-size-40;
   @extend %t_bold;
+
 }
 h2,
 .t_h2 {
@@ -18,7 +20,7 @@ h3,
 }
 h4,
 .t_h4 {
-	@extend %font-size-24;
+	@include font-size(32);
 }
 h5,
 .t_h5 {
@@ -42,7 +44,9 @@ h6,
 	@include font-size(16);
 }
 %font-size-18{
-	@include font-size(18);
+  @media (min-width: 768px) {
+    @include font-size(18);
+  }
 }
 %font-size-20{
 	@include font-size(20);
@@ -60,22 +64,34 @@ h6,
   @include font-size(28);
 }
 %font-size-32{
-  @include font-size(32);
+  @include font-size(22);
   @extend %t_bold;
+  @media (min-width: 768px) {
+    @include font-size(32);
+  }
 }
 %font-size-36{
-  @include font-size(36);
+  @include font-size(20);
   @extend %t_bold;
+  @media (min-width: 768px) {
+    @include font-size(36);
+  }
 }
 %font-size-40{
-	@include font-size(40);
+	@include font-size(22);
+  @media (min-width: 768px) {
+    @include font-size(40);
+  }
 }
 %font-size-44{
     @include font-size(44);
 }
 %font-size-48{
-  @include font-size(48);
+  @include font-size(24);
   @extend %t_bold;
+  @media (min-width: 768px) {
+    @include font-size(48);
+  }
 }
 
 %t_color--white { color: white; }
@@ -97,15 +113,25 @@ b{
 
 .title-line{
   position: relative;
-  margin-bottom: 33px;
-  &:after{
+  margin-bottom: 20px;
+  &__line{
     content: '';
     position: absolute;
-    bottom: -33px;
+    bottom: -20px;
     left: 0;
-    width: 165px;
+    //width: 107px;
+    //width: 163px;
+    width: 0px;
     height: 2px;
-    background: $primary;
+    background: #dcdcdc;
+    transition: .7s ease-in;
+  }
+  @include mq(768){
+    margin-bottom: 33px;
+    &__line{
+      bottom: -33px;
+      background: $primary;
+    }
   }
 }
 

@@ -1,6 +1,7 @@
 .betex-token{
-  background-image: linear-gradient(180deg, #ecf1f8 0%, #ffffff 100%);
-  padding: 113px 0px 0;
+  background-image: linear-gradient(180deg, #ecf1f8 0%, #fff 100%);
+  padding: 48px 0 0;
+  overflow: hidden;
   &__header{
     display: flex;
     justify-content: space-between;
@@ -8,58 +9,57 @@
   }
   &__title{}
   &__text{
-    @include line-height(24, 16);
-    padding: 40px 10px 0 13px;
+    line-height: 1.75;
+    padding: 0 14px 19px 8px;
     letter-spacing: -0.005em;
   }
-
   &__tabs-caption{
-    width: 325px;
-    height: 46px;
+    width: 261px;
+    margin: 22px auto 23px;
+    height: 37px;
     box-shadow: inset 0 0 3px 1px rgba(243, 242, 255, 0.5);
-    border: 1px solid #4e5ed7;
+    border: 1px solid color('blue', 1);
     border-radius: 5px;
     display: flex;
     overflow: hidden;
-    margin-top: 2px;
   }
   &__tabs-item{
+    @include font-size(16);
     width: 100%;
-    @include font-size(20);
     font-weight: $weight-bold;
-    color: #4e5ed7;
+    color: color('blue', 1);
     cursor: pointer;
-    transition: .3s;
-
-
+    line-height: 1;
+    //transition: .3s;
     &.active {
       box-shadow: 1px 0 4px 1px #c9cacd;
-      background-color: #4e5ed7;
+      background-color: color('blue', 1);
       color: #f4f4f4;
     }
-    &:hover:not(.active){
-      opacity: .7;
-    }
+    //&:hover:not(.active){
+    //  opacity: .7;
+    //}
   }
   &__tabs-link{
     display: block;
     width: 100%;
     height: 100%;
     text-align: center;
-    padding: 12px 0;
+    padding: 10px 0;
+    transition: none;
   }
 
   &__detail{
     border-top: 1px solid #d8d8d8;
     border-bottom: 1px solid #d8d8d8;
-    margin-bottom: 30px;
+    margin-bottom: 17px;
     &-col{
-      padding: 20px 10px 21px;
+      padding: 0 0 0 8px;
     }
     &-item{
-      @include line-height(24, 15);
+      padding: 0 0 16px 0;
+      line-height: 1.75;
       color: #2a2b2e;
-      padding: 0 0 22px;
       &_half{
         display: flex;
         max-width: 270px;
@@ -77,20 +77,17 @@
     }
   }
   &__pre-sale-col{
-    padding: 38px 10px 20px;
-    .betex-token__detail-item{
-      padding-bottom: 20px;
-    }
+    padding: 0 10px;
   }
   &__more{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     cursor: pointer;
-    @include font-size(20);
     font-weight: $weight-bold;
     line-height: 1.6;
     margin: 0;
-    padding: 10px 10px;
+    padding: 19px 9px 18px 5px;
     &-icon{
       transform: rotate(-90deg);
       transition: .3s;
@@ -100,8 +97,67 @@
     }
   }
   
-  .tabgroup{
+  /*.tabgroup{
     overflow: hidden;
+  }*/
+
+  @media (min-width: 768px){
+    padding: 113px 0 0;
+    &__text{
+      @include line-height(24, 16);
+      padding: 40px 10px 0 13px;
+    }
+    &__tabs-item {
+      @include font-size(20);
+    }
+    &__tabs-caption{
+      width: 325px;
+      height: 46px;
+      margin: 2px 0 0;
+    }
+    &__tabs-link{
+      padding: 12px 0;
+    }
+    &__detail{
+      margin-bottom: 30px;
+      &-col{
+        padding: 20px 10px 21px;
+      }
+      &-item {
+        @include line-height(24, 15);
+        padding: 0 0 22px;
+      }
+    }
+    &__more{
+      padding: 10px 10px;
+      @include font-size(20);
+    }
+    &__pre-sale-col {
+      padding: 38px 10px 20px;
+      .betex-token__detail-item{
+        padding-bottom: 20px;
+      }
+    }
+  }
+  @media (max-width: 767px){
+    &__header{
+      flex-direction: column;
+    }
+
+    &__text{
+      @include font-size(14);
+    }
+    &__detail{
+      margin-top: 30px;
+      padding-bottom: 17px;
+      &-item{
+        @include font-size(14);
+        &_half-mob{
+          width: 38%;
+          display: inline-block;
+        }
+      }
+    }
   }
 }
 
@@ -115,8 +171,10 @@
   $item6: 22.2%;
   $item7: 16.666%;
   $bigBraces: $item3 + $item4 + $item5 + $item6;
-  margin: 110px 10px 70px;
+  margin: 93px 31px 34px;
   position: relative;
+  //min-width: 750px;
+  min-width: 810px;
   .braces{
     &_small{
       left: 3px;
@@ -140,7 +198,7 @@
       .curly{
         &::before,
         &::after{
-          top: -1.9em;
+          top: -1.85em;
         }
       }
       &.braces{
@@ -153,12 +211,11 @@
         top: -0.6em;
       }
     }
-    span{
+    &__caption{
       position: absolute;
       width: 100%;
       text-align: center;
       left: 0;
-      @include font-size(18);
       font-weight: $weight-bold;
     }
   }
@@ -189,7 +246,7 @@
       max-width: $item2;
       flex: 0 1 $item2;
       &:after{
-        border: 1.5px dashed #9aa1ab;
+        border-top: 1.5px dashed #9aa1ab;
       }
     }
     &:nth-of-type(3){
@@ -216,7 +273,7 @@
     width: 100%;
     position: absolute;
     text-align: center;
-    left: 0;
+    left: 8px;
     bottom: 17px;
     color: #38393c;
     font-weight: $weight-bold;
@@ -233,20 +290,51 @@
     width: 50px;
     text-align: center;
     position: absolute;
-    bottom: -30px;
+    bottom: -22px;
     left: 50%;
     transform: translate(-50%, 0);
-    @include font-size(16);
+    @include font-size(12);
     color: #171623;
-    .benefits-line__item:last-of-type &{
-      transform: translate(-100%, 0);
-      text-align: right;
+  }
+  @media (min-width: 768px){
+    margin: 110px 10px 70px;
+    .braces{
+      &__caption{
+        @include font-size(18);
+      }
     }
-    .benefits-line__item:first-of-type &{
-      transform: translate(0, 0);
-      text-align: left;
+    &__date{
+      bottom: -30px;
+      @include font-size(16);
+      .benefits-line__item:last-of-type &{
+        transform: translate(-100%, 0);
+        text-align: right;
+      }
+      .benefits-line__item:first-of-type &{
+        transform: translate(0, 0);
+        text-align: left;
+      }
     }
   }
+  @media (max-width: 767px){
+    &-wrap{
+      margin-left: -15px;
+      width: calc(100% + 30px);
+    }
+  }
+}
+.mCSB_scrollTools.mCSB_scrollTools_horizontal .mCSB_draggerRail{
+  background-color: #d8d8d8;
+  height: 1px;
+  margin: 0;
+}
+.mCSB_scrollTools.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar{
+  background-color: color('blue', 1);
+  height: 1px;
+  margin: 0;
+}
+.mCSB_scrollTools.mCSB_scrollTools_horizontal{
+  margin: 0 50px;
 }
 
 .braces {
@@ -302,10 +390,21 @@
 .money-line{
   max-width: 950px;
   width: 100%;
-  margin: 120px auto 60px;
+  margin: 146px 115px 32px;
   position: relative;
   display: flex;
   justify-content: space-between;
+  min-width: 750px;
+  &-wrap{
+    width: calc(100% + 30px);
+    margin-left: -15px;
+    .mCustomScrollBox{
+      overflow: visible;
+    }
+    .mCSB_horizontal.mCSB_inside>.mCSB_container{
+      min-width: 1200px;
+    }
+  }
   &:before{
     content: '';
     position: absolute;
@@ -370,17 +469,17 @@
     }
 
     &-cloud{
-      height: 108px;
+      height: 100px;
       width: 255px;
-      padding: 15px 0 0 35px;
+      padding: 13px 0 0 30px;
       border: 2px solid #d8d8d8;
       border-radius: 10px;
       position: absolute;
-      top: -140px;
+      top: -131px;
       left: 50%;
       transform: translate(-50%, 20px);
       color: #8c8c96;
-      @include font-size(14);
+      @include font-size(12);
       font-weight: $weight-regular;
       transition: .5s 0s;
       visibility: hidden;
@@ -398,7 +497,7 @@
         margin: 0 auto;
         width: 14px;
         height: 14px;
-        background: #ffffff;
+        background: #fff;
         border-bottom: 2px solid #d8d8d8;
         border-right: 2px solid #d8d8d8;
         z-index: 1;
@@ -408,8 +507,7 @@
         color: #171623;
         @include font-size(16);
         font-weight: $weight-bold;
-        padding: 8px 0 10px;
-
+        padding: 8px 0 13px;
       }
       .money-line__dot.active &{
         visibility: visible;
@@ -421,30 +519,75 @@
   }
   &__money{
     position: absolute;
-    bottom: -30px;
+    bottom: -26px;
     left: 0;
     transform: translate(-30%, 0);
     color: #3f4fc9;
     font-weight: $weight-bold;
   }
+  @media (min-width: 768px) {
+
+  }
+  @media (min-width: 1024px) {
+    //margin: 120px auto 60px;
+    margin: 120px auto 60px;
+    &-wrap{
+      padding: 0 110px;
+    }
+    &__dot{
+      &-cloud{
+        @include font-size(14);
+        padding: 15px 0 0 35px;
+        height: 108px;
+        top: -140px;
+        &-title{
+          padding: 8px 0 10px;
+        }
+      }
+    }
+    &__money{
+      bottom: -30px;
+    }
+  }
+  @media (min-width: 1200px) {
+
+  }
 }
 
 
 .join-block{
-  padding: 2px 12px 0;
+  padding: 2px 7px 0;
   &__title{
     color: #38393c;
-    @include font-size(20);
-    @include line-height(31, 20);
+    @include font-size(16);
     font-weight: $weight-bold;
-    padding-bottom: 15px;
+    padding-bottom: 19px;
   }
   &__wrap{
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+  }
+  @media (min-width: 768px) {
+    padding: 2px 12px 0;
+    &__title{
+      @include font-size(20);
+      @include line-height(31, 20);
+      padding-bottom: 15px;
+    }
+    &__wrap{
+      justify-content: flex-start;
+      align-items: center;
+    }
     .btn{
       margin-right: 20px;
+    }
+  }
+  @media (max-width: 767px){
+    &__wrap{
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .btn{
+      margin-bottom: 25px;
     }
   }
 }
@@ -457,29 +600,22 @@
   $red: #ff505a;
   $blue: #3f4fc9;
   &__wrap{
-    padding: 70px 0 0;
-    flex-wrap: nowrap;
-    justify-content: space-between;
+    padding: 20px 0 0;
   }
   &__chart{
-    width: 312px;
-    height: 312px;
-    margin: -5px 0 0 -13px;
+    width: 295px;
+    height: 295px;
+    margin: 0 auto -33px;
   }
   &__descript{
-    width: 50%;
-    padding: 8px 0 0;
-    &-title{
-      @include font-size(20);
-      font-weight: $weight-bold;
-    }
+    padding: 8px 0 5px 8px;
   }
   &__list{
     padding: 8px 0 0;
     &-item{
-      padding: 0 0 20px;
+      padding: 0 0 21px;
       b{
-        padding-right: 10px;
+        padding-right: 4px;
       }
       &:before{
         content: '';
@@ -519,9 +655,9 @@
   }
 
   &__line{
-    width: 455px;
-    padding: 0 15px;
-    margin: 44px 0 44px 34px;
+    width: 100%;
+    margin: 27px 0;
+    padding: 0 18px 0 12px;
     display: flex;
     //justify-content: space-between;
     justify-content: flex-start;
@@ -559,12 +695,12 @@
       }
     }
     &-info{
+      @include font-size(12);
       position: absolute;
+      top: -19px;
       left: 0;
-      top: -32px;
       width: 100%;
       text-align: center;
-      @include font-size(18);
       font-weight: $weight-bold;
     }
     &-dot{
@@ -577,10 +713,102 @@
     }
     &-date{
       position: absolute;
-      bottom: -28px;
+      bottom: -18px;
       left: -24px;
       width: 60px;
       text-align: center;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    &__wrap {
+      padding: 70px 0 0;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
+    &__descript{
+      padding: 8px 0 0;
+      &-title{
+        @include font-size(20);
+        font-weight: $weight-bold;
+      }
+    }
+    &__title-mob{
+      display: none;
+    }
+    &__descript {
+      width: 50%;
+    }
+    &__line {
+      width: 455px;
+      margin: 44px 0 44px 34px;
+      padding: 0 15px;
+      &-info{
+        top: -32px;
+        @include font-size(18);
+      }
+      &-date {
+        bottom: -28px;
+      }
+    }
+    &__chart{
+      width: 312px;
+      height: 312px;
+      margin: -5px 0 0 -13px;
+    }
+    &__list{
+      &-item{
+        padding: 0 0 20px;
+        b{
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+  @media (max-width: 767px) {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 33px;
+    &__descript{
+      &-title{
+        display: none;
+      }
+    }
+    &__wrap{
+      border-bottom: 1px solid #d8d8d8;
+      order: 1;
+
+    }
+    &__title-block{
+      border-bottom: 1px solid #d8d8d8;
+      order: 2;
+    }
+    &__title-mob{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: $weight-bold;
+      margin: 0;
+      padding: 22px 7px 10px;
+      &-icon{
+        transform: rotate(-90deg);
+        transition: .3s;
+        .funds-disribution__title-block.open &{
+          transform: rotate(90deg);
+        }
+      }
+    }
+    &__line{
+      order: 3;
+      &-date {
+        @include font-size(12);
+      }
+    }
+    &__list{
+      &-item{
+        @include font-size(14);
+      }
     }
   }
 }

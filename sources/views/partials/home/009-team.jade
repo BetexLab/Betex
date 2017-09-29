@@ -15,10 +15,11 @@
   partners = [],
   count = 1;
 
-section.team
+section.team#team
   .container
     h3.team__title.title-line Our team
-    .row
+      span.title-line__line
+    .row.team__row
       each status, name in team
         .person
           img.person__photo(src="img/home-page/team-"+ count++ +".png", alt="team-person-" +count)
@@ -28,7 +29,7 @@ section.team
       -count = 1
 
     p.team__advisors-title Advisors
-    .row
+    .row.team__row
       each status, name in advisors
         .person
           img.person__photo(src="img/home-page/advisors-" + count++ + ".png", alt="advisors-person-" +count)
@@ -37,7 +38,7 @@ section.team
           a(href="#", target="_blank", rel="nofollow").person__link
       -count = 1
     p.team__partner-title Partners
-    .row
+    .row.team__row
       each status, name in team
         .partner
           img.partner__logo(src="img/home-page/partners-"+ count++ +".png", alt="partner-" +count)

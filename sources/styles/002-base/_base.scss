@@ -7,6 +7,11 @@ body {
 	color: $primary;
 	font-weight: $weight-regular;
 	overflow-x: hidden;
+	&.menu-open,
+	&.contribute-popup-open{
+		//overflow: hidden;
+		//position: fixed;
+	}
 }
 
 main{
@@ -16,3 +21,10 @@ main{
 svg[width="0"][height="0"] {
 	position: absolute;
 }
+@media (max-width: 1023px) {
+	.global-wrap{
+		margin-top: 55px;
+	}
+}
+
+

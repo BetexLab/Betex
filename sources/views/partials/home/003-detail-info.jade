@@ -12,10 +12,10 @@
 
 
 section.detail-info
-  .container
-    .row
+  .container.detail-info__container
+    .row.detail-info__row
       each item, i in detailInfo
-        .col-lg-4.detail-info__item
+        .col-lg-4.col-md-6.detail-info__item
           .detail-info__item-icon
             svg(width=item[0], height=item[1])
               use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#deatail-info-" + count++)

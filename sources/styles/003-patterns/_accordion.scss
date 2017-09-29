@@ -1,0 +1,7 @@
+.accordion-caption{
+  &__icon{
+    .accordion-caption.open &{
+      transform: rotate(-90deg);
+    }
+  }
+}

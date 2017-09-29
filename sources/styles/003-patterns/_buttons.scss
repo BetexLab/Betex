@@ -1,24 +1,32 @@
 .btn{
-  width: 165px;
-  height: 45px;
-  @include font-size(16);
   font-weight: $weight-bold;
-  color: #ffffff;
-  border-radius: 8px;
+  color: #fff;
   background-image: linear-gradient(to top, #0eb955 0%, #5bd488 100%);
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 8px;
   transition: .3s;
   &:hover{
     background: linear-gradient(to top, #0eb955 0%, #0eb955 100%);
+  }
+  &_default{
+    width: 165px;
+    height: 45px;
+    border-radius: 8px;
+  }
+  &_mob{
+    width: 99px;
+    height: 29px;
+    @include font-size(10);
+    border-radius: 4px;
   }
 }
 
 .link-doc{
   @include font-size(14);
   letter-spacing: 0.05px;
-  margin: 0 0 0 23px;
+  margin: 0 0 0 20px;
   border-bottom: 1px solid;
   position: relative;
   transition: .3s;
@@ -31,6 +39,9 @@
   }
   &:hover{
     border-bottom-color: transparent;
+  }
+  @media (min-width: 768px) {
+    margin: 0 0 0 23px;
   }
 }
 

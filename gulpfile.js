@@ -223,7 +223,8 @@ gulp.task('watch', () => {                                                      
     gulp.watch([src.style],                   gulp.series('sass')).on('unlink', filepath);
     gulp.watch(['./sources/views/**/*.jade'], gulp.series('jade')).on('unlink', filepath);
     gulp.watch([src.img],                     gulp.series('img')).on('unlink', filepath);
-    gulp.watch([src.js],                      gulp.series('javascript', 'libs')).on('unlink', filepath);
+    // gulp.watch([src.js],                      gulp.series('javascript', 'libs')).on('unlink', filepath);
+    gulp.watch([src.js],                      gulp.series('javascript')).on('unlink', filepath);
     gulp.watch(['./sources/svgs/html/*.svg'], gulp.series('svg')).on('unlink', filepath);
     gulp.watch(['./sources/svgs/css/*.svg'],  gulp.series('svg-css')).on('unlink', filepath);
 
