@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="47" height="104" viewBox="0 0 47 104">
+  <g fill="none" fill-rule="evenodd" transform="translate(1)">
+    <path stroke="#8896FC" d="M0.278872099,0 L43,103.266155" transform="matrix(-1 0 0 1 43.279 0)"/>
+    <polyline stroke="#8896FC" stroke-linecap="round" stroke-linejoin="round" points="26.5 35.701 31.132 39.886 31.132 34" transform="matrix(-1 0 0 1 57.632 0)"/>
+    <polyline stroke="#8896FC" stroke-linecap="round" stroke-linejoin="round" points="4.5 88.701 9.132 92.886 9.132 87" transform="matrix(-1 0 0 1 13.632 0)"/>
+    <g transform="translate(26 6)">
+      <circle cx="10" cy="10" r="10" fill="#FE505A" fill-rule="nonzero"/>
+      <text fill="#FFF" font-family="Helvetica-Bold, Helvetica" font-size="9.6" font-weight="bold">
+        <tspan x="7.231" y="13.208">$</tspan>
+      </text>
+      <circle cx="10" cy="10" r="8.8" stroke="#FFF" stroke-width=".5"/>
+    </g>
+    <g transform="translate(5 56)">
+      <circle cx="10" cy="10" r="10" fill="#FE505A" fill-rule="nonzero"/>
+      <text fill="#FFF" font-family="Helvetica-Bold, Helvetica" font-size="9.6" font-weight="bold">
+        <tspan x="7.231" y="13.208">$</tspan>
+      </text>
+      <circle cx="10" cy="10" r="8.8" stroke="#FFF" stroke-width=".5"/>
+    </g>
+  </g>
+</svg>

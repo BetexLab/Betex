@@ -1,7 +1,15 @@
+-
+  var bubbleSmall = [
+    ['2.5','Token Holders'],
+    ['1'  ,'Brokers'],
+    ["0.5","Development"],
+    ["0.5","Refferrals"],
+    ["0.5","Refferrals"]
+  ]
 section.business-model#business-model
   .container
     h2.business-model__title.title-line Business model
-      span.title-line__line
+      span.title-line__line(data--20-bottom="width: 0px" data--200-bottom="width: 118px")
     .row
       .col-md-6.col-12.business-model__text
           p
@@ -9,37 +17,117 @@ section.business-model#business-model
             | is a leading-edge platform for P2P financial derivatives trading. Powered by Ethereum smart contracts, it brings undisputable transparency to the process, thereby, ultimately eliminating the issue of trust.
       .col-md-6.col-12.business-model__text
           p We went with a radically new business model to disrupt ideological principles behind Binary Options through shifting user mindset from worrying about reliability of platform providers to focusing on own capacity to make profit.
-    .payouts
-      p.payouts__title Common liquidity pool
+    //.buttons
+      -for(var j = 1; j<5; j++)
+        button(class="step-"+j)="step " + j
+    .payouts(data-animated="false")
       .payouts__wrap
-        img.payouts__left-img(src="img/home-page/payouts-left.svg", alt="payouts")
-        .payouts__circle
-          span.payouts__circle-percent 95%
-          span.payouts__circle-title Payouts
-        img.payouts__right-img(src="img/home-page/payouts-right.png", alt="payouts")
-        .payouts__line
-      .payouts__rest
-        span 5%
-      .payouts__rest-info
-        .payouts__rest-item
-          .payouts__rest-circle
-            span 2.5
-          p.payouts__rest-text Token Holders
-        .payouts__rest-item
-          .payouts__rest-circle
-            span 1
-          p.payouts__rest-text Brokers
-        .payouts__rest-item
-          .payouts__rest-circle
-            span 0.5
-          p.payouts__rest-text Development
-        .payouts__rest-item
-          .payouts__rest-circle
-            span 0.5
-          p.payouts__rest-text Refferrals
-        .payouts__rest-item
-          .payouts__rest-circle
-            span 0.5
-          p.payouts__rest-text Refferrals
+        //img.payouts__left-img(src="img/home-page/payouts-left.svg", alt="payouts")
+        //.payouts__circle
+        //  span.payouts__circle-percent 95%
+        //img.payouts__right-img(src="img/home-page/payouts-right.png", alt="payouts")
+        //.payouts__line
+        svg.schedule(xmlns='http://www.w3.org/2000/svg', height='88', viewbox='0 0 206 88')
+          g(fill='none', fill-rule='evenodd')
+            g(transform='translate(7.653)')
+              rect.schedule__vertical-line(width='1.276', fill='#D8D8D8', fill-rule='nonzero')
+              rect.schedule__vertical-line(width='1.276', x='59.95', fill='#D8D8D8', fill-rule='nonzero')
+              rect.schedule__vertical-line(width='1.276', x='195.158', fill='#D8D8D8', fill-rule='nonzero')
+              path.schedule__horizontal-line(stroke='#DED8D8', stroke-dasharray='3.2', stroke-width='.64', d='M0.867368421,54.5976331 L196.765077,54.5976331')
+              path.schedule__second-curve(stroke-width='1.28', d='M60.5882353,59.295858 L88.4205573,14.4726627 L88.4205573,14.4726627 C89.3667453,12.945202 91.1335779,12.1337136 92.9060427,12.412525 C94.6785069,12.6913363 96.112191,14.0062709 96.5457585,15.7507692 L108.759071,65.1240237 L108.759071,65.1240237 C109.231124,67.0298652 110.888394,68.404415 112.845114,68.5130138 C114.801836,68.6216133 116.600467,67.4388682 117.27969,65.5969231 L120.602477,56.5734911 L120.602477,56.5734911 C121.015308,55.4553141 121.936458,54.6020693 123.08133,54.2773734 C124.226201,53.9526775 125.456991,54.1956136 126.393437,54.9311243 L126.393437,54.9311243 C127.334582,55.6723104 128.571133,55.9214868 129.725061,55.6024785 C130.87899,55.2834695 131.813089,54.4342073 132.241796,53.3143195 L148.498576,10.8428402 L148.498576,10.8428402 C149.194191,9.01830204 150.99074,7.85689765 152.936463,7.97390504 C154.882186,8.09091243 156.527215,9.45927831 157.000062,11.3540828 L168.703158,58.1391716 L168.703158,58.1391716 C169.16738,59.9943713 170.757344,61.3486063 172.659418,61.5088751 C174.561492,61.6691439 176.354832,60.5999861 177.121734,58.8485207 L195.317337,17.2333728')
+            path.schedule__first-curve(stroke-width='1.28', d='M0.586749226,63.1301775 L22.2709598,12.5874556 C23.0713213,10.7205331 25.0268554,9.62860934 27.0324145,9.9287724 C29.0379737,10.2289355 30.5897242,11.8457788 30.8107121,13.8655621 L35.4345511,56.1005917 C35.6333784,57.8559406 37.0506811,59.2210773 38.8089929,59.3508319 C40.5673048,59.4805866 42.1689059,58.3382297 42.6222291,56.6310059 L44.5993189,49.0710059 C45.0713646,47.2586595 46.6202675,45.9328832 48.4805221,45.7489082 C50.3407766,45.5649332 52.1184547,46.561718 52.9349845,48.2466272 L59.1978947,61.1171598 C59.9081263,62.5824373 61.3571222,63.5450413 62.9805919,63.6300993 C64.6040618,63.7151573 66.1453449,62.9092223 67.0042105,61.5261538 L68.7644582,58.6568047')
+            ellipse.schedule__first-dot(cx='8.291', cy='44.598', rx='2.551', ry='2.556')
+            ellipse.schedule__second-dot(cx='68.241', cy='59.296', rx='2.551', ry='2.556')
+            ellipse.schedule__third-dot(cx='203.449', cy='17.118', rx='2.551', ry='2.556')
+            circle.schedule__third-dot-shadow(cx="203.5" cy="17")
+
+        .investor.investor_profit
+          svg(width="70px", height="70px")
+            use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#investor_green")
+          .investor__line.investor__line_profit
+            .investor__money.investor__money_profit.investor__money_profit-first
+            .investor__money.investor__money_profit.investor__money_profit-second
+            .investor__money.investor__money_profit.investor__money_profit-third
+
+        .investor.investor_holdings
+          svg(width="70px", height="70px")
+            use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#investor_red")
+          .investor__line.investor__line_holdings
+            .investor__money.investor__money_holdings.investor__money_holdings-first
+            .investor__money.investor__money_holdings.investor__money_holdings-second
+
+        .bubbles
+          .bubble-main
+            span.bubble-main__percent 95%
+            span.bubble-main__text Payouts
+          .bubble-middle
+            span.bubble-middle__text 5%
+        .bubble-small
+          -for(var i = 0; i <bubbleSmall.length; i++)
+            .bubble-small__item
+              span.bubble-small__item-percent=bubbleSmall[i][0]
+              span.bubble-small__item-title=bubbleSmall[i][1]
+        // filters
+        svg(xmlns='http://www.w3.org/2000/svg', version='1.1')
+          defs
+            filter#shadowed-goo
+              fegaussianblur(in='SourceGraphic', result='blur', stddeviation='10')
+              fecolormatrix(in='blur', mode='matrix', values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7', result='goo')
+              //fegaussianblur(in='goo', stddeviation='3', result='shadow')
+              //fecolormatrix(in='shadow', mode='matrix', values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -10.2', result='shadow')
+              //feoffset(in='shadow', dx='1', dy='1', result='shadow')
+              //fecomposite(in2='shadow', in='goo', result='goo')
+              fecomposite(in2='goo', in='SourceGraphic', result='mix')
+            filter#goo
+            fegaussianblur(in='SourceGraphic', result='blur', stddeviation='10')
+            fecolormatrix(in='blur', mode='matrix', values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7', result='goo')
+            fecomposite(in2='goo', in='SourceGraphic', result='mix')
+
+
+
+
+
+
+        a(href="#").payouts__replay.hidden
+          svg(width="38px", height="38px")
+            use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#replay")
+
+    .payouts-mob
+      .put-money
+        p.put-money__title Players put money in common liquidy pool
+        .put-money__investor.put-money__investor_green
+          svg(width="70px", height="70px")
+            use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#investor_green")
+        .put-money__investor.put-money__investor_red
+          svg(width="70px", height="70px")
+            use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#investor_red")
+        .put-money__circle
+          span.put-money__circle-call Call
+          span.put-money__circle-put Put
+
+
+      .get-money
+        p.get-money__title On the next step winners get money
+        .get-money__investor.get-money__investor_green
+          svg(width="70px", height="70px")
+            use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#investor_green")
+        .get-money__investor.get-money__investor_red
+          svg(width="70px", height="70px")
+            use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#investor_red")
+        .get-money__circle
+          span.get-money__circle-percent 95%
+          span.get-money__circle-title Payouts
+
+      .commision
+        p.commision__title And betexs takes 5% commision
+        .commision__percent-bubble
+          span 5%
+        .commision__elucidation
+          each item in bubbleSmall
+            .commision__elucidation-bubble
+              span.commision__elucidation-perc=item[0]
+              span.commision__elucidation-title=item[1]
+
+
     include 005-tokens-distribution
     include 006-roadmap

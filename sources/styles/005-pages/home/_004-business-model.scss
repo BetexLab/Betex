@@ -34,25 +34,30 @@
  }
 
 .payouts{
-  margin: 24px 0 798px;
-  &__title{
-    @extend %t_bold;
-    @extend %t_text-align--center;
+  padding: 65px 0 0;
+  height: 100vh;
+  min-height: 800px;
+  opacity: 0;
+  transition: opacity .5s .5s;
+  position: relative;
+  &.visible{
+    opacity: 1;
   }
 
   &__wrap{
-    @extend %l_flex--align-center;
-    @extend %l_justify-content--space-between;
+    //@extend %l_flex--align-center;
+    //@extend %l_justify-content--space-between;
     position: relative;
     //padding: 0 103px 0 80px;
-    margin: 75px 0 0;
     width: 100%;
   }
-  &__circle{
+  /*&__circle{
     width: 302px;
     height: 302px;
     box-shadow: 0 19px 29px rgba(197, 206, 218, 0.6);
-    background-color: rgb(63, 79, 201);
+    background: rgba(252,252,252,1);
+    background: linear-gradient(135deg, rgba(252,252,252,1) 0%, rgba(196,189,188,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#c4bdbc', GradientType=1 );
     color: #fff;
     @extend %l_flex--center;
     @extend %l_flex--align-center;
@@ -64,9 +69,6 @@
     &-percent{
       @include font-size(47);
       font-weight: $weight-bold;
-    }
-    &-title{
-      @include font-size(32);
     }
   }
   &__left-img{
@@ -85,7 +87,7 @@
     left: 30px;
     margin: auto;
     @extend .u_overlay;
-  }
+  }*/
 
   &__rest{
     width: 82px;
@@ -128,10 +130,822 @@
   }
 
   @media (min-width: 768px) {
-    margin: 100px 0 181px;
+    //margin: 100px 0 181px;
+  }
+  @media (min-width: 1024px) {
+    &__replay{
+      display: block;
+      width: 38px;
+      position: fixed;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      bottom: 50px;
+      z-index: 99;
+      transform: rotate(-90deg);
+      &.hidden{
+        bottom: -50px;
+      }
+      .step-4 &{
+        transition: .5s 0s;
+      }
+    }
   }
   @media (max-width: 1023px){
     display: none;
   }
 }
 
+.buttons{
+  button{
+    height: 30px;
+    background: #00bcd4;
+    color: #fff;
+    &.pressed{
+      background: #3f4fc9;
+    }
+  }
+}
+
+.schedule{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 240px;
+  margin: 0 auto;
+  &__first-curve{
+    stroke: #656BEF;
+    stroke-dasharray: 206;
+    stroke-dashoffset: 206;
+    transition: 1s .5s;
+  }
+  &__second-curve{
+    stroke: #656BEF;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    //stroke-dashoffset: 200;
+  }
+  &__vertical-line{
+    height: 0;
+    transition: .5s .5s;
+  }
+  &__horizontal-line{
+    opacity: 0;
+    transition: .5s;
+  }
+  &__first-dot{
+    opacity: 0;
+    transition: .2s 1s;
+    fill: #656BEF;
+  }
+  &__second-dot{
+    opacity: 0;
+    fill: #656BEF;
+  }
+  &__third-dot{
+    fill: #99C159;
+    opacity: 0;
+  }
+  &__third-dot-shadow{
+    fill: #99C159;
+    r: 0;
+    opacity: .5;
+  }
+  .visible &{
+    &__first-curve{
+      stroke-dashoffset: 185;
+    }
+    &__vertical-line {
+      height: 88px;
+    }
+    &__horizontal-line {
+      opacity: 1;
+    }
+    &__first-dot{
+      opacity: 1;
+    }
+  }
+
+  .step-1 &{
+    &__first-curve{
+      transition: 10s;
+      stroke-dashoffset: 0;
+    }
+    &__second-dot{
+      transition: .5s 4.7s;
+      opacity: 1;
+    }
+  }
+  .step-2 &{
+    &__first-curve{
+      transition: stroke .5s 1s;
+      stroke: #99C159;
+    }
+    &__second-curve{
+      transition: stroke-dashoffset 1s cubic-bezier(0.42,0,1,1), stroke .5s 1s;
+      stroke-dashoffset: 185;
+      stroke: #99C159;
+    }
+    &__third-dot{
+      opacity: 1;
+      transition: opacity .5s 1s;
+    }
+    &__third-dot-shadow{
+      transition: r 0.5s 1.5s, opacity .5s 2s;
+      r: 6;
+      opacity: 0;
+    }
+    &__first-dot,
+    &__second-dot{
+      transition: .5s 1s;
+      fill: #99C159;
+    }
+    transition: opacity 1s 4s;
+    opacity: 0;
+  }
+  //.step-3 &{}
+}
+
+$investor-duration: 4;
+$investor-delay-1: ($investor-duration/100) * 25; //1
+$investor-delay-2: ($investor-duration/100) * 45; //1.8
+$investor-delay-3: ($investor-duration/100) * 62; //2.5
+$investor-delay-4: ($investor-duration/100) * 75; //3
+.investor{
+  position: absolute;
+  top: 0;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 122px;
+  height: 122px;
+  opacity: 1;
+  //border: 1px solid;
+  &_profit{
+    left: 100px;
+    &:before{
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      border: 1px solid #dbdbdb;
+      border-radius: 100%;
+      transform: scale(0.9);
+      opacity: 0;
+    }
+  }
+  &_holdings{
+    right: 100px;
+
+  }
+  &__line{
+    position: absolute;
+    bottom: 0;
+    background: #c3caff;
+    width: 250px;
+    height: 2px;
+    &_profit{
+      left: 122px;
+      transform: rotate(25deg);
+      transform-origin: 0 0%;
+    }
+    &_holdings{
+      right: 122px;
+      transform: rotate(-25deg);
+      transform-origin: 100% 0%;
+    }
+  }
+
+  &__money{
+    position: absolute;
+    top: -25px;
+    opacity: 0;
+    &_profit{
+      left: 0;
+      @extend .i-dollar_green;
+      transform: rotate(-23deg);
+    }
+    &_holdings{
+      right: 0;
+      @extend .i-dollar_red;
+      transform: rotate(23deg);
+    }
+    .step-1 &{
+      opacity: 1;
+      &_profit{
+        left: 100%;
+      }
+      &_holdings{
+        right: 100%;
+      }
+    }
+  }
+
+  .step-1 &{
+    transition: opacity 1s ($investor-duration+2)+s;
+    opacity: .5;
+    &__money{
+      transition: opacity .4s, left 1s, right 1s;
+      &_profit{
+        &-first{
+          transition-delay: $investor-delay-1 + s;
+        }
+        &-second{
+          transition-delay: $investor-delay-2 + s;
+        }
+        &-third{
+          transition-delay: $investor-delay-4 + s;
+        }
+      }
+      &_holdings{
+        &-first{}
+        &-second{
+          transition-delay: $investor-delay-3 + s;
+        }
+      }
+    }
+  }
+
+  .step-2 &{
+    &_profit{
+      transition: opacity 1s 3s;
+      opacity: 1;
+      &:before{
+        animation: 2s profitCircle 3s forwards;
+      }
+    }
+    &__money{
+      &_profit{
+        &-first{
+          //transition: opacity .6s 4s, left 1.2s 3.5s;
+          transition: opacity .6s 3s, left 1.2s 2.4s;
+          left: -10%;
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  .step-3 &{
+    transition: opacity .5s;
+    opacity: .5;
+  }
+
+}
+
+.bubbles{
+  filter:url('#shadowed-goo');
+  position: relative;
+  top: 100px;
+  margin: 0 auto;
+  width: 302px;
+  height: 600px;
+  .step-3 &{
+    //filter:url('#shadowed-goo');
+    z-index: 3;
+  }
+}
+
+.bubble-main {
+  width: 100%;
+  max-width: 302px;
+  max-height: 302px;
+  height: 100%;
+  background: rgba(252,252,252,1);
+  background: linear-gradient(135deg, rgba(252,252,252,1) 0%, rgba(196,189,188,1) 100%);
+  border-radius: 100%;
+  line-height: 190px;
+  position: absolute;
+  color: white;
+  z-index: 2;
+  transform: scale(.92);
+  transition: transform $investor-duration+s $investor-delay-1+s;
+  will-change: transform;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__percent{
+    @include font-size(47);
+    font-weight: $weight-bold;
+    color: #fff;
+    opacity: 0;
+  }
+  &__text{
+    @include font-size(32);
+    color: #fff;
+    opacity: 0;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    transition: top .5s .7s;
+    z-index: 3;
+    border-radius: 0;
+  }
+  &:before{
+    content: '';
+    @extend .i-locked;
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 4;
+    opacity: 0;
+  }
+  .step-1 &{
+    transform: scale(1);
+    &:after{
+      top: 0;
+      animation: mainBubbleBg $investor-duration + s forwards $investor-delay-1+s;
+      background: linear-gradient(to bottom, rgba(97,240,147,1) 0%, rgba(97,240,147,1) 49%, rgba(250,100,105,1) 51%, rgba(250,100,105,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#61f093', endColorstr='#fa6469', GradientType=0 );
+      background-size: 300% 300%;
+      background-position: 0 100%;
+      transition: opacity .7s 5s, top .2s .5s, border-radius 0s .7s;
+      opacity: .8;
+      border-radius: 100%;
+    }
+    &:before{
+      transition: opacity 1s ($investor-duration+1)+s;
+      opacity: 1;
+    }
+  }
+  .step-2 &{
+    animation: 3s mainBubbleShadow 2s;
+    &:before{
+      transition: opacity 1s 2s;
+      opacity: 0;
+    }
+  }
+  .step-3 &{
+    background: #3f4fc9;
+    transition: line-height 1.2s .6s;
+    line-height: 50px;
+    &__percent,
+    &__text{
+      transition: opacity 1.2s .6s;
+      opacity: 1;
+    }
+    &:after{
+      transition: opacity .6s;
+      opacity: 0;
+    }
+  }
+}
+
+.bubble-middle {
+  background: #3f4fc9;
+  border-radius: 100%;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 190px;
+  color: white;
+  text-align: center;
+  transform: translate3d(0,0,0);
+  @include font-size(33);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__text{
+    //position: absolute;
+    //bottom: 0;
+    //top: 0;
+    //left: 0;
+    //right: 0;
+    //margin: auto;
+    //transform: translate3d(0,200px,0);
+    opacity: 0;
+  }
+  .step-3 &{
+    transition: transform 0.8s cubic-bezier(0.68, 0.31, 0.63, 0.9) .6s; //1.5
+    //transform: translate3d(0, 170px, 0);
+    transform: translate3d(0, 160px, 0);
+
+    &__text{
+      //transition: transform 1s cubic-bezier(0.68, 0.31, 0.63, 0.9) 1.3s,opacity 0.1s 1.5s;
+      //transform: translate3d(0,25px,0);
+      transition: opacity .5s 1.4s;
+      opacity: 1;
+    }
+  }
+}
+
+.bubble-small{
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 290px;
+  &__item{
+    background: #3f4fc9;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include font-size(24);
+    &:after{
+      content: '';
+      display: block;
+      width: 130%;
+      height: 130%;
+      position: absolute;
+      top: -15%;
+      left: -15%;
+      border-radius: 100%;
+      border: 1px solid #8c8c96;
+    }
+    &-percent{}
+    &-title{
+      position: absolute;
+      width: 110px;
+      bottom: -40px;
+      text-align: center;
+      @include font-size(14);
+      font-weight: $weight-bold;
+      color: #8c8c96;
+      opacity: 0;
+      transform: translate3d(0,10px,0);
+    }
+  }
+  .step-3 & {
+    transition: transform .7s cubic-bezier(0.165, 0.840, 0.440, 1.000) 1s;
+    transform: translate3d(0, 180px, 0);
+  }
+  .step-4 &{
+    //top: 430px;
+    //width: 850px;
+    //transform: translate3d(0, 350px, 0);
+    transform: translate3d(0, 290px, 0);
+    transition: 1.5s;
+    &__item{
+      &:nth-child(1){
+        transform: translate3d(-400px,0,0);
+        transition: opacity .5s 0s, transform 1.5s;
+        opacity: 1;
+      }
+      &:nth-child(2){
+        transform: translate3d(-200px,0,0);
+        transition: opacity .5s .2s, transform 1.5s;
+        opacity: 1;
+      }
+      &:nth-child(3){
+        transition: opacity .5s .4s;
+        opacity: 1;
+      }
+      &:nth-child(4){
+        transform: translate3d(200px,0,0);
+        transition: opacity .5s .2s, transform 1.5s;
+        opacity: 1;
+      }
+      &:nth-child(5){
+        transform: translate3d(400px,0,0);
+        transition: opacity .5s 0s, transform 1.5s;
+        opacity: 1;
+      }
+      &-title{
+        transition: all .5s 1.2s;
+        opacity: 1;
+        transform: translate3d(0,0px,0);
+      }
+    }
+  }
+}
+
+@keyframes mainBubbleBg {
+  0%{}
+
+  15%{
+    background-position: 0 100%;
+  }
+  25%{
+    background-position: 0 50%;
+  }
+
+  35%{
+    background-position: 0 50%;
+  }
+  45%{
+    background-position: 0 35%;
+  }
+
+  52%{
+    background-position: 0 35%;
+  }
+  62%{
+    background-position: 0 50%;
+  }
+
+  65%{
+    background-position: 0 50%;
+  }
+  75%{
+    background-position: 0 35%;
+  }
+
+  100%{
+    background-position: 0 35%;
+  }
+}
+
+@keyframes mainBubbleShadow {
+  0%{
+    box-shadow: 0px 0px 0px 0px rgba(97,240,147,.5);
+  }
+  40%{
+    box-shadow: 0px 0px 0px 30px rgba(97,240,147,0);
+  }
+  41%{
+    box-shadow: 0px 0px 0px 0px rgba(97,240,147,0);
+  }
+  42%{
+    box-shadow: 0px 0px 0px 0px rgba(97,240,147,.5);
+  }
+  80%{
+    box-shadow: 0px 0px 0px 30px rgba(97,240,147,0);
+  }
+  100%{
+    box-shadow: 0px 0px 0px 30px rgba(97,240,147,0);
+  }
+}
+
+@keyframes profitCircle {
+  0%{
+    opacity: 0;
+  }
+  10%{
+    opacity: 1;
+  }
+  90%{
+    opacity: 0;
+  }
+  100%{
+    transform: scale(1.1);
+    opacity: 0;
+  }
+}
+
+
+.put-money{
+  width: 100%;
+  max-width: 320px;
+  height: 493px;
+  position: relative;
+  margin: 22px auto 0;
+  &__title{
+    font-weight: $weight-bold;
+    max-width: 227px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.5;
+  }
+  &__investor{
+    position: absolute;
+    top: 60px;
+    &:after{
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 72px;
+      margin: 0 auto;
+    }
+    &_green{
+      left: 15px;
+      &:after{
+        @extend .i-put_left_line;
+        transform: translate3d(25px,0px,0);
+      }
+    }
+    &_red{
+      right: 15px;
+      &:after{
+        @extend .i-put_right_line;
+        transform: translate3d(-19px,0px,0);
+      }
+    }
+  }
+  &__circle{
+    position: absolute;
+    top: 220px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 223px;
+    height: 223px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url("../img/home-page/put-money.png");
+    z-index: 1;
+    &-call,
+    &-put{
+      color: #fff;
+      @include font-size(18);
+      font-weight: $weight-bold;
+      margin: 53px 0 20px;
+    }
+  }
+}
+
+.get-money{
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  height: 495px;
+  position: relative;
+  &__title{
+    font-weight: $weight-bold;
+    text-align: center;
+  }
+  &__investor{
+    position: absolute;
+    top: 50px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:after{
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100px;
+      margin: 0 auto;
+    }
+    &_green{
+      border-radius: 50%;
+      border: 2px solid #18bd5c;
+      left: 0;
+      &:after{
+        @extend .i-get_left_line;
+        transform: translate3d(34px,-5px,0);
+      }
+    }
+    &_red{
+      right: 0;
+      &:after{
+        @extend .i-get_right_line;
+        transform: translate3d(-28px,-5px,0);
+      }
+    }
+  }
+  &__circle{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    width: 245px;
+    height: 245px;
+    background-image: linear-gradient(143deg, #1ef075 0%, #f93b3b 100%);
+    border-radius: 50%;
+    margin: 230px auto 0;
+    position: relative;
+    z-index: 1;
+    &-percent{
+      @include font-size(36);
+      font-weight: $weight-bold;
+      color: #fff;
+    }
+    &-title{
+      @include font-size(12);
+      font-weight: $weight-bold;
+      color: #fff;
+    }
+  }
+}
+
+
+.commision{
+  &__title{
+    font-weight: $weight-bold;
+    text-align: center;
+    position: relative;
+    margin: 29px 0 34px !important;
+    padding: 10px 0;
+    &:after,
+    &:before{
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 2px;
+      height: 94px;
+      background: #3f4fc9;
+    }
+    &:after{
+      top: 100%;
+    }
+    &:before{
+      bottom: 100%;
+    }
+  }
+  &__percent-bubble{
+    width: 82px;
+    height: 82px;
+    background-color: #3f4fc9;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include font-size(22);
+    color: #fff;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+  }
+  &__elucidation{
+    width: 208px;
+    height: 208px;
+    border: 1px dashed rgba(63, 79, 201, .3);
+    border-radius: 50%;
+    margin: 43px auto 50px;
+    position: relative;
+    &-bubble{
+      width: 48px;
+      height: 48px;
+      background-color: #3f4fc9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%,-50%,0);
+      &:nth-child(1){
+        transform: translate3d(-50%,-252%,0);
+      }
+      &:nth-child(2){
+        transform: translate3d(160%, -80%, 0);
+      }
+      &:nth-child(3){
+        transform: translate3d(-250%, -80%, 0);
+      }
+      &:nth-child(4){
+        transform: translate3d(-173%, 147%, 0);
+      }
+      &:nth-child(5){
+        transform: translate3d(67%, 147%, 0);
+      }
+    }
+    &-perc{
+      color: #fff;
+    }
+    &-title{
+      position: absolute;
+      bottom: -22px;
+      @include font-size(12);
+      font-weight: $weight-bold;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200%;
+      text-align: center;
+    }
+  }
+}
+
+.payouts-mob{
+  margin-top: 26px;
+  border-top: 1px solid #d8d8d8;
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}

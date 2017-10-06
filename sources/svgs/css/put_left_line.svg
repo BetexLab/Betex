@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="47" height="105" viewBox="0 0 47 105">
+  <g fill="none" fill-rule="evenodd" transform="translate(1)">
+    <path stroke="#8896FC" d="M0,0 L43.3840325,104.828033"/>
+    <polyline stroke="#8896FC" stroke-linecap="round" stroke-linejoin="round" points="2.15 11.777 6.782 15.962 6.782 10.076" transform="rotate(3 4.466 13.02)"/>
+    <polyline stroke="#8896FC" stroke-linecap="round" stroke-linejoin="round" points="22.851 61.778 27.483 65.964 27.483 60.077" transform="rotate(3 25.167 63.02)"/>
+    <g transform="translate(4 22)">
+      <circle cx="9.574" cy="9.574" r="9.574" fill="#18BD5C" fill-rule="nonzero"/>
+      <text fill="#FFF" font-family="Helvetica-Bold, Helvetica" font-size="9" font-weight="bold">
+        <tspan x="7" y="12.5">$</tspan>
+      </text>
+      <circle cx="9.574" cy="9.574" r="8.426" stroke="#FFF" stroke-width=".5"/>
+    </g>
+    <g transform="translate(26 74)">
+      <circle cx="9.574" cy="9.574" r="9.574" fill="#18BD5C" fill-rule="nonzero"/>
+      <text fill="#FFF" font-family="Helvetica-Bold, Helvetica" font-size="9" font-weight="bold">
+        <tspan x="7" y="12.5">$</tspan>
+      </text>
+      <circle cx="9.574" cy="9.574" r="8.426" stroke="#FFF" stroke-width=".5"/>
+    </g>
+  </g>
+</svg>

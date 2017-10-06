@@ -13,6 +13,13 @@ body {
 		//position: fixed;
 	}
 }
+.over-hidden{
+	overflow: visible !important;
+	width: auto;
+	body{
+		overflow: hidden !important;
+	}
+}
 
 main{
 	//overflow: hidden;

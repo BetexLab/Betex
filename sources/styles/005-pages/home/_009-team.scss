@@ -42,6 +42,9 @@
     width: 118px;
     height: 118px;
     border-radius: 50%;
+    &-img{
+      width: 100%;
+    }
   }
   &__name{
     padding: 10px 0 9px;
@@ -61,6 +64,38 @@
     background-size: contain;
   }
   @media (min-width: 1024px){
+    &__photo{
+      border-radius: 100%;
+      position: relative;
+      &:before{
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        box-shadow: 0 0 0 0 rgba(0,0,0,0.08);
+      }
+      &-wrap{
+        height: 100%;
+        overflow: hidden;
+        border-radius: 100%;
+      }
+      &-img{
+        transition: transform 1s;
+      }
+    }
+    &:hover{
+      .person__photo{
+        &:before{
+          animation: personPulse 2s infinite .2s;
+        }
+      }
+      .person__photo-img{
+        transform: scale(1.15);
+      }
+    }
     flex: 0 0 170px;
     max-width: 170px;
   }
@@ -109,5 +144,17 @@
       max-width: 80%;
       margin-left: 11px;
     }
+  }
+}
+
+@keyframes personPulse {
+  0%{
+    box-shadow: 0 0 0 0 rgba(0,0,0,.3);
+  }
+  70%{
+    box-shadow: 0 0 0 20px rgba(0,0,0,0);
+  }
+  100%{
+    box-shadow: 0 0 0 0 rgba(0,0,0,0);
   }
 }

@@ -16,7 +16,7 @@ section.betex-token#token-sale
   .container
     .betex-token__header
       h2.betex-token__title.title-line Betex Token
-        span.title-line__line
+        span.title-line__line(data--20-bottom="width: 0px" data--200-bottom="width: 118px")
       ul.tabs.betex-token__tabs-caption(data-tabgroup='token-tab')
         li.betex-token__tabs-item
           a.betex-token__tabs-link(href='#pre-sale') Pre - Sale
@@ -200,32 +200,33 @@ section.betex-token#token-sale
                   svg.funds-disribution__title-mob-icon.accordion-caption__icon(width="32px", height="32px")
                     use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#dropdown")
               .funds-disribution__wrap.open
-                img.funds-disribution__chart(src="img/home-page/token-chart.png", alt="token-chart")
+                .funds-disribution__chart#funds-disribution
+                //img.funds-disribution__chart(src="img/home-page/token-chart.png", alt="token-chart")
                 .funds-disribution__descript
                   p.funds-disribution__descript-title Funds Distribution
                   ul.funds-disribution__list
-                    li.funds-disribution__list-item.grey
+                    li.funds-disribution__list-item.grey(data-index="0")
                       b="10% "
                       | Reserve
-                    li.funds-disribution__list-item.light-blue
+                    li.funds-disribution__list-item.light-blue(data-index="1")
                       b="10% "
                       | R&D
-                    li.funds-disribution__list-item.yellow
+                    li.funds-disribution__list-item.yellow(data-index="2")
                       b="20% "
                       | Marketing
-                    li.funds-disribution__list-item.red
+                    li.funds-disribution__list-item.red(data-index="3")
                       b="20% "
-                      | Operational costs
-                    li.funds-disribution__list-item.blue
+                      | Legal support
+                    li.funds-disribution__list-item.blue(data-index="4")
                       b="40% "
                       | Product development
               .funds-disribution__line
                 .funds-disribution__line-item
-                  span.funds-disribution__line-info +10%
+                  span.funds-disribution__line-info +20%
                   .funds-disribution__line-dot
                     span.funds-disribution__line-date 9 oct
                 .funds-disribution__line-item
-                  span.funds-disribution__line-info +20%
+                  span.funds-disribution__line-info +10%
                   .funds-disribution__line-dot
                     span.funds-disribution__line-date 10 oct
                 .funds-disribution__line-item

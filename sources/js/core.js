@@ -66,21 +66,6 @@
 
             })
 
-            //single accordion
-            $('.betex-token__more').on('click', function() {
-                $(this).toggleClass('open').siblings('.row').slideToggle()
-            })
-
-            $('.accordion-caption').on('click', function(){
-                $(this).toggleClass('open').next('div').toggleClass('open').slideToggle()
-            })
-
-            // money-line cloud
-            $('.money-line').on('mouseover', '.money-line__dot:not(.active)', function () {
-                $('.money-line__dot').removeClass('active');
-                $(this).addClass('active')
-            })
-
             //roadmap
             $('.roadmap-slider').slick({
                 dots: false,
@@ -129,176 +114,272 @@
                 ]
             });
 
-            /*let ctx = document.getElementById("myChart");
-            let myChart = new Chart(ctx,{
-                type: 'doughnut',
-                data: {
-                    datasets: [{
-                        data: [30, 3, 5, 12, 50],
-                        borderWidth: 0,
-                        backgroundColor: [
-                            '#eef1f5',
-                            '#32abef',
-                            '#ffdd00',
-                            '#ff505a',
-                            '#3f4fc9'
-                        ]
-                    }],
 
-                    // These labels appear in the legend and in the tooltips when hovering different arcs
-                    labels: [
-                        'Locked',
-                        'Reserve',
-                        'Tokens pre-sale',
-                        'Bounty campaign',
-                        'Tokens sale'
-                    ]
-                    // labels: false
-                },
-                options: {
-                    enabled:{
-                        enabled: false
-                    },
-                    legend: {
-                        display: false
-                    },
-
-                    tooltips: {
-                        enabled: false,
-                        custom: function(tooltipModel) {
-
-                            try {
-                                if (tooltipModel.body && !isMobile.any()){
-                                    function getBody(bodyItem) {
-                                        return bodyItem.lines;
-                                    }
-                                    let bodyLines = tooltipModel.body.map(getBody);
-
-                                    let innerHtml = '';
-
-                                    bodyLines.forEach((body, i)=>{
-                                        let colors = tooltipModel.labelColors[i];
-                                        let style = 'background:' + colors.backgroundColor;
-                                        style += '; border-color:' + colors.borderColor;
-                                        style += '; border-width: 2px';
-                                        /!*if(tooltipModel.dataPoints[0].index == 4){
-                                        }*!/
-                                        style += '; color: #fff';
-                                        let span = '<span class="chartjs-tooltip-key" style="' + style + '">';
-                                        innerHtml += span + body + '</span>';
-                                    });
-
-                                    let tableRoot = document.getElementById('tooltip');
-                                    tableRoot.innerHTML = innerHtml;
-
-                                    // Set caret Position
-                                    tableRoot.classList.remove('above', 'below', 'no-transform');
-                                    if (tooltipModel.yAlign) {
-                                        tableRoot.classList.add(tooltipModel.yAlign);
-                                    } else {
-                                        tableRoot.classList.add('no-transform');
-                                    }
-
-                                    // Display, position, and set styles for font
-                                    tableRoot.style.left = tooltipModel.caretX + 180 + 'px';
-                                    tableRoot.style.top = tooltipModel.caretY - 50 + 'px';
-                                    tableRoot.style.fontSize = tooltipModel.fontSize;
-                                    tableRoot.style.fontStyle = tooltipModel._fontStyle;
-                                    tableRoot.style.padding = tooltipModel.yPadding + 'px ' + tooltipModel.xPadding + 'px';
-                                }else{
-                                    timeoutID = setTimeout(()=>{
-                                        document.querySelector(".chartjs-tooltip-key").remove();
-                                        return
-                                    },2000)
-                                    clearTimeout(timeoutID)
-                                }
-
-                            } catch (err) {
-                                if(err.message == 'timeoutID is not defined'){
-                                    // console.log('clear chart');
-                                }
+            /**********************************************************/
+            //******************money line*****************************/
+            /**********************************************************/
+            let moneyLineInterval;
+            let prevActive = 0;
+            function changeMoneyLine(prevActive, afterOver) {
+                moneyLineInterval = setInterval(()=>{
+                    $('.money-line').find('.money-line__dot').each(function(i, item){
+                        if(prevActive == i || prevActive > 10){
+                            if(i >= 10 || prevActive > 10){
+                                $(item).removeClass('active');
+                                $('.money-line__dot').eq(0).addClass('active');
+                                $('.money-line__dot').eq(0).trigger('click');
+                                prevActive = 0;
+                            }else if(afterOver){
+                                $(item).addClass('active');
+                                $(item).trigger('click');
+                                afterOver = false;
+                            }else{
+                                $(item).removeClass('active').next().addClass('active');
+                                $(item).next().trigger('click');
+                                prevActive++;
                             }
-
-
-                        }
-                    },
-                    // events: ['mouseout'],
-                    onHover: (e,item) =>{
-                        console.log('h');
-                        if(item[0] != undefined){
-                        }
-
-                        let listItemRemove = document.querySelectorAll('.betex-tokens__list-item');
-                        for(let i = 0; i < listItemRemove.length; i++){
-                            listItemRemove[i].classList.remove('active');
-                        }
-
-                        let listItem = document.getElementsByClassName('betex-tokens__list-item');
-                        Object.keys(listItem).map(function(key, i) {
-                            if(item[0]._index == listItem[key].getAttribute('data-doughnut-index')){
-                                let elem = document.querySelector('.'+listItem[key].className.split(' ')[0]+'.'+listItem[key].className.split(' ')[1])
-                                elem.classList.add("active");
-                            }
-                        });
-                    },
-
-                }
-            });*/
-
-            google.charts.load("current", {packages:["corechart"]});
-            google.charts.setOnLoadCallback(drawChart);
-            function drawChart() {
-                var data = google.visualization.arrayToDataTable([
-                    ['Title', 'Percent'],
-                    ['For founders and team are locked on smart contracts:',30],
-                    ['Bounty campaign',3],
-                    ['Tokens pre-sale',5],
-                    ['Reserve for development and strategic aliances',12],
-                    ['Tokens sale',50]
-                ]);
-
-                var options = {
-                    title: '',
-                    pieHole: 0.5,
-                    pieSliceText: 'none',
-                    height: 400,
-                    backgroundColor: 'transparent',
-                    legend: {position: 'none'},
-                    colors: ['#eef1f5','#32abef','#ffdd00','#ff505a','#3f4fc9'],
-                    slices: {
-                        // 1: {offset: 0.1},
-                    },
-                    // chartArea:{left:20,top:0,width:'50%',height:'75%'}
-                };
-
-                var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-                chart.draw(data, options);
-
-                google.visualization.events.addListener(chart, 'select', selectHandler);
-                function selectHandler(id) {
-                    id = chart.getSelection()[0].row;
-
-                    let listItem = document.getElementsByClassName('tokens-distribution__list-item');
-                    Object.keys(listItem).map(function (key, i) {
-                        let elem = document.querySelector('.' + listItem[key].className.split(' ')[0]+'.'+listItem[key].className.split(' ')[1])
-                        elem.classList.remove("active");
-                        if(id == listItem[key].getAttribute('data-doughnut-index')){
-                            elem.classList.add("active");
+                            return false;
                         }
                     });
+                },2500)
+            }
+            $('.money-line').on('inview', (event, isInView)=> {
+                if (isInView) {
+                    prevActive = 0;
+                    changeMoneyLine(prevActive, true);
+                }else{
+                    $('.money-line__dot').removeClass('active');
+                    clearInterval(moneyLineInterval);
+                }
+            }).on('mouseover', function (){
+                $('.money-line__dot').removeClass('active');
+                clearInterval(moneyLineInterval);
+            })
+            $('.money-line__dot').on('mouseout', function(){
+                prevActive = $(this).index() + 1;
+                changeMoneyLine(prevActive, true);
+            });
 
-                    // console.log(id);
-                    options.slices = options.slices || {};
-                    for (var x in options.slices) {
-                        options.slices[x].offset = 0;
+            $('.money-line__dot').on('click', function () {
+                $('.money-line__dot').removeClass('active');
+                $(this).addClass('active');
+                if($(window).innerWidth() < 1024){
+                    $('.money-line__dot').each(function (i ,item) {
+                        if($(item).hasClass('active')){
+                            let itemIndex = $(item).index();
+                            $('.money-line-wrap').mCustomScrollbar("scrollTo", "-" + 86*itemIndex);
+                        }
+                    })
+                }
+            });
+            /*if($(window).innerWidth() >= 1024){
+                $('.money-line').on('inview', (event, isInView)=> {
+                    if (isInView) {
+                        prevActive = 0;
+                        changeMoneyLine(prevActive, true);
+                    }else{
+                        $('.money-line__dot').removeClass('active');
+                        clearInterval(moneyLineInterval);
                     }
-                    options.slices[id] = options.slices[id] || {};
-                    options.slices[id].offset = 0.1;
-                    chart.draw(data, options);
+                }).on('mouseover', function (){
+                    $('.money-line__dot').removeClass('active');
+                    clearInterval(moneyLineInterval);
+                })
+                $('.money-line__dot').on('mouseout', function(){
+                    prevActive = $(this).index() + 1;
+                    changeMoneyLine(prevActive, true);
+                });
 
+                $('.money-line__dot').on('click', function () {
+                    $('.money-line__dot').removeClass('active');
+                    $(this).addClass('active')
+                    $('.money-line__dot').each(function (i ,item) {
+                        if($(item).hasClass('active')){
+                            let itemIndex = $(item).index();
+                            $('.money-line-wrap').mCustomScrollbar("scrollTo", "-" + 85*itemIndex);
+                        }
+                    })
+                })
+            }else{
+                changeMoneyLine(0, true);
+                $('.money-line__dot').on('click', function () {
+                    $('.money-line__dot').removeClass('active');
+                    $(this).addClass('active')
+                    $('.money-line__dot').each(function (i ,item) {
+                        if($(item).hasClass('active')){
+                            let itemIndex = $(item).index();
+                            $('.money-line-wrap').mCustomScrollbar("scrollTo", "-" + 85*itemIndex);
+                        }
+                    })
+                })
+            }*/
+
+
+            /**********************************************************/
+            //******************charts*********************************/
+            /**********************************************************/
+            let donutcharInit = false;
+            $('.tokens-distribution').on('inview', function(event, isInView) {
+                if (isInView && !donutcharInit) {
+                    donutcharInit = true;
+                    // Build the chart
+                    Highcharts.chart('donutchart', {
+                        chart: {
+                            backgroundColor: false,
+                            plotBackgroundColor: null,
+                            plotBorderWidth: null,
+                            plotShadow: false,
+                            type: 'pie',
+                        },
+                        legend: {
+                            enabled: false,
+                        },
+                        title: false,
+                        subtitle: false,
+                        tooltip: false,
+                        plotOptions: {
+                            pie: {
+                                allowPointSelect: true,
+                                cursor: 'pointer',
+                                dataLabels: {
+                                    enabled: false
+                                },
+                                showInLegend: true
+                            },
+                            series: {
+                                cursor: 'pointer',
+                                point: {
+                                    events: {
+                                        select: function () {
+                                            let thisVal = this.y;
+                                            $('.tokens-distribution__list-item').each(function(i, item){
+                                                if($(item).attr('data-doughnut-index') == thisVal){
+                                                    $('.tokens-distribution__list-item').removeClass('active')
+                                                    $(item).addClass('active')
+                                                }
+                                            })
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        series: [{
+                            type: 'pie',
+                            name: 'Betex tokens distribution',
+                            innerSize: '50%',
+                            colorByPoint: true,
+                            data: [{
+                                name: 'For founders and team are locked on smart contracts',
+                                y: 30
+                            }, {
+                                name: 'Bounty campaign',
+                                y: 3
+                            }, {
+                                name: 'Tokens pre-sale',
+                                y: 5
+                            }, {
+                                name: 'Reserve for development and strategic aliances',
+                                y: 12
+                            }, {
+                                name: 'Reserve for development and strategic aliances',
+                                y: 50
+                            }],
+                            colors: ['#eef1f5','#32abef','#ffdd00','#ff505a','#3f4fc9'],
+                        }]
+                    });
+
+                    $('.tokens-distribution').removeClass('animate')
+
+                    //locked img
+                    var svgimg = document.createElementNS('http://www.w3.org/2000/svg','image');
+                    svgimg.setAttributeNS(null,'height','27');
+                    svgimg.setAttributeNS(null,'width','21');
+                    svgimg.setAttributeNS('http://www.w3.org/1999/xlink','href', 'img/home-page/locked.svg');
+                    // svgimg.setAttributeNS(null,'x','300');
+                    // svgimg.setAttributeNS(null,'y','70');
+                    svgimg.setAttributeNS(null, 'visibility', 'visible');
+                    svgimg.classList.add("locked-icon");
+                    $('.highcharts-point.highcharts-color-0 ').after(svgimg);
+
+                    /*$('.highcharts-point').on('mouseover',function(e){
+                        $(this).trigger('plotOptions.series.point.events.select')
+                    })*/
+                }
+            });
+
+            ///////////////////////////////////////////
+            let fundsDisributionInit = false;
+            $('.funds-disribution__wrap').on('inview', function(event, isInView) {
+                if (isInView && !fundsDisributionInit) {
+                    fundsDisributionInit = true;
+                    Highcharts.chart('funds-disribution', {
+                        chart: {
+                            backgroundColor: false,
+                            plotBackgroundColor: null,
+                            plotBorderWidth: null,
+                            plotShadow: false,
+                            type: 'pie'
+                        },
+                        legend: {
+                            enabled: false,
+                        },
+                        title: false,
+                        subtitle: false,
+                        tooltip: false,
+                        plotOptions: {
+                            pie: {
+                                allowPointSelect: true,
+                                cursor: 'pointer',
+                                dataLabels: {
+                                    enabled: false
+                                },
+                                showInLegend: true
+                            },
+                            series: {
+                                cursor: 'pointer',
+                                point: {
+                                    events: {
+                                        select: function () {
+                                            let thisIndex = this.index;
+                                            $('.funds-disribution__list-item').each(function(i, item){
+                                                if($(item).attr('data-index') == thisIndex){
+                                                    $('.funds-disribution__list-item').removeClass('active')
+                                                    $(item).addClass('active')
+                                                }
+                                            })
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        series: [{
+                            type: 'pie',
+                            name: 'Betex tokens distribution',
+                            innerSize: '50%',
+                            colorByPoint: true,
+                            data: [{
+                                name: 'Reserve',
+                                y: 10
+                            }, {
+                                name: 'R&D',
+                                y: 10
+                            }, {
+                                name: 'Marketing',
+                                y: 20
+                            }, {
+                                name: 'Operational costsOperational costs',
+                                y: 20
+                            }, {
+                                name: 'Product development',
+                                y: 40
+                            }],
+                            colors: ['#eef1f5','#32abef','#ffdd00','#ff505a','#3f4fc9']
+
+                        }]
+                    });
 
                 }
-            }
+            });
 
             $('.nav__list').on('click', '.nav__list-item', function (e) {
                 e.preventDefault();
@@ -341,16 +422,16 @@
                 $('body').removeClass('contribute-popup-open')
             });
 
-            $('.betex-mvp__link').on('click', (e)=> {
+            $('.betex-mvp__link').on('mouseover', (e)=> {
                 e.preventDefault();
                 let _this = e.target;
                 let thisData = $(_this).attr('data-mon');
                 if(!$(_this).hasClass('active')){
                     $(_this).addClass('active').siblings('.betex-mvp__link').removeClass('active');
-                    $('.betex-mvp__link').addClass('not-active');
+                    // $('.betex-mvp__link').addClass('not-active');
                     setTimeout(()=>{
-                        $('.betex-mvp__link').removeClass('not-active');
-                    },2000);
+                        // $('.betex-mvp__link').removeClass('not-active');
+                    },800);
 
                     $('.betex-mvp__img').removeClass('active');
                     $('.betex-mvp__img').each(function (i, item) {
@@ -368,27 +449,203 @@
                 }
             });
 
-            if(!isMobile.any()){
-                var s = skrollr.init({
-                    forceHeight: false,
-                    smoothScrollingDuration: 10,
-                    easing: 'ease'
-                });
-            }
-            $('.title-line__line').on('inview', function(event, isInView) {
-                if (isInView) {
-                    $(this).css({'width':'118px'})
-                } else {
+            //single accordion
+            $('.betex-token__more').on('click', function() {
+                $(this).toggleClass('open').siblings('.row').slideToggle()
+            })
 
+            $('.accordion-caption').on('click', function(){
+                $(this).toggleClass('open').next('div').toggleClass('open').slideToggle()
+            })
+
+
+
+            /**********************************************************/
+            //******************Business model*************************/
+            /**********************************************************/
+            $('.step-1').on('click', function() {
+                $(this).toggleClass('pressed');
+                $('.payouts__wrap').toggleClass('step-1');
+            });
+            $('.step-2').on('click', function() {
+                $(this).toggleClass('pressed');
+                $('.payouts__wrap').toggleClass('step-2');
+            });
+            $('.step-3').on('click', function() {
+                $(this).toggleClass('pressed');
+                $('.payouts__wrap').toggleClass('step-3');
+            });
+            $('.step-4').on('click', function() {
+                $(this).toggleClass('pressed');
+                $('.payouts__wrap').toggleClass('step-4');
+            });
+
+            $('.payouts').on('inview', function(event, isInView) {
+                if (isInView && !donutcharInit) {
+                    setTimeout(()=>{
+                        $('.payouts').addClass('visible');
+                    },1000)
+                }
+            });
+
+            // создадим элемент с прокруткой
+            var div = document.createElement('div');
+            div.style.overflowY = 'scroll';
+            div.style.width = '50px';
+            div.style.height = '50px';
+            // при display:none размеры нельзя узнать
+            // нужно, чтобы элемент был видим,
+            // visibility:hidden - можно, т.к. сохраняет геометрию
+            div.style.visibility = 'hidden';
+
+            document.body.appendChild(div);
+            var scrollWidth = div.offsetWidth - div.clientWidth;
+            document.body.removeChild(div);
+
+            var animated = false;
+
+            function modelAnimation () {
+                if($('.business-model').offset().top <= $(window).scrollTop() + 100
+                    && $('.business-model').offset().top + $('.business-model').height() >= $(window).scrollTop()
+                    && !animated
+                    && $(window).innerWidth() >= 1024){
+                    animated = true;
+
+                    if($(window).height() <= 700){
+                        $('html, body').animate({
+                            scrollTop: $('.payouts').offset().top
+                        }, 500);
+                    }else {
+                        $('html, body').animate({
+                            scrollTop: $('.business-model').offset().top + 100
+                        }, 500);
+                    }
+
+                    $('.payouts').addClass('visible');
+
+                    $('html').addClass('over-hidden').find('body').css({'marginRight':scrollWidth + "px"}); // remove scroll
+
+                    $('.payouts').attr({'data-animated':'false'}); // replay button hidden on scroll if data false
+
+                    // add steps
+                    setTimeout(()=>{
+                        $('.payouts__wrap').addClass('step-1'); //6s
+                    },1000);
+                    setTimeout(()=>{
+                        $('.payouts__wrap').addClass('step-2')
+                    },8000);
+                    setTimeout(()=>{
+                        if($(window).height() <= 830){
+                            $('html, body').animate({
+                                scrollTop: $('.payouts').offset().top + 200
+                            }, 500);
+                        }
+                        $('.payouts__wrap').addClass('step-3')
+                    },13000);
+                    setTimeout(()=>{
+                        if($(window).height() > 830){
+                            $('html, body').animate({
+                                scrollTop: $('.payouts').offset().top
+                            }, 500);
+                        }
+
+                        $('.payouts__wrap').addClass('step-4')
+                    },15000);
+
+                    setTimeout(()=>{
+                        $('html').removeClass('over-hidden').find('body').attr('style','');  // add scroll
+                        $('.payouts').attr({'data-animated':'true'})
+                    },17000)
+                }
+            }
+
+            $('.payouts__replay').on('click', function (e) {
+                e.preventDefault();
+                $('.payouts').removeClass('visible');
+                $(this).addClass('hidden');
+                $('.payouts__wrap').removeClass('step-1 step-2 step-3 step-4');
+                setTimeout(()=>{
+                    animated = false;
+                    modelAnimation();
+                }, 1500)
+
+            });
+
+            $(window).on('scroll', () => {
+                modelAnimation();
+                if($('.payouts').is('.visible')){
+                    if($(window).scrollTop() + $(window).innerHeight()/2 >= $('.payouts').offset().top
+                        && !($(window).scrollTop() + $(window).innerHeight()/2 >= $('.payouts').offset().top + $(window).innerHeight() - 200)
+                        && $('.payouts').attr('data-animated') == "true"){
+
+                        $('.payouts__replay').removeClass('hidden');
+
+                    }else if($(window).scrollTop() + $(window).innerHeight()/2 >= $('.payouts').offset().top + $(window).innerHeight()/2){
+
+                        $('.payouts__replay').addClass('hidden');
+
+                    }else{
+                        $('.payouts__replay').addClass('hidden');
+                    }
                 }
             });
         },
-
 
         /********************************************************************************
          * Load tasks
          ********************************************************************************/
         load: () => {
+            let isMobile = {
+                Android: function() {
+                    return navigator.userAgent.match(/Android/i);
+                },
+                BlackBerry: function() {
+                    return navigator.userAgent.match(/BlackBerry/i);
+                },
+                iOS: function() {
+                    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+                },
+                Opera: function() {
+                    return navigator.userAgent.match(/Opera Mini/i);
+                },
+                Windows: function() {
+                    return navigator.userAgent.match(/IEMobile/i);
+                },
+                any: function() {
+                    return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+                }
+            };
+
+            $('.main-block__img-wrap').removeClass('loading');
+            $('.main-block__descript').removeClass('loading');
+
+            if($(window).innerHeight() <= $('.main-info').offset().top + 80
+                || $(window).innerHeight() + $('.main-info').offset().top <= $(window).scrollTop()){
+                $('.main-info__title').css({
+                    'transition': '2s .5s'
+                })
+                $('.main-info__text').css({
+                    'transition': '2s .5s'
+                })
+            }
+            $('.main-info').on('inview', function(event, isInView) {
+                if (isInView) {
+                    $('.main-info').removeClass('loading');
+                }
+            });
+
+            setTimeout(()=>{
+                if(!isMobile.any()){
+                    var s = skrollr.init({
+                        forceHeight: false,
+                        smoothScrollingDuration: 10,
+                        easing: 'ease'
+                    });
+                }
+            },2500);
+            setTimeout(()=>{
+                $('.main-block__img-wrap').addClass('skrollable-active')
+            },3500)
 
         },
         /********************************************************************************
@@ -410,6 +667,25 @@
          ********************************************************************************/
         scrollEvents: () => {
 
+            /*// создадим элемент с прокруткой
+            var div = document.createElement('div');
+            div.style.overflowY = 'scroll';
+            div.style.width = '50px';
+            div.style.height = '50px';
+            // при display:none размеры нельзя узнать
+            // нужно, чтобы элемент был видим,
+            // visibility:hidden - можно, т.к. сохраняет геометрию
+            div.style.visibility = 'hidden';
+
+            document.body.appendChild(div);
+            var scrollWidth = div.offsetWidth - div.clientWidth;
+            document.body.removeChild(div);
+
+            if($('.payouts').offset().top >= $(window).scrollTop()){
+                $('html').addClass('over-hidden').find('body').removeClass('nav-open').css({'marginRight':scrollWidth + "px"}).find('.rngst_phone_button').css({'marginRight':scrollWidth + 25 + "px"});
+            }else{
+                $('html').removeClass('over-hidden').find('body').attr('style','').find('.rngst_phone_button').css({'marginRight':25 + "px"});
+            }*/
         },
 
         /********************************************************************************
@@ -462,7 +738,6 @@
 
         }
 
-
     };
 
     /********************************************************************************
@@ -474,6 +749,10 @@
 
     $(window).on('load', () => {
         APP.load();
+    });
+
+    $(window).on('scroll', () => {
+        APP.scrollEvents();
     });
 
 

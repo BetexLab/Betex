@@ -16,6 +16,22 @@
     }
     &-icon{
       min-height: 34px;
+      stroke: #38393c;
+      svg{
+        transition: .4s;
+      }
+      .stroke-gray {
+        stroke: #b8bbbe
+      }
+      .stroke-black {
+        stroke: #38393c
+      }
+      .fill-gray {
+        fill: #b8bbbe
+      }
+      .fill-black {
+        fill: #38393c
+      }
     }
    }
   @media (min-width: 768px){
@@ -37,6 +53,22 @@
       padding-top: 67px;
       padding-bottom: 5px;
       border-top: 2px solid #d8d8d8;
+    }
+  }
+  @media (min-width: 1024px){
+    &__item{
+      &:hover{
+        .detail-info__item-icon svg{
+          transform: translate(100%, 100%) scale(3.2, 3.2);
+          opacity: .3;
+          .stroke-black {
+            stroke: #70A1FB
+          }
+          .fill-black {
+            fill: #70A1FB
+          }
+        }
+      }
     }
   }
 

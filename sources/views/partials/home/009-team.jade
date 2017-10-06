@@ -18,11 +18,13 @@
 section.team#team
   .container
     h3.team__title.title-line Our team
-      span.title-line__line
+      span.title-line__line(data--20-bottom="width: 0px" data--200-bottom="width: 118px")
     .row.team__row
       each status, name in team
         .person
-          img.person__photo(src="img/home-page/team-"+ count++ +".png", alt="team-person-" +count)
+          .person__photo
+            .person__photo-wrap
+              img.person__photo-img(src="img/home-page/team-"+ count++ +".png", alt="team-person-" +count)
           h5.person__name=name
           p.person__status=status
           a(href="#", target="_blank", rel="nofollow").person__link
@@ -32,7 +34,9 @@ section.team#team
     .row.team__row
       each status, name in advisors
         .person
-          img.person__photo(src="img/home-page/advisors-" + count++ + ".png", alt="advisors-person-" +count)
+          .person__photo
+            .person__photo-wrap
+              img.person__photo-img(src="img/home-page/advisors-" + count++ + ".png", alt="advisors-person-" +count)
           h5.person__name=name
           p.person__status=status
           a(href="#", target="_blank", rel="nofollow").person__link

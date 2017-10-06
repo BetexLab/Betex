@@ -3,15 +3,18 @@
   min-height: 550px;
   &__title{
     letter-spacing: -0.009em;
-    @include line-height(29,22)
+    @include line-height(29,22);
+    transition: 1s 1.5s;
   }
   &__sub-title{
     @include font-size(14);
     margin: 0;
     padding: 10px 0;
+    transition: 1s 2s;
   }
   &__descript{
     padding: 41px 0 0 8px;
+
   }
   &__img{
     &-wrap{
@@ -33,6 +36,7 @@
   &__links{
     flex-direction: column;
     @extend %l_flex--align-flex-start;
+    transition: 1s 2s;
   }
   &__link{
     margin-bottom: 24px;
@@ -57,17 +61,45 @@
     &__img{
       position: absolute;
       left: 2px;
-      top: 125px;
-      max-width: calc(100% + 160px);
+      top: 67px;
+      max-width: 100%;
+      max-height: 465px;
+      transform: translate3d(0%,15%,0);
+      transition: transform 1s 1.5s, top 1.5s;
       &-wrap{
         display: block;
-        background-image: linear-gradient(180deg, #eef1f5 0%, #fff 100%);
+        background: linear-gradient(180deg, #eef1f5 0%, #fff 100%);
         position: absolute;
         right: 0;
         top: -73px;
         width: 50%;
         height: calc(100% + 73px);
-        //overflow: hidden;
+        transition: transform 1s;
+        transform: translate3d(0%,0%,0);
+        &.loading{
+          transform: translate3d(0%,-100%,0);
+          .main-block__img{
+            transform: translate3d(0%,-150%,0);
+          }
+        }
+        &.skrollable-active{
+          .main-block__img{
+            transition: transform .8s;
+          }
+        }
+      }
+    }
+    &__descript{
+      &.loading{
+        .main-block__title,
+        .main-block__sub-title,
+        .time,
+        .subscribe-form,
+        .main-block__links,
+        .timer{
+          opacity: 0;
+          transform: translate3d(0,20px,0);
+        }
       }
     }
   }
@@ -89,6 +121,7 @@
   display: flex;
   justify-content: flex-start;
   padding: 15px 0 20px;
+  transition: 1s 2s;
   &__item{
     @extend %l_flex--align-flex-start;
     @include font-size(29);

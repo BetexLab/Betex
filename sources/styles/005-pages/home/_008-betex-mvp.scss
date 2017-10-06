@@ -34,28 +34,21 @@
 
   &__img{
     max-width: 100%;
-
     &-wrap{
       height: 230px;
     }
-
     position: absolute;
     @media (min-width: 650px){
       width: 76%;
       left: 23%;
-      top: 0%;
-      transition: 1s;
-      &:not(.active){
-        opacity: .7;
-      }
+      top: 0;
       .change &{
-        animation: 2s monitorDeactivated forwards;
+        animation: .4s monitorDeactivated forwards;
       }
-      animation-fill-mode: forwards;
       &.active{
         left: 13.7%;
         top: 12%;
-        animation: 2s monitorToActive forwards;
+        animation: .4s monitorToActive forwards;
       }
     }
   }
@@ -145,7 +138,55 @@
 }
 
 
-@keyframes monitorToActive {
+@keyframes monitorToActive{
+  0%{
+    left: 23%;
+    top: 0;
+    opacity: .7;
+    z-index: 1;
+  }
+  50%{
+    top: 12%;
+    left: 33%;
+    opacity: .7;
+  }
+  60%{
+    opacity: 1;
+    z-index: 2;
+  }
+  100%{
+    left: 13.7%;
+    top: 12%;
+    opacity: 1;
+    z-index: 2;
+  }
+}
+
+@keyframes monitorDeactivated{
+  0%{
+    left: 13.7%;
+    top: 12%;
+    opacity: 1;
+    z-index: 2;
+  }
+  50%{
+    top: 12%;
+    left: 3.7%;
+    opacity: 1;
+  }
+  60%{
+    opacity: .7;
+    z-index: 1;
+  }
+  100%{
+    left: 23%;
+    top: 0;
+    opacity: .7;
+    z-index: 1;
+  }
+}
+
+/*@keyframes monitorToActive {
   0%{
     left: 23%;
     top: 0%;
@@ -261,7 +302,7 @@
     opacity: .75;
     z-index: 1;
   }
-}
+}*/
 
 /*@keyframes monitorToActive {
   0%{

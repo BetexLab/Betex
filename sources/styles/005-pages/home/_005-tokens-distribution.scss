@@ -1,23 +1,23 @@
 .tokens-distribution{
 
-  &__title-block{
-    border-top: 1px solid #d8d8d8;
-  }
-  &__title-mob{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: $weight-bold;
-    margin: 0;
-    padding: 19px 7px;
-    &-icon{
-      transform: rotate(-90deg);
-      transition: .3s;
-      .tokens-distribution__title-block.open &{
-        transform: rotate(90deg);
-      }
-    }
-  }
+   &__title-block{
+     border-top: 1px solid #d8d8d8;
+   }
+   &__title-mob{
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     font-weight: $weight-bold;
+     margin: 0;
+     padding: 19px 7px;
+     &-icon{
+       transform: rotate(-90deg);
+       transition: .3s;
+       .tokens-distribution__title-block.open &{
+         transform: rotate(90deg);
+       }
+     }
+   }
 
    &__chart{
      margin: 5px 0 0 -5px;
@@ -62,8 +62,10 @@
            left: -3px;
            display: block;
            border-radius: 100%;
-           opacity: .5;
+           opacity: 1;
            z-index: 1;
+           transform: scale(.8);
+           animation: 1.4s pulseListItem infinite;
          }
          &.grey {
            &:after{
@@ -152,89 +154,121 @@
        }
      }
    }
+   .locked-icon{
+     x: 330;
+     y: 70;
+   }
 
-  @media (min-width: 768px){
-    //padding: 0 0 98px;
-    padding: 40px 0 98px;
-    &__title{
-      padding-left: 10px;
-      margin-bottom: 1em;
-      font-weight: $weight-bold;
-    }
-    &__title-block{
-      display: none;
-    }
-    &__list{
-      padding: 10px 0 0 15px;
-      &-item{
-        line-height: 1.4;
-        padding: 0 0 16px;
-        &:before{
-          margin-top: 5px;
-        }
-        &.active{
-          &:after{
-            top: 2px;
-          }
-        }
-        b{
-          flex: 0 1 45px;
-        }
-      }
-    }
-    .locked{
-      &__list {
-        padding: 25px 0 0;
-        &-item{
-          &:before{
-            top: 6px;
-          }
-        }
-      }
-    }
-  }
-  @media (min-width: 1024px) {
-    &__chart{
-      &-wrap{
-        //padding: 0 120px;
-      }
-    }
-  }
-  @media (max-width: 767px){
-    padding-top: 30px;
-    border-bottom: 1px solid #d8d8d8;
-    &__title{
-      display: none;
-    }
-    &__list{
-      &-item{
-        span{
-          @include font-size(14);
-        }
-      }
-    }
-    .locked{
-      &__list{
-        &-item{
-          @include font-size(14);
-        }
-      }
-    }
-    &__chart{
-      &-wrap{
-        margin-bottom: 27px;
-      }
-    }
-  }
-  @media (max-width: 550px){
-    #donutchart{
-      height: 320px;
-      margin-top: -100px;
-      &>div>div{
-        height: 320px !important;
-      }
-    }
-  }
+   @media (min-width: 768px){
+     //padding: 0 0 98px;
+     padding: 40px 0 98px;
+     &__title{
+       padding-left: 10px;
+       margin-bottom: 1em;
+       font-weight: $weight-bold;
+     }
+     &__title-block{
+       display: none;
+     }
+     &__list{
+       padding: 10px 0 0 15px;
+       &-item{
+         line-height: 1.4;
+         padding: 0 0 16px;
+         &:before{
+           margin-top: 5px;
+         }
+         &.active{
+           &:after{
+             top: 2px;
+           }
+         }
+         b{
+           flex: 0 1 45px;
+         }
+       }
+     }
+     .locked{
+       &__list {
+         padding: 25px 0 0;
+         &-item{
+           &:before{
+             top: 6px;
+           }
+         }
+       }
+     }
+     .locked-icon{
+       x: 250;
+     }
+     .donutchart{
+       width: 390px;
+     }
+   }
+   @media (min-width: 1024px) {
+     &__title{
+       transition: 1s;
+     }
+     &__list {
+       transition: 1s .5s;
+     }
+     &__title,
+     &__list{
+       .tokens-distribution.animate &{
+         opacity: 0;
+         transform: translate3d(0,30px,0);
+       }
+     }
+     &__chart{
+       &-wrap{
+         //padding: 0 120px;
+       }
+     }
+     .donutchart{
+       width: 500px;
+     }
+     .locked-icon {
+       x: 300;
+     }
+   }
+   @media (max-width: 767px){
+     padding-top: 30px;
+     border-bottom: 1px solid #d8d8d8;
+     &__title{
+       display: none;
+     }
+     &__list{
+       &-item{
+         span{
+           @include font-size(14);
+         }
+       }
+     }
+     .locked{
+       &__list{
+         &-item{
+           @include font-size(14);
+         }
+       }
+     }
+     &__chart{
+       &-wrap{
+         margin-bottom: 27px;
+       }
+     }
+     .locked-icon{
+       display: none;
+     }
+   }
+   /*@media (max-width: 550px){
+     #donutchart{
+       height: 320px;
+       margin-top: -100px;
+       &>div>div{
+         height: 320px !important;
+       }
+     }
+   }*/
  }
 
 
@@ -267,5 +301,27 @@
     bottom: 0;
     left: -60px;
     z-index: -1;
+  }
+}
+.google-visualization-tooltip{
+  display: none;
+}
+
+.highcharts-color-0 + image {
+  transform: translate(0, 0);
+  transition: .7s;
+}
+.highcharts-color-0.highcharts-point-select + image {
+  transform: translate(7px, -6px);
+}
+
+@keyframes pulseListItem {
+  0%{
+    transform: scale(.8);
+    opacity: 1;
+  }
+  100%{
+    transform: scale(1.4);
+    opacity: 0;
   }
 }

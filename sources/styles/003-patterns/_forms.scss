@@ -7,6 +7,7 @@
     display: flex;
     justify-content: space-between;
     border-radius: 8px;
+    transition: 1s 2s;
     &__input{
       background:transparent;
       @include font-size(14);

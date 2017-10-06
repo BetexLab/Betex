@@ -3,18 +3,21 @@
   &__title{
     line-height: 1.3;
     margin-left: 7px;
+    transition: 2s 3s;
   }
   &__text{
     line-height: 1.75;
     padding: 16px 0 0 10px;
     letter-spacing: -0.006em;
     max-width: 465px;
+    transition: 2s 3s;
     p{
       margin: 0 0 23px;
     }
   }
   @media (min-width: 768px){
-    padding: 90px 0 43px;
+    padding: 0px 0 43px;
+    margin-top: 90px;
     &__title {
       margin-left: 11px;
       line-height: 1.5;
@@ -25,6 +28,13 @@
     }
   }
   @media (min-width: 1024px){
+    &.loading{
+      .main-info__title,
+      .main-info__text{
+        opacity: 0;
+        transform: translate3d(0,20px,0);
+      }
+    }
     &__title{
       margin-left: 104px;
     }

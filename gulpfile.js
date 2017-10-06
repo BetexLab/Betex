@@ -135,7 +135,7 @@ gulp.task('libs', () => {                                                       
  * custom javascript
  ********************************************************************************/
 gulp.task('javascript', () => {                                                 // Создание минимизированого файла скриптов из sources/js
-    return gulp.src(paths.src.js)                                               // Выберем файлы по нужному пути
+    return gulp.src(['sources/js/core.js'])                                               // Выберем файлы по нужному пути
         .pipe(gulpIf(isDev, sourcemaps.init()))                                 // Инициализируем sourcemap
         .pipe(babel({
             presets: ['env']
@@ -148,6 +148,27 @@ gulp.task('javascript', () => {                                                 
         .pipe(concat('core.min.js'))                                            // Собираем их в кучу в новом файле core.min.js
         .pipe(gulpIf(isDev, sourcemaps.write('./')))                            // Записываем sourcemap
         .pipe(uglify())                                                         // Сжимаем JS файл
+        .pipe(gulp.dest(paths.build.js))                                        // Выгружаем в папку указаную в paths.build.js
+        .pipe(gulpIf(singleReload, browserSync.stream()));
+});
+
+/********************************************************************************
+ * chart javascript
+ ********************************************************************************/
+gulp.task('chart', () => {                                                 // Создание минимизированого файла скриптов из sources/js
+    return gulp.src(['sources/js/chart.js'])                                               // Выберем файлы по нужному пути
+        .pipe(gulpIf(isDev, sourcemaps.init()))                                 // Инициализируем sourcemap
+        // .pipe(babel({
+        //     presets: ['env']
+        // }))
+        .pipe(uglify({                                                          // Найтройки js
+            mangle: false,
+            compress: false,
+            preserveComments: false
+        })).on('error', notify.onError())
+        .pipe(concat('chart.js'))                                            // Собираем их в кучу в новом файле core.min.js
+        .pipe(gulpIf(isDev, sourcemaps.write('./')))                            // Записываем sourcemap
+        //.pipe(uglify())                                                         // Сжимаем JS файл
         .pipe(gulp.dest(paths.build.js))                                        // Выгружаем в папку указаную в paths.build.js
         .pipe(gulpIf(singleReload, browserSync.stream()));
 });
@@ -225,6 +246,7 @@ gulp.task('watch', () => {                                                      
     gulp.watch([src.img],                     gulp.series('img')).on('unlink', filepath);
     // gulp.watch([src.js],                      gulp.series('javascript', 'libs')).on('unlink', filepath);
     gulp.watch([src.js],                      gulp.series('javascript')).on('unlink', filepath);
+    gulp.watch([src.js],                      gulp.series('chart')).on('unlink', filepath);
     gulp.watch(['./sources/svgs/html/*.svg'], gulp.series('svg')).on('unlink', filepath);
     gulp.watch(['./sources/svgs/css/*.svg'],  gulp.series('svg-css')).on('unlink', filepath);
 
@@ -243,7 +265,7 @@ gulp.task('copy', () => {                                                       
  *******************************************************************************/
 gulp.task('build', gulp.series(                                                // Таска для создания билдов
     'clean',
-    gulp.parallel( 'sass', 'javascript', 'libs', 'svg', 'svg-css', 'img'), 'jade', 'copy'),
+    gulp.parallel( 'sass', 'javascript', 'chart', 'libs', 'svg', 'svg-css', 'img'), 'jade', 'copy'),
     'watch'
 );
 

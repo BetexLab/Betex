@@ -6,9 +6,8 @@
       padding: 6px 0 0 0;
       &-item{
         @include font-size(14);
-        transition: .3s;
         &:hover{
-          opacity: .7;
+          color: #0eb955;
         }
       }
     }

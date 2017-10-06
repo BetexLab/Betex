@@ -321,6 +321,9 @@
       margin-left: -15px;
       width: calc(100% + 30px);
     }
+    &__info{
+      padding-left: 10px;
+    }
   }
 }
 .mCSB_scrollTools.mCSB_scrollTools_horizontal .mCSB_draggerRail{
@@ -398,9 +401,9 @@
   &-wrap{
     width: calc(100% + 30px);
     margin-left: -15px;
-    .mCustomScrollBox{
-      overflow: visible;
-    }
+    //.mCustomScrollBox{
+    //  overflow: visible;
+    //}
     .mCSB_horizontal.mCSB_inside>.mCSB_container{
       min-width: 1200px;
     }
@@ -459,6 +462,7 @@
         }
       }
     }*/
+    &:hover,
     &.active{
       &:after{
         transform: scale(1);
@@ -509,6 +513,7 @@
         font-weight: $weight-bold;
         padding: 8px 0 13px;
       }
+      .money-line__dot:hover &,
       .money-line__dot.active &{
         visibility: visible;
         opacity: 1;
@@ -613,6 +618,7 @@
   &__list{
     padding: 8px 0 0;
     &-item{
+      position: relative;
       padding: 0 0 21px;
       b{
         padding-right: 4px;
@@ -649,6 +655,48 @@
       &.blue {
         &:before{
           background: $blue;
+        }
+      }
+
+      &.active{
+        &:after{
+          content: '';
+          width: 17px;
+          height: 17px;
+          position: absolute;
+          top: 1px;
+          left: -3px;
+          display: block;
+          border-radius: 100%;
+          opacity: .5;
+          z-index: 1;
+          transform: scale(.8);
+          animation: 1.4s pulseListItem infinite;
+        }
+        &.grey {
+          &:after{
+            background: $grey;
+          }
+        }
+        &.light-blue {
+          &:after{
+            background: $lightblue;
+          }
+        }
+        &.yellow {
+          &:after{
+            background: $yellow;
+          }
+        }
+        &.red {
+          &:after{
+            background: $red;
+          }
+        }
+        &.blue {
+          &:after{
+            background: $blue;
+          }
         }
       }
     }
