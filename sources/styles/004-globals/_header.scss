@@ -3,7 +3,7 @@
     &__list{
       @extend .l_flex--align-center;
       justify-content: space-around;
-      padding: 6px 0 0 0;
+      padding: 6px 0 0 23px;
       &-item{
         @include font-size(14);
         &:hover{
@@ -69,7 +69,7 @@
         top: 10px;
       }
     }
-    .menu-open & {
+    /*.menu-open & {
       right: 10px;
       top: 14px;
       span{
@@ -86,6 +86,9 @@
           transform: rotate(-135deg);
         }
       }
+    }*/
+    .menu-open &{
+      opacity: 0;
     }
     .contribute-popup-open &{
       display: none;
@@ -114,13 +117,14 @@
     }
   }
   @media (max-width: 1023px){
-    background: rgba(223,221,221,.5);
+    background: rgba(255,255,255,0);
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
-    .contribute-popup-open &{
-      background: #fff;
+    transition: .5s;
+    &.white{
+      background: rgba(255,255,255,.9);
     }
     &__logo{
       margin-bottom: 4px;
@@ -135,7 +139,6 @@
       display: none;
     }
   }
-  //@media (max-width: 1023px)
 }
 
 .mob-menu{
@@ -147,7 +150,6 @@
   min-height: 568px;
   background: #fff;
   z-index: 100;
-  //transform: skew(50deg, -50deg) translate(114%, 43%);
   transform: translate(0, -120%);
   opacity: 0;
   transition: .5s;
@@ -156,11 +158,36 @@
     transform: translate(0, 0);
     opacity: 1;
   }
+  &__close{
+    position: absolute;
+    top: 36px;
+    right: 18px;
+    width: 20px;
+    height: 20px;
+    z-index: 1;
+    &:after,
+    &:before{
+      content: '';
+      width: 2px;
+      height: 20px;
+      background-color: #38393c;
+      position: absolute;
+      top: 0;
+    }
+    &:after{
+      right: 9px;
+      transform: rotate(-45deg);
+    }
+    &:before{
+      right: 9px;
+      transform: rotate(45deg);
+    }
+  }
   &__wrap{
     position: relative;
     height: 100%;
-    padding: 67px 0 0 85px;
-    &:before{
+    padding: 58px 0 0 49px;
+    /*&:before{
       content: '';
       width: 44px;
       height: calc(100% - 50px);
@@ -168,7 +195,7 @@
       position: absolute;
       left: 0;
       top: 25px;
-    }
+    }*/
   }
   &__nav{
     border-bottom: 1px solid #d8d8d8;
@@ -188,7 +215,7 @@
   &__btn-title{
     @include font-size(14);
     font-weight: $weight-bold;
-    padding: 19px 0 12px 2px;
+    padding: 7px 0 12px 0;
   }
   &__btn{
     width: 107px;
@@ -201,7 +228,7 @@
     display: flex;
     flex-direction: column-reverse;
     align-items: flex-start;
-    padding: 40px 0 0 0;
+    padding: 20px 0 0 0;
   }
   &__link{
     margin-top: 20px;
@@ -210,10 +237,10 @@
 
 .contribute-popup{
   position: fixed;
-  top: 50px;
+  top: 0;
   left: 0;
   width: 100%;
-  height: calc(100% - 50px);
+  height: 100%;
   min-height: 568px;
   background: #fff;
   border-top: 1px solid #d8d8d8;
@@ -228,12 +255,12 @@
 
   &__wrap{
     position: relative;
-    padding: 60px 0 0 23px;
+    padding: 110px 0 0 48px;
   }
   &__close{
     position: absolute;
-    top: -36px;
-    right: 27px;
+    top: 36px;
+    right: 18px;
     width: 20px;
     height: 20px;
     &:after,
@@ -246,11 +273,11 @@
       top: 0;
     }
     &:after{
-      right: 0;
+      right: 9px;
       transform: rotate(-45deg);
     }
     &:before{
-      right: 0;
+      right: 9px;
       transform: rotate(45deg);
     }
   }

@@ -121,14 +121,14 @@ b{
     left: 0;
     //width: 107px;
     //width: 163px;
-    width: 0px;
+    width: 107px;
     height: 2px;
     background: #dcdcdc;
-    //transition: 1s ease-out;
   }
   @include mq(768){
     margin-bottom: 33px;
     &__line{
+      width: 0;
       bottom: -33px;
       background: $primary;
     }

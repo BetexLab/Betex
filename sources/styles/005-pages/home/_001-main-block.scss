@@ -13,8 +13,7 @@
     transition: 1s 2s;
   }
   &__descript{
-    padding: 41px 0 0 8px;
-
+    padding: 35px 0 0 8px;
   }
   &__img{
     &-wrap{
@@ -37,9 +36,10 @@
     flex-direction: column;
     @extend %l_flex--align-flex-start;
     transition: 1s 2s;
+    padding: 18px 0 0;
   }
   &__link{
-    margin-bottom: 24px;
+    margin-bottom: 21px;
   }
 
   @media (min-width: 768px){
@@ -52,6 +52,9 @@
     }
     &__descript{
       padding: 75px 50px 0 10px;
+    }
+    &__link{
+      margin-bottom: 24px;
     }
   }
   @media (min-width: 1024px) {

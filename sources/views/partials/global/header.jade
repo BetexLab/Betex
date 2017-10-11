@@ -4,9 +4,10 @@
     'Roadmap' :       'roadmap',
     'Token Sale' :    'token-sale',
     'MVP' :           'mvp',
-    'Our Team' :      'team'
+    'Our team' :      'team',
+    'FAQ' :           'faq'
   },
-  mobNav = ['Home','Business model','Roadmap','Token Sale','MVP','Our team'];
+  //mobNav = ['Home','Business model','Roadmap','Token Sale','MVP','Our team'];
 
   mobNav = {
     'Home'           :'top',
@@ -14,7 +15,8 @@
     'Roadmap' :       'roadmap',
     'Token Sale' :    'token-sale',
     'MVP' :           'mvp',
-    'Our Team' :      'team'
+    'Our team' :      'team',
+    'FAQ' :           'faq'
   }
 
 
@@ -51,6 +53,7 @@ header.header
                 a(href="#" + item)=key
 
   .mob-menu
+    .mob-menu__close
     .mob-menu__wrap
       nav.mob-nav
         ul.mob-menu__nav

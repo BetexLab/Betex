@@ -422,6 +422,11 @@
                 $('body').removeClass('contribute-popup-open')
             });
 
+            $('.mob-menu__close').on('click', ()=> {
+
+                $('body').removeClass('menu-open')
+            });
+
             $('.betex-mvp__link').on('mouseover', (e)=> {
                 e.preventDefault();
                 let _this = e.target;
@@ -456,6 +461,17 @@
 
             $('.accordion-caption').on('click', function(){
                 $(this).toggleClass('open').next('div').toggleClass('open').slideToggle()
+            });
+
+            $('.accordion__wrap:not(.open)').find('.accordion__content').hide();
+            $('.accordion__wrap').on('click',function (e) {
+                e.preventDefault();
+                if($(this).hasClass('open')){
+                    $(this).removeClass('open').find('.accordion__content').slideUp();
+                }else{
+                    $(this).addClass('open').find('.accordion__content').slideDown();
+                    $(this).siblings().removeClass('open').find('.accordion__content').slideUp()
+                }
             })
 
 
@@ -666,26 +682,11 @@
          * Scroll bindings
          ********************************************************************************/
         scrollEvents: () => {
-
-            /*// создадим элемент с прокруткой
-            var div = document.createElement('div');
-            div.style.overflowY = 'scroll';
-            div.style.width = '50px';
-            div.style.height = '50px';
-            // при display:none размеры нельзя узнать
-            // нужно, чтобы элемент был видим,
-            // visibility:hidden - можно, т.к. сохраняет геометрию
-            div.style.visibility = 'hidden';
-
-            document.body.appendChild(div);
-            var scrollWidth = div.offsetWidth - div.clientWidth;
-            document.body.removeChild(div);
-
-            if($('.payouts').offset().top >= $(window).scrollTop()){
-                $('html').addClass('over-hidden').find('body').removeClass('nav-open').css({'marginRight':scrollWidth + "px"}).find('.rngst_phone_button').css({'marginRight':scrollWidth + 25 + "px"});
+            if($(window).scrollTop() > 50){
+                $('.header').addClass('white');
             }else{
-                $('html').removeClass('over-hidden').find('body').attr('style','').find('.rngst_phone_button').css({'marginRight':25 + "px"});
-            }*/
+                $('.header').removeClass('white');
+            }
         },
 
         /********************************************************************************

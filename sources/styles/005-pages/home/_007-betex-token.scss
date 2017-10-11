@@ -3,9 +3,9 @@
   padding: 48px 0 0;
   overflow: hidden;
   &__header{
+    padding: 0 0 0 5px;
     display: flex;
     justify-content: space-between;
-    padding: 0 22px 0 5px;
   }
   &__title{}
   &__text{
@@ -138,6 +138,9 @@
         padding-bottom: 20px;
       }
     }
+    &__header {
+      padding: 0 22px 0 5px;
+    }
   }
   @media (max-width: 767px){
     &__header{
@@ -149,7 +152,9 @@
     }
     &__detail{
       margin-top: 30px;
-      padding-bottom: 17px;
+      &>.row{
+        padding-bottom: 17px;
+      }
       &-item{
         @include font-size(14);
         &_half-mob{
@@ -173,8 +178,8 @@
   $bigBraces: $item3 + $item4 + $item5 + $item6;
   margin: 93px 31px 34px;
   position: relative;
-  //min-width: 750px;
-  min-width: 810px;
+  //min-width: 810px;
+  min-width: 1000px;
   .braces{
     &_small{
       left: 3px;
@@ -534,8 +539,7 @@
 
   }
   @media (min-width: 1024px) {
-    //margin: 120px auto 60px;
-    margin: 120px auto 60px;
+    margin: 140px auto 60px;
     &-wrap{
       padding: 0 110px;
     }
@@ -553,6 +557,9 @@
     &__money{
       bottom: -30px;
     }
+  }
+  @media (min-height: 1200px) {
+    margin: 120px auto 60px;
   }
   @media (min-width: 1200px) {
 

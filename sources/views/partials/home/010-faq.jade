@@ -1,0 +1,15 @@
+section.faq#faq
+  .container.faq__container
+    h2.faq__title.title-line FAQ
+      span.title-line__line(data--20-bottom="width: 0px" data--200-bottom="width: 118px")
+
+    .accordion.faq__accordion
+      -for(var i = 0; i<5; i ++)
+        .accordion__wrap
+          .accordion__header
+            p.accordion__header-title.faq__question How does betex work?
+            svg.accordion__header-icon(width="32px", height="32px")
+              use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#dropdown")
+          .accordion__content
+            .faq__answer
+              p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

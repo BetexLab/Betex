@@ -1,6 +1,9 @@
+.gray-grad{
+  background-image: linear-gradient(180deg, #fff 0%, #eef1f5 100%);
+}
+
 .team{
   padding: 33px 0 0;
-  background-image: linear-gradient(180deg, #fff 0%, #eef1f5 100%);
   &__row{
     @extend %l_justify-content--space-between;
   }
