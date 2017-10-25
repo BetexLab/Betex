@@ -43,12 +43,12 @@
       left: 23%;
       top: 0;
       .change &{
-        animation: .4s monitorDeactivated forwards;
+        animation: .6s monitorDeactivated forwards;
       }
       &.active{
         left: 13.7%;
         top: 12%;
-        animation: .4s monitorToActive forwards;
+        animation: .6s monitorToActive forwards;
       }
     }
   }
@@ -101,6 +101,11 @@
     padding: 120px 0 50px;
     &__descript {
       padding: 95px 0 0 10px;
+    }
+  }
+  @media (max-width: 1023px) and (min-width: 650px) {
+    &__row{
+      padding-right: 100px;
     }
   }
   @media (max-width: 767px){
@@ -185,180 +190,3 @@
     z-index: 1;
   }
 }
-
-/*@keyframes monitorToActive {
-  0%{
-    left: 23%;
-    top: 0%;
-    opacity: .7;
-    z-index: 1;
-  }
-  50%{
-    left: 0;
-    top: 50%;
-    width: 45%;
-    opacity: .7;
-    z-index: 1;
-  }
-  51%{
-    opacity: .7;
-    z-index: 2;
-  }
-  75%{
-    opacity: .85;
-    z-index: 2;
-  }
-  100%{
-    left: 13.7%;
-    top: 12%;
-    opacity: 1;
-    z-index: 2;
-  }
-}
-@keyframes monitorDeactivated {
-  0%{
-    left: 13.7%;
-    top: 12%;
-    opacity: 1;
-    z-index: 2;
-  }
-  50%{
-    left: 50%;
-    top: 12%;
-    width: 45%;
-    opacity: 1;
-    z-index: 2;
-  }
-  51%{
-    opacity: 1;
-    z-index: 1;
-  }
-  75%{
-    opacity: .85;
-    z-index: 1;
-  }
-  100%{
-    left: 23%;
-    top: 0%;
-    opacity: .75;
-    z-index: 1;
-  }
-}
-
-@keyframes monitorToActive--mob {
-  0%{
-    left: 23%;
-    top: 0%;
-    opacity: .7;
-    z-index: 1;
-  }
-  50%{
-    left: 50%;
-    top: 12%;
-    width: 45%;
-    opacity: .7;
-    z-index: 1;
-  }
-  51%{
-    opacity: .7;
-    z-index: 2;
-  }
-  75%{
-    opacity: .85;
-    z-index: 2;
-  }
-  100%{
-    left: -23%;
-    top: 0;
-    opacity: 1;
-    z-index: 2;
-  }
-}
-@keyframes monitorDeactivated--mob {
-  0%{
-    left: -23%;
-    top: 0;
-    opacity: 1;
-    z-index: 2;
-  }
-  50%{
-    left: -50%;
-    top: 12%;
-    width: 45%;
-    opacity: 1;
-    z-index: 2;
-  }
-  51%{
-    opacity: 1;
-    z-index: 1;
-  }
-  75%{
-    opacity: .85;
-    z-index: 1;
-  }
-  100%{
-    left: 23%;
-    top: 0%;
-    opacity: .75;
-    z-index: 1;
-  }
-}*/
-
-/*@keyframes monitorToActive {
-  0%{
-    left: 23%;
-    top: 0%;
-    opacity: .7;
-    z-index: 1;
-  }
-  50%{
-    width: 45%;
-    left: 55%;
-    top: 13%;
-    opacity: .7;
-    z-index: 1;
-  }
-  51%{
-    opacity: .7;
-    z-index: 2;
-  }
-  75%{
-    opacity: .85;
-    z-index: 2;
-  }
-  100%{
-    left: 13.7%;
-    top: 12%;
-    opacity: 1;
-    z-index: 2;
-  }
-}
-@keyframes monitorDeactivated {
-  0%{
-    left: 13.7%;
-    top: 12%;
-    opacity: 1;
-    z-index: 2;
-  }
-  50%{
-    left: 0;
-    top: 13%;
-    width: 45%;
-    opacity: 1;
-    z-index: 2;
-  }
-  51%{
-    opacity: 1;
-    z-index: 1;
-  }
-  75%{
-    opacity: .85;
-    z-index: 1;
-  }
-  100%{
-    left: 23%;
-    top: 0%;
-    opacity: .75;
-    z-index: 1;
-  }
-}*/

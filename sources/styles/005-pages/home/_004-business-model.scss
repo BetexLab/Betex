@@ -37,6 +37,7 @@
   padding: 65px 0 0;
   height: 100vh;
   min-height: 800px;
+  max-height: 800px;
   opacity: 0;
   transition: opacity .5s .5s;
   position: relative;
@@ -174,11 +175,12 @@
   top: 0;
   width: 240px;
   margin: 0 auto;
+  padding-right: 5px;
   &__first-curve{
     stroke: #656BEF;
     stroke-dasharray: 206;
     stroke-dashoffset: 206;
-    transition: 1s .5s;
+    transition: 1s 1s;
   }
   &__second-curve{
     stroke: #656BEF;
@@ -188,15 +190,15 @@
   }
   &__vertical-line{
     height: 0;
-    transition: .5s .5s;
+    transition: .5s 1s;
   }
   &__horizontal-line{
     opacity: 0;
-    transition: .5s;
+    transition: .5s 1s;
   }
   &__first-dot{
     opacity: 0;
-    transition: .2s 1s;
+    transition: .5s 1.6s;
     fill: #656BEF;
   }
   &__second-dot{
@@ -521,7 +523,7 @@ $investor-delay-4: ($investor-duration/100) * 75; //3
   top: 190px;
   color: white;
   text-align: center;
-  transform: translate3d(0,0,0);
+  transform: translate(0,0);
   @include font-size(33);
   display: flex;
   flex-direction: column;
@@ -540,7 +542,7 @@ $investor-delay-4: ($investor-duration/100) * 75; //3
   .step-3 &{
     transition: transform 0.8s cubic-bezier(0.68, 0.31, 0.63, 0.9) .6s; //1.5
     //transform: translate3d(0, 170px, 0);
-    transform: translate3d(0, 160px, 0);
+    transform: translate(0, 160px);
 
     &__text{
       //transition: transform 1s cubic-bezier(0.68, 0.31, 0.63, 0.9) 1.3s,opacity 0.1s 1.5s;
@@ -590,13 +592,14 @@ $investor-delay-4: ($investor-duration/100) * 75; //3
     &-title{
       position: absolute;
       width: 110px;
+      left: 50%;
       bottom: -40px;
       text-align: center;
       @include font-size(14);
       font-weight: $weight-bold;
       color: #8c8c96;
       opacity: 0;
-      transform: translate3d(0,10px,0);
+      transform: translate3d(-50%,10px,0);
     }
   }
   .step-3 & {
@@ -611,33 +614,33 @@ $investor-delay-4: ($investor-duration/100) * 75; //3
     transition: 1.5s;
     &__item{
       &:nth-child(1){
-        transform: translate3d(-400px,0,0);
+        transform: translate3d(-300px,0,0);
         transition: opacity .5s 0s, transform 1.5s;
         opacity: 1;
       }
       &:nth-child(2){
-        transform: translate3d(-200px,0,0);
+        transform: translate3d(-100px,0,0);
         transition: opacity .5s .2s, transform 1.5s;
         opacity: 1;
       }
-      &:nth-child(3){
+      /*&:nth-child(3){
         transition: opacity .5s .4s;
+        opacity: 1;
+      }*/
+      &:nth-child(3){
+        transform: translate3d(100px,0,0);
+        transition: opacity .5s .2s, transform 1.5s;
         opacity: 1;
       }
       &:nth-child(4){
-        transform: translate3d(200px,0,0);
-        transition: opacity .5s .2s, transform 1.5s;
-        opacity: 1;
-      }
-      &:nth-child(5){
-        transform: translate3d(400px,0,0);
+        transform: translate3d(300px,0,0);
         transition: opacity .5s 0s, transform 1.5s;
         opacity: 1;
       }
       &-title{
         transition: all .5s 1.2s;
         opacity: 1;
-        transform: translate3d(0,0px,0);
+        transform: translate3d(-50%,0px,0);
       }
     }
   }
@@ -850,7 +853,6 @@ $investor-delay-4: ($investor-duration/100) * 75; //3
   }
 }
 
-
 .commision{
   &__title{
     font-weight: $weight-bold;
@@ -914,13 +916,14 @@ $investor-delay-4: ($investor-duration/100) * 75; //3
         transform: translate3d(-50%,-252%,0);
       }
       &:nth-child(2){
-        transform: translate3d(160%, -80%, 0);
+        transform: translate3d(160%, -50%, 0);
       }
       &:nth-child(3){
-        transform: translate3d(-250%, -80%, 0);
+        transform: translate3d(-250%, -50%, 0);
       }
       &:nth-child(4){
-        transform: translate3d(-173%, 147%, 0);
+        //transform: translate3d(-173%, 147%, 0);
+        transform: translate3d(-50%, 160%, 0);
       }
       &:nth-child(5){
         transform: translate3d(67%, 147%, 0);

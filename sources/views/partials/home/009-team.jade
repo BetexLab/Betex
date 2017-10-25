@@ -12,7 +12,14 @@
     'Jeremy Black':'Co-Founder/Business',
     'Bradly Cooper':'Co-Founder/Business',
   },
-  partners = [],
+  partners = {
+    '1':'IBM',
+    '2':'NEX',
+    '3':'Morgan',
+    '4':'Santander',
+    '5':'PNC',
+    '6':'ARTKAI'
+  },
   count = 1;
 
 section.team#team
@@ -43,6 +50,6 @@ section.team#team
       -count = 1
     p.team__partner-title Partners
     .row.team__row
-      each status, name in team
+      each alt, index in partners
         .partner
-          img.partner__logo(src="img/home-page/partners-"+ count++ +".png", alt="partner-" +count)
+          img.partner__logo(src="img/home-page/partners-"+ index +".png", alt=alt)

@@ -2,9 +2,7 @@
   font-weight: $weight-bold;
   color: #fff;
   background-image: linear-gradient(to top, #0eb955 0%, #5bd488 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   border-radius: 8px;
   transition: .3s;
   &:hover{
@@ -22,6 +20,11 @@
     border-radius: 4px;
   }
 }
+a.btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .link-doc{
   @include font-size(14);
@@ -30,6 +33,7 @@
   border-bottom: 1px solid;
   position: relative;
   transition: .3s;
+  line-height: 1.3;
   &:before{
     content: '';
     @extend .i-doc-icon;
@@ -62,4 +66,8 @@
   &.slick-disabled{
     opacity: 0;
   }
+}
+
+.dropdown-icon{
+  @extend .i-dropdown;
 }

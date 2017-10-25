@@ -171,18 +171,20 @@
   $item1: 13.7%;
   $item2: 20.5%;
   $item3: 13.6%;
-  $item4: 12%;
+  $item4: 52%;
+  //$item4: 12%;
   $item5: 16.9%;
   $item6: 22.2%;
   $item7: 16.666%;
-  $bigBraces: $item3 + $item4 + $item5 + $item6;
+  //$bigBraces: $item3 + $item4 + $item5 + $item6;
+  $bigBraces: 65.1%;
   margin: 93px 31px 34px;
   position: relative;
   //min-width: 810px;
   min-width: 1000px;
   .braces{
     &_small{
-      left: 3px;
+      left: 6px;
       top: -50px;
       width: $item1;
       span{
@@ -190,7 +192,7 @@
       }
     }
     &_big{
-      right: 3px;
+      right: 6px;
       top: -63px;
       width: $bigBraces;
       &.braces,
@@ -262,14 +264,14 @@
       max-width: $item4;
       flex: 0 1 $item4;
     }
-    &:nth-of-type(5){
+    /*&:nth-of-type(5){
       max-width: $item5;
       flex: 0 1 $item5;
     }
     &:nth-of-type(6){
       max-width: $item6;
       flex: 0 1 $item6;
-    }
+    }*/
     &:last-of-type{
       width: 13px;
     }
@@ -627,6 +629,7 @@
     &-item{
       position: relative;
       padding: 0 0 21px;
+      line-height: 1.3;
       b{
         padding-right: 4px;
       }
@@ -637,7 +640,7 @@
         display: inline-block;
         vertical-align: middle;
         border-radius: 100%;
-        margin-right: 10px;
+        margin: 4px 10px 5px 0;
       }
       &.grey {
         &:before{
@@ -671,7 +674,7 @@
           width: 17px;
           height: 17px;
           position: absolute;
-          top: 1px;
+          top: 2px;
           left: -3px;
           display: block;
           border-radius: 100%;
@@ -709,7 +712,7 @@
     }
   }
 
-  &__line{
+  /*&__line{
     width: 100%;
     margin: 27px 0;
     padding: 0 18px 0 12px;
@@ -773,7 +776,7 @@
       width: 60px;
       text-align: center;
     }
-  }
+  }*/
   
   @media (min-width: 768px) {
     &__wrap {
@@ -795,7 +798,7 @@
     &__descript {
       width: 50%;
     }
-    &__line {
+    /*&__line {
       width: 455px;
       margin: 44px 0 44px 34px;
       padding: 0 15px;
@@ -806,7 +809,7 @@
       &-date {
         bottom: -28px;
       }
-    }
+    }*/
     &__chart{
       width: 312px;
       height: 312px;
@@ -854,12 +857,12 @@
         }
       }
     }
-    &__line{
+    /*&__line{
       order: 3;
       &-date {
         @include font-size(12);
       }
-    }
+    }*/
     &__list{
       &-item{
         @include font-size(14);

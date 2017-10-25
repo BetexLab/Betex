@@ -269,22 +269,30 @@
                             innerSize: '50%',
                             colorByPoint: true,
                             data: [{
-                                name: 'For founders and team are locked on smart contracts',
-                                y: 30
+                                name: 'Pre Sale',
+                                y: 10
                             }, {
-                                name: 'Bounty campaign',
-                                y: 3
+                                name: 'Bounty',
+                                y: 2
                             }, {
-                                name: 'Tokens pre-sale',
-                                y: 5
-                            }, {
+                                name: 'Sale',
+                                y: 88
+                            }
+                            /*, {
                                 name: 'Reserve for development and strategic aliances',
                                 y: 12
                             }, {
                                 name: 'Reserve for development and strategic aliances',
                                 y: 50
-                            }],
-                            colors: ['#eef1f5','#32abef','#ffdd00','#ff505a','#3f4fc9'],
+                            }*/
+                            ],
+                            colors: [
+                                // '#eef1f5',
+                                '#ff505a',
+                                '#ffdd00',
+                                '#3f4fc9',
+                                // '#32abef'
+                            ],
                         }]
                     });
 
@@ -295,8 +303,8 @@
                     svgimg.setAttributeNS(null,'height','27');
                     svgimg.setAttributeNS(null,'width','21');
                     svgimg.setAttributeNS('http://www.w3.org/1999/xlink','href', 'img/home-page/locked.svg');
-                    // svgimg.setAttributeNS(null,'x','300');
-                    // svgimg.setAttributeNS(null,'y','70');
+                    svgimg.setAttributeNS(null,'x','300');
+                    svgimg.setAttributeNS(null,'y','70');
                     svgimg.setAttributeNS(null, 'visibility', 'visible');
                     svgimg.classList.add("locked-icon");
                     $('.highcharts-point.highcharts-color-0 ').after(svgimg);
@@ -358,22 +366,30 @@
                             innerSize: '50%',
                             colorByPoint: true,
                             data: [{
-                                name: 'Reserve',
-                                y: 10
+                                name: 'Token Sale',
+                                y: 60
                             }, {
-                                name: 'R&D',
-                                y: 10
+                                name: 'Bounty',
+                                y: 2
                             }, {
-                                name: 'Marketing',
-                                y: 20
+                                name: 'Resrve',
+                                y: 8
                             }, {
-                                name: 'Operational costsOperational costs',
-                                y: 20
-                            }, {
+                                name: 'Founders&Team',
+                                y: 30
+                            }
+                            /*, {
                                 name: 'Product development',
                                 y: 40
-                            }],
-                            colors: ['#eef1f5','#32abef','#ffdd00','#ff505a','#3f4fc9']
+                            }*/
+                            ],
+                            colors: [
+                                // '#eef1f5',
+                                '#3f4fc9',
+                                '#ffdd00',
+                                '#32abef',
+                                '#ff505a'
+                            ]
 
                         }]
                     });

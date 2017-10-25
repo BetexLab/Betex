@@ -18,19 +18,23 @@
       min-height: 34px;
       stroke: #38393c;
       svg{
-        transition: .4s;
+        transition: transform .4s ease-out;
       }
       .stroke-gray {
-        stroke: #b8bbbe
+        stroke: #b8bbbe;
+        transition: .4s;
       }
       .stroke-black {
-        stroke: #38393c
+        stroke: #38393c;
+        transition: .4s;
       }
       .fill-gray {
-        fill: #b8bbbe
+        fill: #b8bbbe;
+        transition: .4s;
       }
       .fill-black {
-        fill: #38393c
+        fill: #38393c;
+        transition: .4s;
       }
     }
    }
@@ -60,6 +64,7 @@
       &:hover{
         .detail-info__item-icon svg{
           transform: translate(100%, 100%) scale(3.2, 3.2);
+          transition: transform .4s ease-in;
           opacity: .3;
           .stroke-black {
             stroke: #70A1FB

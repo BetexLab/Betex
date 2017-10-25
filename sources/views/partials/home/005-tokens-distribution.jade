@@ -2,7 +2,8 @@
 section.tokens-distribution.animate
   .tokens-distribution__title-block.accordion-caption.open
     p.tokens-distribution__title-mob Betex tokens distribution
-      svg.tokens-distribution__title-mob-icon(width="32px", height="32px")
+      i.tokens-distribution__title-mob-icon.dropdown-icon
+      //svg.tokens-distribution__title-mob-icon(width="32px", height="32px")
         use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#dropdown")
 
   .row.open
@@ -12,22 +13,23 @@ section.tokens-distribution.animate
       #donutchart.donutchart(style="height: 300px;")
     .col-md-6.col-12
 
+      span.tokens-distribution__title-label Coming in 2018
       h4.tokens-distribution__title.animate.visible-up Betex tokens distribution
 
       ul.tokens-distribution__list.animate.visible-up
-        li(data-doughnut-index="50").tokens-distribution__list-item.blue
-          b 50%
-          span Tokens sale
-        li(data-doughnut-index="12").tokens-distribution__list-item.red
-          b 12%
-          span Reserve for development and strategic aliances
-        li(data-doughnut-index="5").tokens-distribution__list-item.yellow
-          b 5%
-          span Tokens pre-sale
-        li(data-doughnut-index="3").tokens-distribution__list-item.light-blue
+        li(data-doughnut-index="10").tokens-distribution__list-item.red
+          b 10%
+          span Pre Sale
+        li(data-doughnut-index="2").tokens-distribution__list-item.yellow
+          b 2%
+          span Bounty
+        li(data-doughnut-index="88").tokens-distribution__list-item.blue
+          b 88%
+          span Sale
+        //li(data-doughnut-index="3").tokens-distribution__list-item.light-blue
           b 3%
           span Bounty campaign
-        li(data-doughnut-index="30").tokens-distribution__list-item.grey
+        //li(data-doughnut-index="30").tokens-distribution__list-item.grey
           b 30%
           div.locked
             span For founders and team are locked on smart contracts:
