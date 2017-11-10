@@ -28,9 +28,8 @@
     }
     &-item{
       color: #38393c;
-      transition: .3s;
       &:hover{
-        opacity: .8;
+        color: #0eb955;
       }
     }
   }

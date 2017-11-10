@@ -6,6 +6,14 @@
          * Init tasks
          ********************************************************************************/
         init: () => {
+
+            /*try {
+                history.pushState(null, null, curLoc);
+                return;
+            } catch(e) {}
+            location.hash*/
+            console.log(location.hash);
+
             let isMobile = {
                 Android: function() {
                     return navigator.userAgent.match(/Android/i);
@@ -173,46 +181,46 @@
                 }
             });
             /*if($(window).innerWidth() >= 1024){
-                $('.money-line').on('inview', (event, isInView)=> {
-                    if (isInView) {
-                        prevActive = 0;
-                        changeMoneyLine(prevActive, true);
-                    }else{
-                        $('.money-line__dot').removeClass('active');
-                        clearInterval(moneyLineInterval);
-                    }
-                }).on('mouseover', function (){
-                    $('.money-line__dot').removeClass('active');
-                    clearInterval(moneyLineInterval);
-                })
-                $('.money-line__dot').on('mouseout', function(){
-                    prevActive = $(this).index() + 1;
-                    changeMoneyLine(prevActive, true);
-                });
+             $('.money-line').on('inview', (event, isInView)=> {
+             if (isInView) {
+             prevActive = 0;
+             changeMoneyLine(prevActive, true);
+             }else{
+             $('.money-line__dot').removeClass('active');
+             clearInterval(moneyLineInterval);
+             }
+             }).on('mouseover', function (){
+             $('.money-line__dot').removeClass('active');
+             clearInterval(moneyLineInterval);
+             })
+             $('.money-line__dot').on('mouseout', function(){
+             prevActive = $(this).index() + 1;
+             changeMoneyLine(prevActive, true);
+             });
 
-                $('.money-line__dot').on('click', function () {
-                    $('.money-line__dot').removeClass('active');
-                    $(this).addClass('active')
-                    $('.money-line__dot').each(function (i ,item) {
-                        if($(item).hasClass('active')){
-                            let itemIndex = $(item).index();
-                            $('.money-line-wrap').mCustomScrollbar("scrollTo", "-" + 85*itemIndex);
-                        }
-                    })
-                })
-            }else{
-                changeMoneyLine(0, true);
-                $('.money-line__dot').on('click', function () {
-                    $('.money-line__dot').removeClass('active');
-                    $(this).addClass('active')
-                    $('.money-line__dot').each(function (i ,item) {
-                        if($(item).hasClass('active')){
-                            let itemIndex = $(item).index();
-                            $('.money-line-wrap').mCustomScrollbar("scrollTo", "-" + 85*itemIndex);
-                        }
-                    })
-                })
-            }*/
+             $('.money-line__dot').on('click', function () {
+             $('.money-line__dot').removeClass('active');
+             $(this).addClass('active')
+             $('.money-line__dot').each(function (i ,item) {
+             if($(item).hasClass('active')){
+             let itemIndex = $(item).index();
+             $('.money-line-wrap').mCustomScrollbar("scrollTo", "-" + 85*itemIndex);
+             }
+             })
+             })
+             }else{
+             changeMoneyLine(0, true);
+             $('.money-line__dot').on('click', function () {
+             $('.money-line__dot').removeClass('active');
+             $(this).addClass('active')
+             $('.money-line__dot').each(function (i ,item) {
+             if($(item).hasClass('active')){
+             let itemIndex = $(item).index();
+             $('.money-line-wrap').mCustomScrollbar("scrollTo", "-" + 85*itemIndex);
+             }
+             })
+             })
+             }*/
 
 
             /**********************************************************/
@@ -251,11 +259,18 @@
                                 point: {
                                     events: {
                                         select: function () {
-                                            let thisVal = this.y;
+                                            let thisIndex = this.index;
                                             $('.tokens-distribution__list-item').each(function(i, item){
-                                                if($(item).attr('data-doughnut-index') == thisVal){
-                                                    $('.tokens-distribution__list-item').removeClass('active')
+                                                if($(item).attr('data-index') == thisIndex){
                                                     $(item).addClass('active')
+                                                }
+                                            })
+                                        },
+                                        unselect: function () {
+                                            let thisIndex = this.index;
+                                            $('.tokens-distribution__list-item').each(function(i, item){
+                                                if($(item).attr('data-index') == thisIndex){
+                                                    $(item).removeClass('active');
                                                 }
                                             })
                                         }
@@ -269,49 +284,49 @@
                             innerSize: '50%',
                             colorByPoint: true,
                             data: [{
-                                name: 'Pre Sale',
-                                y: 10
+                                name: 'Token Sale',
+                                y: 60
                             }, {
                                 name: 'Bounty',
                                 y: 2
                             }, {
-                                name: 'Sale',
-                                y: 88
-                            }
-                            /*, {
-                                name: 'Reserve for development and strategic aliances',
-                                y: 12
+                                name: 'Resrve',
+                                y: 8
                             }, {
-                                name: 'Reserve for development and strategic aliances',
-                                y: 50
-                            }*/
+                                name: 'Founders&Team',
+                                y: 30
+                            }
+                                /*, {
+                                 name: 'Product development',
+                                 y: 40
+                                 }*/
                             ],
                             colors: [
                                 // '#eef1f5',
-                                '#ff505a',
-                                '#ffdd00',
                                 '#3f4fc9',
-                                // '#32abef'
-                            ],
+                                '#ffdd00',
+                                '#32abef',
+                                '#ff505a'
+                            ]
                         }]
                     });
 
                     $('.tokens-distribution').removeClass('animate')
 
                     //locked img
-                    var svgimg = document.createElementNS('http://www.w3.org/2000/svg','image');
-                    svgimg.setAttributeNS(null,'height','27');
-                    svgimg.setAttributeNS(null,'width','21');
-                    svgimg.setAttributeNS('http://www.w3.org/1999/xlink','href', 'img/home-page/locked.svg');
-                    svgimg.setAttributeNS(null,'x','300');
-                    svgimg.setAttributeNS(null,'y','70');
-                    svgimg.setAttributeNS(null, 'visibility', 'visible');
-                    svgimg.classList.add("locked-icon");
-                    $('.highcharts-point.highcharts-color-0 ').after(svgimg);
+                    /*var svgimg = document.createElementNS('http://www.w3.org/2000/svg','image');
+                     svgimg.setAttributeNS(null,'height','27');
+                     svgimg.setAttributeNS(null,'width','21');
+                     svgimg.setAttributeNS('http://www.w3.org/1999/xlink','href', 'img/home-page/locked.svg');
+                     svgimg.setAttributeNS(null,'x','300');
+                     svgimg.setAttributeNS(null,'y','70');
+                     svgimg.setAttributeNS(null, 'visibility', 'visible');
+                     svgimg.classList.add("locked-icon");
+                     $('.highcharts-point.highcharts-color-0 ').after(svgimg);*/
 
                     /*$('.highcharts-point').on('mouseover',function(e){
-                        $(this).trigger('plotOptions.series.point.events.select')
-                    })*/
+                     $(this).trigger('plotOptions.series.point.events.select')
+                     })*/
                 }
             });
 
@@ -351,8 +366,15 @@
                                             let thisIndex = this.index;
                                             $('.funds-disribution__list-item').each(function(i, item){
                                                 if($(item).attr('data-index') == thisIndex){
-                                                    $('.funds-disribution__list-item').removeClass('active')
                                                     $(item).addClass('active')
+                                                }
+                                            })
+                                        },
+                                        unselect: function () {
+                                            let thisIndex = this.index;
+                                            $('.funds-disribution__list-item').each(function(i, item){
+                                                if($(item).attr('data-index') == thisIndex){
+                                                    $(item).removeClass('active');
                                                 }
                                             })
                                         }
@@ -366,30 +388,30 @@
                             innerSize: '50%',
                             colorByPoint: true,
                             data: [{
-                                name: 'Token Sale',
-                                y: 60
+                                name: 'Pre Sale',
+                                y: 10
                             }, {
                                 name: 'Bounty',
                                 y: 2
                             }, {
-                                name: 'Resrve',
-                                y: 8
-                            }, {
-                                name: 'Founders&Team',
-                                y: 30
+                                name: 'Sale',
+                                y: 88
                             }
-                            /*, {
-                                name: 'Product development',
-                                y: 40
-                            }*/
+                                /*, {
+                                 name: 'Reserve for development and strategic aliances',
+                                 y: 12
+                                 }, {
+                                 name: 'Reserve for development and strategic aliances',
+                                 y: 50
+                                 }*/
                             ],
                             colors: [
                                 // '#eef1f5',
-                                '#3f4fc9',
+                                '#ff505a',
                                 '#ffdd00',
-                                '#32abef',
-                                '#ff505a'
-                            ]
+                                '#3f4fc9',
+                                // '#32abef'
+                            ],
 
                         }]
                     });
@@ -400,18 +422,28 @@
             $('.nav__list').on('click', '.nav__list-item', function (e) {
                 e.preventDefault();
                 let _this = e.target;
-                if(!$(this).hasClass('active')){
-                    let top = 0;
-                    $('.nav__list-item').removeClass('active');
-                    $(this).addClass('active');
-                    let id = $(this).children().attr('href');
-                    if(id == '#roadmap'){
-                        top = 30;
-                    }
-                    $('html, body').animate({
-                        scrollTop: $(id).offset().top - top
-                    }, 1000);
+                if(!$('.payouts').is('.visible')){
+                    $('.payouts').attr({'data-animated':'true'});
+                    animated = true;
+                    setTimeout(function () {
+                        $('.payouts').attr({'data-animated':'false'});
+                        animated = false;
+                    },1500)
+                    // console.log(animated, $('.payouts').attr('data-animated'));
                 }
+
+                let top = 0;
+                $('.nav__list-item').removeClass('active');
+                $(this).addClass('active');
+                let id = $(this).children().attr('href');
+                setLocation(id);
+                if(id == '#roadmap'){
+                    top = 30;
+                }
+                $('html, body').animate({
+                    scrollTop: $(id).offset().top - top
+                }, 1000);
+
             });
 
             $('.mob-menu__nav').on('click', '.mob-menu__nav-item', function (e) {
@@ -541,6 +573,7 @@
                     && $('.business-model').offset().top + $('.business-model').height() >= $(window).scrollTop()
                     && !animated
                     && $(window).innerWidth() >= 1024){
+
                     animated = true;
 
                     if($(window).height() <= 700){
@@ -561,7 +594,7 @@
 
                     // add steps
                     setTimeout(()=>{
-                        $('.payouts__wrap').addClass('step-1'); //6s
+                        $('.payouts__wrap').addClass('step-1');
                     },1000);
                     setTimeout(()=>{
                         $('.payouts__wrap').addClass('step-2')
@@ -811,5 +844,13 @@
 
     myEfficientFn();
     window.addEventListener('resize DOMContentLoaded', myEfficientFn);
+
+    function setLocation(curLoc){
+        try {
+            history.pushState(null, null, curLoc);
+            return;
+        } catch(e) {}
+        location.hash = '#' + curLoc;
+    }
 
 })(jQuery);
