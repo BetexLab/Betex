@@ -65,6 +65,9 @@
   &__status{
     color: #171623;
     padding-bottom: 14px;
+    @include mq(1024){
+      //min-height: 56px;
+    }
   }
   &__link{
     width: 40px;

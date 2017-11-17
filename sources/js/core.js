@@ -12,7 +12,7 @@
                 return;
             } catch(e) {}
             location.hash*/
-            console.log(location.hash);
+            // console.log(location.hash);
 
             let isMobile = {
                 Android: function() {
@@ -78,6 +78,7 @@
             $('.roadmap-slider').slick({
                 dots: false,
                 arrows: true,
+                initialSlide: 4,
                 slidesToShow: 3,
                 slidesToScroll: 1,
                 infinite: false,
@@ -662,7 +663,7 @@
             });
             $('.payouts__play').on('click', function (e) {
                 e.preventDefault();
-                // $('.payouts').removeClass('visible');
+                $('.payouts').removeClass('visible');
                 $(this).addClass('hidden');
                 $('.payouts__wrap').removeClass('step-1 step-2 step-3 step-4');
                 setTimeout(()=>{

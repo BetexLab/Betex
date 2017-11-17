@@ -73,9 +73,11 @@ header.header
       p.contribute-popup__title.title-line Contribute
 
       p.contribute-popup__sub-title Leave your email to get more information and news about Betex ICO
-      form.contribute-popup__form
-        input(type="text",placeholder="email").contribute-popup__email
-        input(type="submit", value="Subscribe").contribute-popup__submit.btn
+      #mc_embed_signup
+        form(action="https://betexlab.us17.list-manage.com/subscribe/post?u=ce2f1a570b79c42d276394303&amp;id=c79a7c3818", method="post", id="mc-embedded-subscribe-form", name="mc-embedded-subscribe-form", class="validate", target="_blank", novalidate)
+          #mc_embed_signup_scroll.contribute-popup__form
+            input(type="text",placeholder="email").contribute-popup__email
+            input(type="submit", value="Subscribe").contribute-popup__submit.btn
       //.contribute-popup__links
         a(href="./go-pro.pdf", target="_blank", rel="nofollow").contribute-popup__link.link-doc Whitepaper
         a(href="./go-pro.pdf", target="_blank", rel="nofollow").contribute-popup__link.link-doc Terms of Tokens Sale

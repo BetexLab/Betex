@@ -7,10 +7,12 @@ section.main-block
 
         #timer.timer
 
-        p.subscribe-title Sign up for timely alerts and announcements*
-        form(method="POST").subscribe-form
-          input.subscribe-form__input(type="email", placeholder="Email")
-          button.subscribe-form__submit.btn.btn_default(type="submit") Subscribe
+        p.subscribe-title Sign up for timely alerts and announcements
+        #mc_embed_signup
+          form(action="https://betexlab.us17.list-manage.com/subscribe/post?u=ce2f1a570b79c42d276394303&amp;id=c79a7c3818", method="post", id="mc-embedded-subscribe-form", name="mc-embedded-subscribe-form", class="validate", target="_blank", novalidate).subscribe-form
+            #mc_embed_signup_scroll.subscribe-form
+              input.subscribe-form__input(type="email", placeholder="Email")
+              button.subscribe-form__submit.btn.btn_default(type="submit") Subscribe
 
         .main-block__img-mob-wrap
           img.main-block__img-mob(src="img/home-page/main-block_mob.png", alt="tablet")

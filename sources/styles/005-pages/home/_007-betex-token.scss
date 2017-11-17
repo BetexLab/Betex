@@ -50,9 +50,9 @@
   }
 
   &__detail{
-    border-top: 1px solid #d8d8d8;
-    border-bottom: 1px solid #d8d8d8;
-    margin-bottom: 17px;
+    //border-top: 1px solid #d8d8d8;
+    //border-bottom: 1px solid #d8d8d8;
+    //margin-bottom: 17px;
     &-col{
       padding: 0 0 0 8px;
     }
@@ -119,7 +119,7 @@
       padding: 12px 0;
     }
     &__detail{
-      margin-bottom: 30px;
+      //margin-bottom: 30px;
       &-col{
         padding: 20px 10px 21px;
       }
@@ -168,8 +168,8 @@
 
 
 .benefits-line{
-  $item1: 13.7%;
-  $item2: 20.5%;
+  $item1: 22%;
+  $item2: 78%;
   $item3: 13.6%;
   $item4: 52%;
   //$item4: 12%;
@@ -177,45 +177,48 @@
   $item6: 22.2%;
   $item7: 16.666%;
   //$bigBraces: $item3 + $item4 + $item5 + $item6;
-  $bigBraces: 65.1%;
+  $bigBraces: 77.2%;
   margin: 93px 31px 34px;
   position: relative;
-  //min-width: 810px;
-  min-width: 1000px;
+  min-width: 500px;
+  //min-width: 1000px;
   .braces{
     &_small{
       left: 6px;
       top: -50px;
-      width: $item1;
+      width: calc(22.2% - 6px);
       span{
-        top: -1.5em;
+        top: -0.7em;
       }
     }
     &_big{
       right: 6px;
       top: -63px;
-      width: $bigBraces;
+      width: calc(77.7% - 6px);
       &.braces,
       .curly{
         &::before,
         &::after {
-          height: 3.15em;
+          //height: 3.15em;
+          height: 1.95em;
         }
       }
       .curly{
         &::before,
         &::after{
-          top: -1.85em;
+          //top: -1.85em;
+          top: 0.25em;
         }
       }
       &.braces{
         &::before,
         &::after{
-          top: 1.15em;
+          //top: 1.15em;
+          top: 2.05em;
         }
       }
       span{
-        top: -0.6em;
+        top: 0;
       }
     }
     &__caption{
@@ -252,18 +255,18 @@
     &:nth-of-type(2){
       max-width: $item2;
       flex: 0 1 $item2;
-      &:after{
+      /*&:after{
         border-top: 1.5px dashed #9aa1ab;
-      }
+      }*/
     }
-    &:nth-of-type(3){
+    /*&:nth-of-type(3){
       max-width: $item3;
       flex: 0 1 $item3;
     }
     &:nth-of-type(4){
       max-width: $item4;
       flex: 0 1 $item4;
-    }
+    }*/
     /*&:nth-of-type(5){
       max-width: $item5;
       flex: 0 1 $item5;
@@ -354,7 +357,7 @@
   margin-bottom: 1em;
   &::before,
   &::after {
-    top: 0.75em;
+    top: 1.25em;
     border-top: 2px solid #3f4fc9;
     opacity: .2;
   }
@@ -376,13 +379,13 @@
     content: "";
     position:absolute;
     width: 25%;
-    height: 2.35em;
+    height: 1.95em;
   }
 }
 .curly{
   &::before,
   &::after {
-    top: -1.5em;
+    top: -0.6em;
     border-bottom: 2px solid #3f4fc9;
     opacity: .2;
   }
@@ -831,6 +834,8 @@
         padding: 0 0 20px;
         b{
           padding-right: 10px;
+          width: 48px;
+          display: inline-block;
         }
       }
     }

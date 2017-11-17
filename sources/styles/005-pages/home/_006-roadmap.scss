@@ -4,7 +4,7 @@
 
 .roadmap-slider{
   margin: 0 0 47px;
-  padding: 0 10px 185px;
+  padding: 0 10px 135px;
   &__item{
     position: relative;
     transition: opacity 1s;
@@ -39,19 +39,19 @@
       }
     }
     &_dashed{
-      &:after{
+      /*&:after{
         width: 50%;
         transform: translate3d(100%,0,0);
-      }
+      }*/
       &:before{
         content: '';
         display: block;
-        width: 50%;
+        width: 30px;
         height: 2px;
         background: #3f4fc9;
         right: auto;
         margin: auto 0;
-        z-index: 1;
+        z-index: 2;
         @extend .u_overlay;
       }
     }
@@ -117,6 +117,8 @@
     &.slick-next{
       right: -40px;
     }
+    bottom: auto;
+    top: 85px;
   }
   .slick-dots{
     display: flex;
@@ -140,10 +142,10 @@
     }
   }
   @media (min-width: 400px){
-    padding: 0 10px 135px;
+    padding: 0 10px 110px;
   }
   @media (min-width: 768px) {
-    padding: 0 10px 225px;
+    padding: 0 10px 125px;
     &__item{
       &:not(.slick-active){
         opacity: 0;
