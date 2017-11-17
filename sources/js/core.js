@@ -36,7 +36,7 @@
             };
 
             //timer
-            let countDownDate = new Date("Dec 5, 2017 15:37:25").getTime();
+            let countDownDate = new Date("Dec 1, 2017 12:00:00").getTime();
             let x = setInterval(() => {
                 let now = new Date().getTime();
 
@@ -78,24 +78,15 @@
             $('.roadmap-slider').slick({
                 dots: false,
                 arrows: true,
-                slidesToShow: 6,
+                slidesToShow: 3,
                 slidesToScroll: 1,
                 infinite: false,
                 touchMove: false,
                 responsive: [
                     {
-                        breakpoint: 1200,
-                        settings: {
-                            slidesToShow: 5,
-                            slidesToScroll: 1,
-                            dots: true,
-                            arrows: false,
-                        }
-                    },
-                    {
                         breakpoint: 1024,
                         settings: {
-                            slidesToShow: 4,
+                            slidesToShow: 2,
                             slidesToScroll: 1,
                             dots: true,
                             arrows: false,
@@ -104,17 +95,8 @@
                     {
                         breakpoint: 768,
                         settings: {
-                            slidesToShow: 3,
+                            slidesToShow: 1,
                             slidesToScroll: 1,
-                            dots: true,
-                            arrows: false,
-                        }
-                    },
-                    {
-                        breakpoint: 500,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 2,
                             dots: true,
                             arrows: false,
                         }
@@ -278,7 +260,7 @@
                                 }
                             }
                         },
-                        series: [{
+                        /*series: [{
                             type: 'pie',
                             name: 'Betex tokens distribution',
                             innerSize: '50%',
@@ -296,10 +278,10 @@
                                 name: 'Founders&Team',
                                 y: 30
                             }
-                                /*, {
+                                /!*, {
                                  name: 'Product development',
                                  y: 40
-                                 }*/
+                                 }*!/
                             ],
                             colors: [
                                 // '#eef1f5',
@@ -307,6 +289,40 @@
                                 '#ffdd00',
                                 '#32abef',
                                 '#ff505a'
+                            ]
+                        }]*/
+                        series: [{
+                            type: 'pie',
+                            name: 'Betex token distribution',
+                            innerSize: '50%',
+                            colorByPoint: true,
+                            data: [{
+                                name: 'Token Pre-Sale Round 1',
+                                y: 5
+                            }, {
+                                name: 'Token Pre-Sale Round 1',
+                                y: 15
+                            }, {
+                                name: 'Token Sale',
+                                y: 40
+                            }, {
+                                name: 'Bounty',
+                                y: 2
+                            }, {
+                                name: 'Reserve',
+                                y: 8
+                            }, {
+                                name: 'Founders & Team',
+                                y: 30
+                            }
+                            ],
+                            colors: [
+                                '#3f4fc9',
+                                '#ff505a',
+                                '#9aa1ab',
+                                '#32abef',
+                                '#ffdd00',
+                                '#f79646'
                             ]
                         }]
                     });
@@ -388,29 +404,32 @@
                             innerSize: '50%',
                             colorByPoint: true,
                             data: [{
-                                name: 'Pre Sale',
+                                name: 'Platform Development',
+                                y: 40
+                            }, {
+                                name: 'Marketing',
+                                y: 15
+                            }, {
+                                name: 'Legal Support',
+                                y: 15
+                            }, {
+                                name: 'Operational Costs',
+                                y: 15
+                            }, {
+                                name: 'Research',
+                                y: 5
+                            }, {
+                                name: 'Reserve',
                                 y: 10
-                            }, {
-                                name: 'Bounty',
-                                y: 2
-                            }, {
-                                name: 'Sale',
-                                y: 88
                             }
-                                /*, {
-                                 name: 'Reserve for development and strategic aliances',
-                                 y: 12
-                                 }, {
-                                 name: 'Reserve for development and strategic aliances',
-                                 y: 50
-                                 }*/
                             ],
                             colors: [
-                                // '#eef1f5',
-                                '#ff505a',
-                                '#ffdd00',
                                 '#3f4fc9',
-                                // '#32abef'
+                                '#ff505a',
+                                '#9aa1ab',
+                                '#32abef',
+                                '#ffdd00',
+                                '#f79646'
                             ],
 
                         }]
@@ -527,7 +546,8 @@
             /**********************************************************/
             //******************Business model*************************/
             /**********************************************************/
-            $('.step-1').on('click', function() {
+            // buttons
+            /*$('.step-1').on('click', function() {
                 $(this).toggleClass('pressed');
                 $('.payouts__wrap').toggleClass('step-1');
             });
@@ -542,13 +562,15 @@
             $('.step-4').on('click', function() {
                 $(this).toggleClass('pressed');
                 $('.payouts__wrap').toggleClass('step-4');
-            });
+            });*/
 
             $('.payouts').on('inview', function(event, isInView) {
-                if (isInView && !donutcharInit) {
-                    setTimeout(()=>{
-                        $('.payouts').addClass('visible');
-                    },1000)
+                if (isInView) {
+                    // && !donutcharInit
+                    $('.payouts').addClass('visible');
+                    /*setTimeout(()=>{
+
+                    },1000)*/
                 }
             });
 
@@ -567,13 +589,16 @@
             document.body.removeChild(div);
 
             var animated = false;
+            var playButtonVisible = true;
 
             function modelAnimation () {
-                if($('.business-model').offset().top <= $(window).scrollTop() + 100
+                /*if($('.business-model').offset().top <= $(window).scrollTop() + 100
                     && $('.business-model').offset().top + $('.business-model').height() >= $(window).scrollTop()
                     && !animated
-                    && $(window).innerWidth() >= 1024){
+                    && $(window).innerWidth() >= 1024)*/
+                if(!animated && $(window).innerWidth() >= 1024){
 
+                    playButtonVisible = false;
                     animated = true;
 
                     if($(window).height() <= 700){
@@ -586,7 +611,7 @@
                         }, 500);
                     }
 
-                    $('.payouts').addClass('visible');
+                    $('.payouts').addClass('visible animate');
 
                     $('html').addClass('over-hidden').find('body').css({'marginRight':scrollWidth + "px"}); // remove scroll
 
@@ -635,22 +660,38 @@
                 }, 1500)
 
             });
+            $('.payouts__play').on('click', function (e) {
+                e.preventDefault();
+                // $('.payouts').removeClass('visible');
+                $(this).addClass('hidden');
+                $('.payouts__wrap').removeClass('step-1 step-2 step-3 step-4');
+                setTimeout(()=>{
+                    animated = false;
+                    modelAnimation();
+                }, 1500)
+
+            });
 
             $(window).on('scroll', () => {
-                modelAnimation();
+                // modelAnimation();
                 if($('.payouts').is('.visible')){
-                    if($(window).scrollTop() + $(window).innerHeight()/2 >= $('.payouts').offset().top
-                        && !($(window).scrollTop() + $(window).innerHeight()/2 >= $('.payouts').offset().top + $(window).innerHeight() - 200)
-                        && $('.payouts').attr('data-animated') == "true"){
+                    if($(window).scrollTop() + $(window).innerHeight() >= $('.payouts').offset().top
+                        && !($(window).scrollTop() + $(window).innerHeight() >= $('.payouts').offset().top + $(window).innerHeight() - 100)){
 
-                        $('.payouts__replay').removeClass('hidden');
+                        if($('.payouts').attr('data-animated') == "true"){
+                            $('.payouts__replay').removeClass('hidden');
+                        }else if(playButtonVisible){
+                            $('.payouts__play').removeClass('hidden');
+                        }
 
-                    }else if($(window).scrollTop() + $(window).innerHeight()/2 >= $('.payouts').offset().top + $(window).innerHeight()/2){
+                    }else if($(window).scrollTop() + $(window).innerHeight() >= $('.payouts').offset().top + $(window).innerHeight()){
 
                         $('.payouts__replay').addClass('hidden');
+                        $('.payouts__play').addClass('hidden');
 
                     }else{
                         $('.payouts__replay').addClass('hidden');
+                        $('.payouts__play').addClass('hidden');
                     }
                 }
             });

@@ -613,6 +613,7 @@
   $yellow: #ffdd00;
   $red: #ff505a;
   $blue: #3f4fc9;
+  $orange: #f79646;
   &__wrap{
     padding: 20px 0 0;
   }
@@ -667,6 +668,11 @@
           background: $blue;
         }
       }
+      &.orange {
+        &:before{
+          background: $orange;
+        }
+      }
 
       &.active{
         &:after{
@@ -706,6 +712,11 @@
         &.blue {
           &:after{
             background: $blue;
+          }
+        }
+        &.orange {
+          &:after{
+            background: $orange;
           }
         }
       }

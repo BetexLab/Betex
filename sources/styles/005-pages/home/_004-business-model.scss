@@ -35,14 +35,18 @@
 
 .payouts{
   padding: 65px 0 0;
-  height: 100vh;
-  min-height: 800px;
-  max-height: 800px;
+  //height: 100vh;
+  //min-height: 800px;
+  //max-height: 800px;
+  height: 500px;
   opacity: 0;
-  transition: opacity .5s .5s;
+  transition: .5s .5s;
   position: relative;
   &.visible{
     opacity: 1;
+  }
+  &.animate{
+    height: 800px;
   }
 
   &__wrap{
@@ -134,21 +138,32 @@
     //margin: 100px 0 181px;
   }
   @media (min-width: 1024px) {
-    &__replay{
-      display: block;
-      width: 38px;
+    &__replay,
+    &__play{
+      display: flex;
+      align-items: center;
       position: fixed;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
+      width: 221px;
+      left: 50%;
       bottom: 50px;
       z-index: 99;
-      transform: rotate(-90deg);
+      transform: translate(-50%, 0);
+      background-image: linear-gradient(-180deg, #F8F9FB 0%, #F0F3F8 1%, #EEF1F5 100%);
+      border: 1px solid #E7E8EE ;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.09);
+      border-radius: 100px;
+      padding: 4px;
+      transition: .7s linear;
+      span{
+        margin-left: 20px;
+        @include font-size(14);
+        color: #3f4fc9;
+      }
       &.hidden{
-        bottom: -50px;
+        bottom: -100px;
       }
       .step-4 &{
-        transition: .5s 0s;
+        //transition: .5s 0s;
       }
     }
   }
@@ -401,14 +416,14 @@ $investor-delay-4: ($investor-duration/100) * 75; //3
 }
 
 .bubbles{
-  filter:url('#shadowed-goo');
+  //filter:url('#shadowed-goo');
   position: relative;
   top: 100px;
   margin: 0 auto;
   width: 302px;
   height: 600px;
   .step-3 &{
-    //filter:url('#shadowed-goo');
+    filter:url('#shadowed-goo');
     z-index: 3;
   }
 }
@@ -418,7 +433,7 @@ $investor-delay-4: ($investor-duration/100) * 75; //3
   max-width: 302px;
   max-height: 302px;
   height: 100%;
-  background: rgba(252,252,252,1);
+  //background: rgba(252,252,252,1);
   background: linear-gradient(135deg, rgba(252,252,252,1) 0%, rgba(196,189,188,1) 100%);
   border-radius: 100%;
   line-height: 190px;

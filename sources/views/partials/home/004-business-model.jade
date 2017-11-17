@@ -11,11 +11,12 @@ section.business-model#business-model
       span.title-line__line(data--20-bottom="width: 0px" data--200-bottom="width: 118px")
     .row
       .col-md-6.col-12.business-model__text
-          p
-            b="Betex "
-            | is a leading-edge platform for P2P financial derivatives trading. Powered by Ethereum smart contracts, it brings undisputable transparency to the process, thereby, ultimately eliminating the issue of trust.
+          p We designed a radically new business model to shift user mindset from worrying about the integrity of platform providers to focusing on own capacity to make profit.
+          p Betex is the only platform, where as much as 95% of funds are distributed among traders, who succeed.
       .col-md-6.col-12.business-model__text
-          p We went with a radically new business model to disrupt ideological principles behind Binary Options through shifting user mindset from worrying about reliability of platform providers to focusing on own capacity to make profit.
+          p Besides, we are forming a large common pool of liquidity for each underlying asset in order to maximize users’ gain.
+          p Powered by Ethereum smart contracts, Betex brings undisputable transparency, fair conduct and auditable results to Binary Options trading.
+
     //.buttons
       -for(var j = 1; j<5; j++)
         button(class="step-"+j)="step " + j
@@ -89,7 +90,12 @@ section.business-model#business-model
 
         a(href="#").payouts__replay.hidden
           svg(width="38px", height="38px")
-            use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#replay")
+            use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#restart")
+          span Restart presentation
+        a(href="#").payouts__play
+          svg(width="38px", height="38px")
+            use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#play")
+          span Play presentation
 
     .payouts-mob
       .put-money

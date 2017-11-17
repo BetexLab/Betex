@@ -1,27 +1,32 @@
 -
+  //  var detailCol = {
+  //    'Start of whitelist register':'23.10.2017 at 14:00 GMT',
+  //    'End of whitelist registration:': '28.10.2017 at 14:00 GMT',
+  //    'Start of crowdsale for whitelisted addresses:': '01.11.2017 at 14:00 GMT',
+  //    'Start of crowdsale for all without limits:': '03.11.2017 at 14:00 GMT',
+  //    'End of crowdsale:': '01.12.2017 at 14:00 GMT or once Max Cap is reached'
+  //  },
   var detailCol = {
-  'Start of whitelist register':'23.10.2017 at 14:00 GMT',
-  'End of whitelist registration:': '28.10.2017 at 14:00 GMT',
-  'Start of crowdsale for whitelisted addresses:': '01.11.2017 at 14:00 GMT',
-  'Start of crowdsale for all without limits:': '03.11.2017 at 14:00 GMT',
-  'End of crowdsale:': '01.12.2017 at 14:00 GMT or once Max Cap is reached'
+    'Start of the pre-sale round 1:':'23.11.2017 at 14:00 GMT',
+    'End of the pre-sale round 1:': '30.11.2017 at 14:00 GMT or 500,000 of BETEX tokens are sold out',
+    'Pre-sale round 1 BETEX token price:': '$2.00'
   },
   detailCol2 = {
-  'Crowdsale betex token price:': '$5.00 - $18.80',
-  'Max amount of tokens to be sold:': '5,000,000 out of 10,000,000 (50%)',
-  'Max guaranteed whitelisted buy:': '20ETH',
+    'Max amount of tokens to be sold:': '500,000 out of 10,000,000 (5%)',
+    'Pre-sale round 1 Hard cap:': '$ 1,000,000',
+    'Min purchase amount:': '15,000 BETEX'
   }
 
 section.betex-token#token-sale
   .container
     .betex-token__header
-      h2.betex-token__title.title-line Betex Token
+      h2.betex-token__title.title-line Betex Token pre-sale
         span.title-line__line(data--20-bottom="width: 0px" data--200-bottom="width: 118px")
       ul.tabs.betex-token__tabs-caption(data-tabgroup='token-tab')
-        li.betex-token__tabs-item
-          a.betex-token__tabs-link(href='#pre-sale') Pre - Sale
         li.betex-token__tabs-item.active
-          a.betex-token__tabs-link(href='#sale') Sale
+          a.betex-token__tabs-link(href='#sale') Round 1
+        li.betex-token__tabs-item
+          a.betex-token__tabs-link(href='#pre-sale') Round 2
 
 
     #token-tab.tabgroup
@@ -29,13 +34,13 @@ section.betex-token#token-sale
         .row
           .col-lg-4
             .betex-token__text
-              p Our Whitelist will be open for submission throughout the period:
-                br
-                b from October, 23rd until October, 28th 2017.
+              p Betex Token pre-sale will be carried out in 2 stages. Tokens will be issued in accordance with SAFT agreement after the pre-sale, once they are  generated and registered.
           .col-lg-4
             .betex-token__text
-              p Make sure to subscribe with your ETH address in order to participate in the BETEX Token distribution and secure yourself a chance to enter the Crowdsale (up to 20 ETH)
-          .col-lg-4
+              p
+                b="Attention! "
+                | Only qualified investors who have completed the KYC/AML process will have access to the Betex Token pre-sale.
+          //.col-lg-4
             .betex-token__text
               p Contributors, subscribed to the Whitelist, will be granted a prerogative right to make a purchase in the first 48 hours of the sale and an exclusive 20% bonus on top of that.
         .benefits-line-wrap
@@ -91,10 +96,10 @@ section.betex-token#token-sale
                 .betex-token__detail-item
                   p.betex-token__detail-item-title=item
                   p=key
-              .betex-token__detail-item.betex-token__detail-item_half-mob
+              //.betex-token__detail-item.betex-token__detail-item_half-mob
                 p.betex-token__detail-item-title Min cap:
                 p $2M
-              .betex-token__detail-item.betex-token__detail-item_half-mob
+              //.betex-token__detail-item.betex-token__detail-item_half-mob
                 p.betex-token__detail-item-title Max cap:
                 p $94M
 
@@ -171,23 +176,24 @@ section.betex-token#token-sale
         .row
           .col-lg-6.betex-token__pre-sale-col
             .betex-token__detail-item
-              p.betex-token__detail-item-title Start of pre-sale:
-              p 09.10.2017 at 14:00 GMT
+              p.betex-token__detail-item-title Start of the pre-sale round 2:
+              p 01.12.2017 at 14:00 GMT
             .betex-token__detail-item
-              p.betex-token__detail-item-title End of pre-sale:
-              p 16.10.2017 at 14:00 GMT or
-                br
-                | 500,000 of BETEX tokens are sold out
+              p.betex-token__detail-item-title End of the pre-sale round 2:
+              p 31.12.2017 at 14:00 GMT or 1,500,000 of BETEX tokens are sold out
             .betex-token__detail-item
-              p.betex-token__detail-item-title Pre-sale Betex token price:
-              p $3.00
+              p.betex-token__detail-item-title Pre-sale round 2 BETEX token price:
+              p $2.50
             .betex-token__detail-item
               p.betex-token__detail-item-title Max amount of tokens to be sold:
-              p 500,000 out of 10,000,000 (5%)
+              p 1,500,000 out of 10,000,000 (15%)
             .betex-token__detail-item
-              p.betex-token__detail-item-title Min amount of tokens that can be bought:
-              p 10,000 BETEX
-            .betex-token__detail-item.betex-token__detail-item_half
+              p.betex-token__detail-item-title Pre-sale round 2 Hard cap:
+              p $ 3,750,000
+            .betex-token__detail-item
+              p.betex-token__detail-item-title Min purchase amount:
+              p 5,000 BETEX
+            //.betex-token__detail-item.betex-token__detail-item_half
               .betex-token__detail-item-wrap
                 p.betex-token__detail-item-title Min cap:
                 p $ 500,000
@@ -207,21 +213,24 @@ section.betex-token#token-sale
                 .funds-disribution__descript
                   p.funds-disribution__descript-title Funds Distribution
                   ul.funds-disribution__list
-                    //li.funds-disribution__list-item.grey(data-index="0")
-                      b="10% "
-                      span Reserve
-                    li.funds-disribution__list-item.red(data-index="0")
-                      b="10% "
+                    li.funds-disribution__list-item.blue(data-index="0")
+                      b="40% "
                       span Pre Sale
-                    li.funds-disribution__list-item.yellow(data-index="1")
-                      b="2% "
+                    li.funds-disribution__list-item.red(data-index="1")
+                      b="15% "
                       span Bounty
-                    li.funds-disribution__list-item.blue(data-index="2")
-                      b="88% "
+                    li.funds-disribution__list-item.grey(data-index="2")
+                      b="15% "
                       span Sale
-                    //li.funds-disribution__list-item.light-blue(data-index="3")
-                      b="30% "
-                      span Founders and Team
+                    li.funds-disribution__list-item.light-blue(data-index="3")
+                      b="15% "
+                      span Pre Sale
+                    li.funds-disribution__list-item.yellow(data-index="4")
+                      b="5% "
+                      span Bounty
+                    li.funds-disribution__list-item.orange(data-index="5")
+                      b="10% "
+                      span Sale
               //.funds-disribution__line
                 .funds-disribution__line-item
                   span.funds-disribution__line-info +20%

@@ -4,9 +4,9 @@
       roadMapDescript = ['','','','website launch Alpha version launch','Tokens pre-sale & crowd sale Brokers launch','Tokens pre-sale & crowd sale Brokers launch','Tokens pre-sale & crowd sale Brokers launch','Tokens pre-sale & crowd sale Brokers launch'];
 
   var roadMap = [
-    ['Q4-2016',
+    ['2017 Q4',
       'Idea',
-      ''],
+      'Launch and test of the p2p binary options platform MVP in the test net; <br> Pre-sale of BETEX tokens in accordance with SAFT; <br> Audit of the platform smart contracts; <br>Web interface design of a platform section for p2p sports betting;'],
     ['Q1-2017',
       'R&D',
       ''],
@@ -40,40 +40,85 @@
   h2.roadmap-title.title-line Roadmap
     span.title-line__line(data--20-bottom="width: 0px" data--200-bottom="width: 118px")
   .roadmap-slider
-    -for(var i = 0; i < roadMap.length; i++)
+    .roadmap-slider__item
+      .roadmap-slider__item-wrap
+        span.roadmap-slider__item-center 2017 Q4
+      p.roadmap-slider__item-descript Launch and test of the p2p binary options platform MVP in the test net;
+        br
+        | Pre-sale of BETEX tokens in accordance with SAFT;
+        br
+        | Audit of the platform smart contracts;
+        br
+        | Web interface design of a platform section for p2p sports betting;
+
+    .roadmap-slider__item
+      .roadmap-slider__item-wrap
+        span.roadmap-slider__item-center 2018 Q1:
+      p.roadmap-slider__item-descript Obtaining a license for betting;
+        br
+        | Commercial launch of the p2p binary options platform Betex;
+        br
+        | Development of the available trading pairs list;
+        br
+        | Launch and test of a section of the platform MVP for p2p sports betting in the test net;
+        br
+        | Development and testing of the platform mobile app for Android / iOS;
+        br
+        | Development and testing of the platform desktop client application;
+    .roadmap-slider__item
+      .roadmap-slider__item-wrap
+        span.roadmap-slider__item-center 2018 Q2:
+      p.roadmap-slider__item-descript Commercial launch of a platform section for p2p sports betting;
+        br
+        | Connecting to the platform of the first brokers;
+        br
+        | Development of an API for trading bots;
+        br
+        | Launch of the platform mobile app for Android / iOS;
+        br
+        | Running the platform desktop client application;
+        br
+        | Generation of BETEX tokens;
+        br
+        | Distribution of BETEX tokens among pre-sale participants;
+    .roadmap-slider__item
+      .roadmap-slider__item-wrap
+        span.roadmap-slider__item-center 2018 Q3:
+      p.roadmap-slider__item-descript Registration of the BETEX token in the SEC;
+        br
+        | Carrying out the main stage of BETEX token sale;
+        br
+        | Developing and connecting to FIX API;
+        br
+        | Development of the platform section for p2p betting on irregular events;
+    .roadmap-slider__item
+      .roadmap-slider__item-wrap
+        span.roadmap-slider__item-center 2018 Q4:
+      p.roadmap-slider__item-descript Scaling the network and / or moving to a more productive block;
+        br
+        | Launch of the platform section for p2p betting on non-regular events;
+    .roadmap-slider__item
+      .roadmap-slider__item-wrap
+        span.roadmap-slider__item-center 2019 Q1:
+      p.roadmap-slider__item-descript Global Market Expansion & Adaptation
+        br
+        | Project Breakthrough.
+    //-for(var i = 0; i < roadMap.length; i++)
       if(i >= 5)
         .roadmap-slider__item.roadmap-slider__item_light
           .roadmap-slider__item-wrap
             span.roadmap-slider__item-center=roadMap[i][0]
-            p.roadmap-slider__item-title=roadMap[i][1]
+            //p.roadmap-slider__item-title=roadMap[i][1]
             p.roadmap-slider__item-descript=roadMap[i][2]
       else if(i == 4)
         .roadmap-slider__item.roadmap-slider__item_dashed
           .roadmap-slider__item-wrap
             span.roadmap-slider__item-center=roadMap[i][0]
-            p.roadmap-slider__item-title=roadMap[i][1]
+            //p.roadmap-slider__item-title=roadMap[i][1]
             p.roadmap-slider__item-descript=roadMap[i][2]
       else
         .roadmap-slider__item
           .roadmap-slider__item-wrap
             span.roadmap-slider__item-center=roadMap[i][0]
-            p.roadmap-slider__item-title=roadMap[i][1]
+            //p.roadmap-slider__item-title=roadMap[i][1]
             p.roadmap-slider__item-descript=roadMap[i][2]
-    //-for(var i = 0; i < 8; i++)
-      if(i >= 4)
-        .roadmap-slider__item.roadmap-slider__item_light
-          .roadmap-slider__item-wrap
-            span.roadmap-slider__item-center=roadMapCenter[i]
-            p.roadmap-slider__item-title=roadMapTitle[i]
-            p.roadmap-slider__item-descript=roadMapDescript[i]
-      else if(i == 3)
-        .roadmap-slider__item.roadmap-slider__item_dashed
-          .roadmap-slider__item-wrap
-            span.roadmap-slider__item-center=roadMapCenter[i]
-            p.roadmap-slider__item-title=roadMapTitle[i]
-            p.roadmap-slider__item-descript=roadMapDescript[i]
-      else
-        .roadmap-slider__item
-          .roadmap-slider__item-wrap
-            span.roadmap-slider__item-center=roadMapCenter[i]
-            p.roadmap-slider__item-title=roadMapTitle[i]

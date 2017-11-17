@@ -1,6 +1,6 @@
 .main-block{
   position: relative;
-  min-height: 550px;
+  min-height: 480px;
   &__title{
     letter-spacing: -0.009em;
     @include line-height(29,22);
@@ -104,7 +104,8 @@
         .time,
         .subscribe-form,
         .main-block__links,
-        .timer{
+        .timer,
+        .subscribe-title{
           opacity: 0;
           transform: translate3d(0,20px,0);
         }
@@ -128,6 +129,16 @@
       flex-direction: column;
       align-items: flex-start;
     }
+  }
+}
+.subscribe-title{
+  display: none;
+  @include mq(992){
+    @include font-size(16);
+    font-weight: $weight-bold;
+    color: #171623;
+    display: block;
+    transition: 1s 2s;
   }
 }
 
