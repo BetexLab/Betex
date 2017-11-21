@@ -36,7 +36,7 @@
             };
 
             //timer
-            let countDownDate = new Date("Dec 1, 2017 12:00:00").getTime();
+            let countDownDate = new Date("Dec 1, 2017 16:00:00").getTime();
             let x = setInterval(() => {
                 let now = new Date().getTime();
 
@@ -54,7 +54,7 @@
 
                 if (distance < 0) {
                     clearInterval(x);
-                    document.getElementById("timer").innerHTML = "EXPIRED";
+                    document.getElementById("timer").innerHTML = "Time is over";
                 }
             }, 1000);
 
