@@ -6,15 +6,15 @@
       .col-lg-4.footer__soc-col
         //ul.footer__soc
           li.footer__soc-link
-            a(href="#", target="_blank", rel="nofollow")
+            a(href="#", target="_blank", rel="nofollow", onclick="gtag('event', 'linkedin', {'event_category': 'click', 'event_action': 'open'});return true")
               svg(width="21px", height="20px")
                 use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#linkedin")
           li.footer__soc-link
-            a(href="#", target="_blank", rel="nofollow")
+            a(href="#", target="_blank", rel="nofollow", onclick="gtag('event', 'git', {'event_category': 'click', 'event_action': 'open'});return true")
               svg(width="23px", height="20px")
                 use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#git")
           li.footer__soc-link
-            a(href="#", target="_blank", rel="nofollow")
+            a(href="#", target="_blank", rel="nofollow", onclick="gtag('event', 'pinterest', {'event_category': 'click', 'event_action': 'open'});return true")
               svg(width="25px", height="20px")
                 use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#pinterest")
       .col-lg-4.footer__nav-col
