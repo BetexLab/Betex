@@ -5,6 +5,7 @@
 .roadmap-slider{
   margin: 0 0 47px;
   padding: 0 10px 135px;
+
   &__item{
     position: relative;
     transition: opacity 1s;
@@ -112,10 +113,16 @@
   }
   .slick-arrow{
     &.slick-prev{
-      left: -40px;
+      left: 5px;
+      @include mq(1250){
+        left: -40px;
+      }
     }
     &.slick-next{
-      right: -40px;
+      right: 5px;
+      @include mq(1250){
+        right: -40px;
+      }
     }
     bottom: auto;
     top: 85px;
@@ -147,10 +154,10 @@
   @media (min-width: 768px) {
     padding: 0 10px 125px;
     &__item{
-      &:not(.slick-active){
+      /*&:not(.slick-active){
         opacity: 0;
         transition: opacity .3s;
-      }
+      }*/
       &-descript{
         //width: 155px;
         //top: 56px;
@@ -161,6 +168,18 @@
         width: 165px;
       }
     }
+  }
+  @media (min-width: 1024px) {
+    padding: 0 40px 125px;
+    &__item {
+      &:not(.slick-active) {
+        opacity: 0;
+        transition: opacity .3s;
+      }
+    }
+  }
+  @media (min-width: 1250px){
+    padding: 0 10px 125px;
   }
 }
 
