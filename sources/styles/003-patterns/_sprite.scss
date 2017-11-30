@@ -1,59 +1,66 @@
 %svg-common {
-	background: url("svg-sprite-1c193ef9.svg") no-repeat;
+	background: url("svg-sprite-1127107a.svg") no-repeat;
+}
+
+.i-clock {
+	@extend %svg-common;
+	background-position: 0 0;
+	width: 17px;
+	height: 17px;
 }
 
 .i-doc-icon {
 	@extend %svg-common;
-	background-position: 0 0;
+	background-position: 0 2.664576802507837%;
 	width: 14px;
 	height: 18px;
 }
 
 .i-dollar_green {
 	@extend %svg-common;
-	background-position: 0 3.0560271646859083%;
+	background-position: 0 5.775577557755776%;
 	width: 50px;
 	height: 50px;
 }
 
 .i-dollar_red {
 	@extend %svg-common;
-	background-position: 0 11.544991511035654%;
+	background-position: 0 14.026402640264026%;
 	width: 50px;
 	height: 50px;
 }
 
 .i-dropdown {
 	@extend %svg-common;
-	background-position: 0 19.43986820428336%;
+	background-position: 0 21.634615384615383%;
 	width: 32px;
 	height: 32px;
 }
 
 .i-get_left_line {
 	@extend %svg-common;
-	background-position: 0 28.24858757062147%;
+	background-position: 0 30.474452554744527%;
 	width: 49px;
 	height: 108px;
 }
 
 .i-get_right_line {
 	@extend %svg-common;
-	background-position: 0 49.90328820116054%;
+	background-position: 0 51.49812734082397%;
 	width: 52px;
 	height: 122px;
 }
 
 .i-locked {
 	@extend %svg-common;
-	background-position: 0 64.51612903225806%;
+	background-position: 0 65.51155115511551%;
 	width: 50px;
 	height: 50px;
 }
 
 .i-put_left_line {
 	@extend %svg-common;
-	background-position: 0 80.52434456928839%;
+	background-position: 0 81.12522686025409%;
 	width: 47px;
 	height: 105px;
 }

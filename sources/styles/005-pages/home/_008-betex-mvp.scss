@@ -1,14 +1,14 @@
 .betex-mvp{
-  padding: 50px 0 20px;
+  padding: 80px 0 76px;
   &__row{
 
   }
   &__descript{
-    padding: 28px 0 0 8px;
+    padding: 28px 0 0 0;
   }
   &__text{
-    max-width: 355px;
-    padding: 12px 0 37px;
+    max-width: 330px;
+    padding: 22px 0 37px;
     line-height: 1.75;
   }
   &__links{
@@ -81,7 +81,7 @@
       padding: 55px 0 40px 10px;
     }
     &__text {
-      padding: 40px 0 35px;
+      padding: 32px 0 50px;
       @include line-height(24, 16);
     }
     &__links {
@@ -98,8 +98,7 @@
     }
   }
   @media (min-width: 1024px){
-    //padding: 120px 0 50px;
-    padding: 70px 0 50px;
+    padding: 110px 0 200px;
     &__descript {
       padding: 95px 0 0 10px;
     }

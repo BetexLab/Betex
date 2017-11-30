@@ -4,10 +4,9 @@
     'Roadmap' :       'roadmap',
     'Token Sale' :    'token-sale',
     'MVP' :           'mvp',
-    'Our team' :      'team'
+    'Team' :      'team',
+    'Contacts' :      'contacts'
   },
-  //  'FAQ' :           'faq'
-  //mobNav = ['Home','Business model','Roadmap','Token Sale','MVP','Our team'];
 
   mobNav = {
     'Home'           :'top',
@@ -15,24 +14,15 @@
     'Roadmap' :       'roadmap',
     'Token Sale' :    'token-sale',
     'MVP' :           'mvp',
-    'Our team' :      'team'
-  }
-  // 'FAQ' :           'faq'
-
-  mobNav = {
-    'Home'           :'top',
-    'Business Model' :'business-model',
-    'Roadmap' :       'roadmap',
-    'Token Sale' :    'token-sale',
-    'MVP' :           'mvp',
-    'Our Team' :      'team'
+    'Team' :      'team',
+    'Contacts' :      'contacts'
   }
 
 
 header.header
   .container
     .row
-      .col-lg-6.header__logo-col
+      .col-lg-2.header__logo-col
         a(href="/").header__logo
           svg.header__logo-svg(viewbox='0 0 117 40', version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink')
             defs
@@ -49,12 +39,12 @@ header.header
                   g
                     path#Fill-1(d='M21.554,0.0008 L21.554,5.6498 L43.108,16.7738 L43.108,11.1238 L21.554,0.0008 Z M21.554,0.0008 L0,11.1238 L0,16.7738 L21.554,5.6498 L21.554,0.0008 Z M21.554,11.2988 L43.108,22.4228 L43.108,16.7738 L21.554,5.6498 L21.554,11.2988 Z M21.554,5.6498 L0,16.7738 L0,22.4228 L21.554,11.2988 L21.554,5.6498 Z M21.554,16.9468 L43.108,28.0718 L43.108,22.4228 L21.554,11.2988 L21.554,16.9468 Z M21.554,11.2988 L0,22.4228 L0,28.0718 L21.554,16.9468 L21.554,11.2988 Z', fill='url(#linearGradient-1)')
                     path#Fill-3(d='M21.554,22.4228 L43.108,11.2988 L43.108,16.9468 L21.554,28.0718 L21.554,22.4228 Z M0,16.9468 L0,11.2988 L21.554,22.4228 L21.554,28.0718 L0,16.9468 Z M43.108,16.9468 L43.108,22.5968 L21.554,33.7218 L21.554,28.0718 L43.108,16.9468 Z M0,22.5968 L0,16.9468 L21.554,28.0718 L21.554,33.7218 L0,22.5968 Z M43.108,22.5968 L43.108,28.2458 L21.554,39.3708 L21.554,33.7218 L43.108,22.5968 Z M0,28.2458 L0,22.5968 L21.554,33.7218 L21.554,39.3708 L0,28.2458 Z', fill='url(#linearGradient-2)', style='mix-blend-mode: multiply;')
-        a(href="#", onclick="gtag('event', 'contribute', {'event_category': 'email', 'event_action': 'open'}); return true").header__btn.btn.btn_mob.contribute-open Contribute
+        //a(href="#", onclick="gtag('event', 'contribute', {'event_category': 'email', 'event_action': 'open'}); return true").header__btn.btn.btn_mob.btn_desktop.contribute-open Contribute
         .header__burger
           span
           span
           span
-      .col-lg-6.header__nav-col
+      .col-lg-10.header__nav-col
         nav.nav
           ul.nav__list
             each item, key in nav
@@ -70,7 +60,7 @@ header.header
             li.mob-menu__nav-item
                 a(href="#" + item)=key
       .mob-menu__btn-title Join to crowdsale
-      a(href="#").mob-menu__btn.btn.contribute-open Contribute
+      a(href="#").mob-menu__btn.btn.btn_green.contribute-open Contribute
 
       .mob-menu__links
         a(href="./betex-wp.pdf", target="_blank", rel="nofollow").mob-menu__link.link-doc Whitepaper
@@ -83,6 +73,15 @@ header.header
 
       p.contribute-popup__sub-title Leave your email to get more information and news about Betex ICO
       #mc_embed_signup
+        form#mc-embedded-subscribe-form.validate(action='https://betexlab.us17.list-manage.com/subscribe/post?u=ce2f1a570b79c42d276394303&id=c79a7c3818', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate='')
+          #mc_embed_signup_scroll
+            //label(for='mce-EMAIL') Subscribe to our mailing list
+            input#mce-EMAIL.email.contribute-popup__email(type='email', value='', name='EMAIL', placeholder='email address', required='')
+            div(style='position: absolute; left: -5000px;', aria-hidden='true')
+              input(type='text', name='b_ce2f1a570b79c42d276394303_c79a7c3818', tabindex='-1', value='')
+            .clear
+              input#mc-embedded-subscribe.button.contribute-popup__submit.btn.btn_green(type='submit', value='Subscribe', name='subscribe')
+      //#mc_embed_signup
         form(action="https://betexlab.us17.list-manage.com/subscribe/post?u=ce2f1a570b79c42d276394303&amp;id=c79a7c3818", method="post", id="mc-embedded-subscribe-form", name="mc-embedded-subscribe-form", class="validate", target="_blank", novalidate)
           #mc_embed_signup_scroll.contribute-popup__form
             input(type="text",placeholder="email").contribute-popup__email

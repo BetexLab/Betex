@@ -83,19 +83,17 @@ section.business-model#business-model
             fecolormatrix(in='blur', mode='matrix', values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7', result='goo')
             fecomposite(in2='goo', in='SourceGraphic', result='mix')
 
+        a(href="#").btn.payouts__replay.hidden Restart presentation
+        a(href="#").btn.payouts__play Play presentation
 
-
-
-
-
-        a(href="#").payouts__replay.hidden
-          svg(width="38px", height="38px")
-            use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#restart")
-          span Restart presentation
-        a(href="#").payouts__play
-          svg(width="38px", height="38px")
-            use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#play")
-          span Play presentation
+        //a(href="#").payouts__replay.hidden
+        //  svg(width="38px", height="38px")
+        //    use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#restart")
+        //  span Restart presentation
+        //a(href="#").payouts__play
+        //  svg(width="38px", height="38px")
+        //    use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#play")
+        //  span Play presentation
 
     .payouts-mob
       .put-money
