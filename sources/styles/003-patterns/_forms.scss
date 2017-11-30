@@ -1,23 +1,41 @@
 .subscribe-form{
-  display: none;
-  @media screen and (min-width: 1024px){
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  transition: 1s 2s;
+  @include mq(768){
     width: 450px;
     height: 45px;
     border: 1px solid #f0f2f4;
-    display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    border-radius: 8px;
-    transition: 1s 2s;
-    &__input{
-      background:transparent;
-      @include font-size(14);
+  }
+  &__input{
+    background:transparent;
+    @include font-size(14);
+    padding: 0 6px;
+    @include mq(768){
       border: none;
-      padding:0 20px;
       width: calc(100% - 165px);
     }
-    &__submit{
+    @include mq(767, max){
+      width: 280px;
+      height: 40px;
+      border-radius: 5px;
+      border: 1px solid #f0f2f4;
+      margin-bottom: 17px;
+    }
+  }
+  &__submit{
+    @include mq(992) {
       @include font-size(16);
-      font-family: "Helvetica",Arial,sans-serif;
     }
   }
 }
+/*
+#mc_embed_signup {
+  background: #fff;
+  clear: left;
+  font: 14px Helvetica, Arial, sans-serif;
+  width: 100%;
+}*/

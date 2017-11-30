@@ -35,11 +35,79 @@
       'Wide market expansion and adoption',
       '']
   ]
+  var roadmapSliderNav = [
+    ['Q4', '2016'],
+    ['Q1', '2017'],
+    ['Q2', '2017'],
+    ['Q3', '2017'],
+    ['Q4', '2017'],
+    ['Q1', '2018'],
+    ['Q2', '2018'],
+    ['Q3', '2018'],
+    ['Q4', '2018'],
+    ['Q1', '2019']
+  ];
+  var roadmapSliderFor = [
+    ['Idea'],
+    ['Research & Development'],
+    ['Proof of Concept'],
+    ['Website Launch'],
+    ['Launch and test of the p2p binary options platform MVP in the test net;',
+      'Pre-sale of BETEX tokens in accordance with SAFT;',
+      'Audit of the platform smart contracts;',
+      'Web interface design of a platform section for p2p sports betting;'],
+    ['Obtaining a license for betting;',
+      'Commercial launch of the p2p binary options platform Betex;',
+      'Development of the available trading pairs list;',
+      'Launch and test of a section of the platform MVP for p2p sports betting in the test net;'],
+    ['Commercial launch of a platform section for p2p sports betting;',
+      'Connecting to the platform of the first brokers;',
+      'Development of an API for trading bots;',
+      'Launch of the platform mobile app for Android / iOS;',
+      'Running the platform desktop client application;'
+    ],
+    ['Registration of the BETEX token in the SEC;',
+      'Carrying out the main stage of BETEX token sale;',
+      'Developing and connecting to FIX API;',
+      'Development of the platform section for p2p betting on irregular events;'
+    ],
+    ['Scaling the network and / or moving to a more productive block;',
+      'Launch of the platform section for p2p betting on non-regular events;'
+    ],
+    ['Global Market Expansion & Adaptation',
+      'Project Breakthrough.'
+    ]
+  ]
 
 #roadmap.roadmap
   h2.roadmap-title.title-line Roadmap
     span.title-line__line(data--20-bottom="width: 0px" data--200-bottom="width: 118px")
-  .roadmap-slider
+  .roadmap-slider.row
+    .roadmap-slider-nav.col-lg-4
+      -for(var i = 0; i < roadmapSliderNav.length; i++)
+        .roadmap-slider-nav__item
+          .roadmap-slider-nav__circle
+            span=roadmapSliderNav[i][0]
+            span=roadmapSliderNav[i][1]
+
+    .roadmap-slider-for.col-lg-8
+      -for(var i = 0; i < roadmapSliderFor.length; i++)
+        .roadmap-slider-for__item
+          p.roadmap-slider-for__item-title=roadmapSliderNav[i][0] + ' ' + roadmapSliderNav[i][1]
+          .roadmap-slider-for__item-text
+            if(roadmapSliderFor[i].length == 1)
+              p=roadmapSliderFor[i][0]
+            else
+              ul.roadmap-slider-for__list
+                -for(var k in roadmapSliderFor[i])
+                  li.roadmap-slider-for__list-item=roadmapSliderFor[i][k]
+
+
+
+
+
+
+  //.roadmap-slider
     .roadmap-slider__item
       .roadmap-slider__item-wrap
         span.roadmap-slider__item-center 2016 Q4
@@ -116,22 +184,3 @@
       p.roadmap-slider__item-descript Global Market Expansion & Adaptation
         br
         | Project Breakthrough.
-    //-for(var i = 0; i < roadMap.length; i++)
-      if(i >= 5)
-        .roadmap-slider__item.roadmap-slider__item_light
-          .roadmap-slider__item-wrap
-            span.roadmap-slider__item-center=roadMap[i][0]
-            //p.roadmap-slider__item-title=roadMap[i][1]
-            p.roadmap-slider__item-descript=roadMap[i][2]
-      else if(i == 4)
-        .roadmap-slider__item.roadmap-slider__item_dashed
-          .roadmap-slider__item-wrap
-            span.roadmap-slider__item-center=roadMap[i][0]
-            //p.roadmap-slider__item-title=roadMap[i][1]
-            p.roadmap-slider__item-descript=roadMap[i][2]
-      else
-        .roadmap-slider__item
-          .roadmap-slider__item-wrap
-            span.roadmap-slider__item-center=roadMap[i][0]
-            //p.roadmap-slider__item-title=roadMap[i][1]
-            p.roadmap-slider__item-descript=roadMap[i][2]

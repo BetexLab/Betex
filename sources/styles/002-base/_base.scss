@@ -28,9 +28,11 @@ main{
 svg[width="0"][height="0"] {
 	position: absolute;
 }
-@media (max-width: 1023px) {
-	.global-wrap{
-		margin-top: 55px;
+.global-wrap{
+	display: block;
+	margin-top: 63px;
+	@include mq(1024){
+		margin-top: 83px;
 	}
 }
 

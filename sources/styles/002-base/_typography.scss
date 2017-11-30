@@ -113,23 +113,21 @@ b{
 
 .title-line{
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   &__line{
     content: '';
     position: absolute;
-    bottom: -20px;
+    bottom: -10px;
     left: 0;
-    //width: 107px;
-    //width: 163px;
     width: 107px;
     height: 2px;
     background: #dcdcdc;
   }
   @include mq(768){
-    margin-bottom: 33px;
+    margin-bottom: 24px;
     &__line{
       width: 0;
-      bottom: -33px;
+      bottom: -24px;
       background: $primary;
     }
   }

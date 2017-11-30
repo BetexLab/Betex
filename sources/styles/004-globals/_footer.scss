@@ -1,11 +1,17 @@
 .footer{
   border-top: 1px solid #d8d8d8;
   background-color: #eef1f5;
-  padding: 26px 0 19px;
+  padding: 32px 0 19px;
   overflow: hidden;
 
   &__copyright{
     color: #9aa1ab;
+  }
+
+  &__logo{
+    @include mq(767, max) {
+      display: none;
+    }
   }
 
   &__soc{
@@ -34,8 +40,30 @@
     }
   }
 
+  &__partner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include mq(768){
+      align-items: flex-end;
+    }
+    &-title{
+      margin: 0;
+      color: #6d7d9a;
+    }
+    &-logo{
+      //width: 115px;
+      //height: 15px;
+      width: 209px;
+      height: 28px;
+      margin-top: 12px;
+      &:hover{
+        opacity: .7;
+      }
+    }
+  }
   @media (min-width: 768px){
-    padding: 35px 0 19px;
+    padding: 35px 10px 19px;
     &__soc {
       //@extend .l_flex--justify-center;
       align-items: center;
@@ -75,8 +103,10 @@
     }
   }
 
-  @media (max-width: 1023px) {
+
+  @media (max-width: 767px) {
     &__copyright{
+      padding: 13px 0 24px;
       text-align: center;
       &-col{
         order: 3;
@@ -84,29 +114,12 @@
         max-width: 100%;
       }
     }
-
-    &__soc{
-      &-col{
-        order: 2;
-        flex: 0 1 50%;
-        max-width: 50%;
-      }
-    }
-
     &__nav{
       &-col{
         order: 1;
         flex: 0 1 50%;
         max-width: 50%;
       }
-    }
-  }
-  @media (max-width: 767px) {
-    &__copyright{
-      @include font-size(12);
-      padding: 19px 0 24px;
-    }
-    &__nav{
       &-item{
         padding-bottom: 8px;
         @include font-size(14);
@@ -114,6 +127,11 @@
     }
     &__soc{
       padding: 5px 0 0;
+      &-col{
+        order: 2;
+        flex: 0 1 50%;
+        max-width: 50%;
+      }
     }
   }
 }
