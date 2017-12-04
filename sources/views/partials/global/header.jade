@@ -63,7 +63,7 @@ header.header
       a(href="#").mob-menu__btn.btn.btn_green.contribute-open Contribute
 
       .mob-menu__links
-        a(href="./betex-wp.pdf", target="_blank", rel="nofollow").mob-menu__link.link-doc Whitepaper
+        a(href="./betex-wp.pdf", target="_blank", rel="nofollow", onclick="gtag('event', 'Whitepaper', {'event_category': 'Whitepaper', 'event_action': 'button'});").mob-menu__link.link-doc Whitepaper
         //a(href="./go-pro.pdf", target="_blank", rel="nofollow").mob-menu__link.link-doc Terms of Tokens Sale
 
   .contribute-popup
@@ -80,12 +80,12 @@ header.header
             div(style='position: absolute; left: -5000px;', aria-hidden='true')
               input(type='text', name='b_ce2f1a570b79c42d276394303_c79a7c3818', tabindex='-1', value='')
             .clear
-              input#mc-embedded-subscribe.button.contribute-popup__submit.btn.btn_green(type='submit', value='Subscribe', name='subscribe')
+              input#mc-embedded-subscribe.button.contribute-popup__submit.btn.btn_green(type='submit', value='Subscribe', name='subscribe', onclick="gtag('event', 'Subscribe', {'event_category': 'Subscribe', 'event_action': 'button'});")
       //#mc_embed_signup
         form(action="https://betexlab.us17.list-manage.com/subscribe/post?u=ce2f1a570b79c42d276394303&amp;id=c79a7c3818", method="post", id="mc-embedded-subscribe-form", name="mc-embedded-subscribe-form", class="validate", target="_blank", novalidate)
           #mc_embed_signup_scroll.contribute-popup__form
             input(type="text",placeholder="email").contribute-popup__email
             input(type="submit", value="Subscribe").contribute-popup__submit.btn
       .contribute-popup__links
-        a(href="./betex-wp.pdf", target="_blank", rel="nofollow").contribute-popup__link.link-doc Whitepaper
+        a(href="./betex-wp.pdf", target="_blank", rel="nofollow", onclick="gtag('event', 'Whitepaper', {'event_category': 'Whitepaper', 'event_action': 'button'});").contribute-popup__link.link-doc Whitepaper
         //a(href="./go-pro.pdf", target="_blank", rel="nofollow").contribute-popup__link.link-doc Terms of Tokens Sale
