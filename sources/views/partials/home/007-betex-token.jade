@@ -7,17 +7,19 @@
   //    'End of crowdsale:': '01.12.2017 at 14:00 GMT or once Max Cap is reached'
   //  },
   var detailCol = {
-    'Start of the pre-sale round 1:':'23.11.2017 at 14:00 GMT',
-    'End of the pre-sale round 1:': '30.11.2017 at 14:00 GMT or 500,000 of BETEX tokens are sold out',
-    'Pre-sale round 1 BETEX token price:': '$ 2.00',
-    'Max amount of tokens to be sold:': '500,000 out of 10,000,000 (5%)',
-    'Pre-sale round 1 Hard cap:': '$ 1,000,000',
+    'Start of pre-sale round 1:': '04.12.17 at 14:00 GMT',
+    'End of pre-sale round 1:': '20.12.17 at 14:00 GMT or 500,000 of BETEX tokens are sold out',
+    'Pre-sale round 1 BETEX token price:': '$2.00 Max amount of tokens to be sold: 500,000 out of 10,000,000 (5%)',
+    'Pre-sale round 1 hard cap:': '$ 1,000,000',
     'Min purchase amount:': '15,000 BETEX'
   },
   detailCol2 = {
-    'Max amount of tokens to be sold:': '500,000 out of 10,000,000 (5%)',
-    'Pre-sale round 1 Hard cap:': '$ 1,000,000',
-    'Min purchase amount:': '15,000 BETEX'
+    'Start of pre-sale round 2:': '10.01.18 at 14:00 GMT',
+    'End of pre-sale round 2:': '31.01.18 at 14:00 GMT or 1,500,000 of BETEX tokens are sold out',
+    'Pre-sale round 2 BETEX token price:': '$2.50',
+    'Max amount of tokens to be sold:': '1,500,000 out of 10,000,000 (15%)',
+    'Pre-sale round 2 hard cap:': '$ 3,750,000',
+    'Min purchase amount:': '5,000 BETEX'
   }
 
 section.betex-token#token-sale
@@ -31,226 +33,117 @@ section.betex-token#token-sale
         li.betex-token__tabs-item
           a.betex-token__tabs-link(href='#round2') Round 2
 
-    .row
-      .col-lg-4
+    .row.betex-token__row
+      .col-lg-6
         .betex-token__text
           p Betex Token pre-sale will be carried out in 2 stages. Tokens will be issued in accordance with SAFT agreement after the pre-sale, once they are  generated and registered.
-      .col-lg-4
+      .col-lg-6
         .betex-token__text
           p
             b="Attention! "
             | Only qualified investors who have completed the KYC/AML process will have access to the Betex Token pre-sale.
-      //.col-lg-4
-        .betex-token__text
-          p Contributors, subscribed to the Whitelist, will be granted a prerogative right to make a purchase in the first 48 hours of the sale and an exclusive 20% bonus on top of that.
+      .col-12
+        //button.betex-token__btn.btn.contribute-open Contribute
+        button.betex-token__btn.btn.contribute-full-popup_open Contribute
+        //a.betex-token__btn(href="./go-pro.pdf", target="_blank", rel="nofollow", onclick="gtag('event', 'download', {'event_category': 'pdf', 'event_action': 'download-terms'}); return true").btn.btn_large Terms of Tokens Sale
 
     #token-tab.tabgroup
       #round1.active
 
-        .benefits-line-wrap
-          .benefits-line
-            .braces.braces_small
-              .curly
-                span.braces__caption Round 1
-
-            .braces.braces_big
-              .curly
-                span.braces__caption Round 2
-
-            .benefits-line__wrap
-              .benefits-line__item
-                .benefits-line__dot
-                  .benefits-line__date 23 nov
-              .benefits-line__item
-                .benefits-line__dot
-                  .benefits-line__date 1 dec
-              .benefits-line__item
-                //span.benefits-line__info 20% WL only
-                .benefits-line__dot
-                  .benefits-line__date 31 dec
-              //.benefits-line__item
-                //span.benefits-line__info 10%
-                .benefits-line__dot
-                  .benefits-line__date 3 nov
-              //.benefits-line__item
-                span.benefits-line__info 5%
-                .benefits-line__dot
-                  .benefits-line__date 10 nov
-              //.benefits-line__item
-                span.benefits-line__info No bonus
-                .benefits-line__dot
-                  .benefits-line__date 20 nov
-              //.benefits-line__item
-                .benefits-line__dot
-                  .benefits-line__date 31 dec
-
         .betex-token__detail
-          //p.betex-token__more.open More details
-            i.betex-token__more-icon.dropdown-icon
-            //svg.betex-token__more-icon(width="32px", height="32px")
-              use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#dropdown")
           .row
             .col-lg-6.betex-token__detail-col
               each key, item in detailCol
                 .betex-token__detail-item
                   p.betex-token__detail-item-title=item
                   p=key
-            //.col-lg-6.betex-token__detail-col
+            .col-lg-6
+              .progress
+                p.progress__title Pre-sale Round 1 is Live
+                #timer2.progress__timer
+                //.progress__line-block
+                  .progress__line-block-wrap
+                    p.progress__line-title Round 1 funding progress
+                    .progress__line
+                      .progress__line-passed
+                    .progress__line-values
+                      span.progress__line-min 0
+                      span.progress__line-max 500,000
+      #round2
+        .betex-token__detail
+          .row
+            .col-lg-5.betex-token__detail-col
               each key, item in detailCol2
                 .betex-token__detail-item
                   p.betex-token__detail-item-title=item
                   p=key
-              //.betex-token__detail-item.betex-token__detail-item_half-mob
-                p.betex-token__detail-item-title Min cap:
-                p $2M
-              //.betex-token__detail-item.betex-token__detail-item_half-mob
-                p.betex-token__detail-item-title Max cap:
-                p $94M
+            .col-lg-7
+              .funds-disribution
+                .funds-disribution__title-block.accordion-caption.open
+                  p.funds-disribution__title-mob Funds distribution
+                    i.funds-disribution__title-mob-icon.accordion-caption__icon.dropdown-icon
+                    //svg.funds-disribution__title-mob-icon.accordion-caption__icon(width="32px", height="32px")
+                      use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#dropdown")
+                .funds-disribution__wrap.open
+                  .funds-disribution__chart#funds-disribution
+                  //img.funds-disribution__chart(src="img/home-page/token-chart.png", alt="token-chart")
+                  .funds-disribution__descript
+                    p.funds-disribution__descript-title Funds Distribution
+                    ul.tokens-distribution__list
+                      li(data-index="0").funds-item.tokens-distribution__list-item.yellow
+                        b="40% "
+                        span Platform Development
+                      li(data-index="1").funds-item.tokens-distribution__list-item.red
+                        b="15% "
+                        span Marketing
+                      li(data-index="2").funds-item.tokens-distribution__list-item.blue
+                        b="15% "
+                        span Legal Support
+                      li(data-index="3").funds-item.tokens-distribution__list-item.grey
+                        b="15% "
+                        span Operational Costs
+                      li(data-index="4").funds-item.tokens-distribution__list-item.light-blue
+                        b="5% "
+                        span Research
+                      li(data-index="5").funds-item.tokens-distribution__list-item.green
+                        b="10% "
+                        span Reserve
+                    //ul.funds-disribution__list
+                      li.funds-disribution__list-item.yellow(data-index="0")
+                        b="40% "
+                        span Platform Development
+                      li.funds-disribution__list-item.red(data-index="1")
+                        b="15% "
+                        span Marketing
+                      li.funds-disribution__list-item.blue(data-index="2")
+                        b="15% "
+                        span Legal Support
+                      li.funds-disribution__list-item.grey(data-index="3")
+                        b="15% "
+                        span Operational Costs
+                      li.funds-disribution__list-item.light-blue(data-index="4")
+                        b="5% "
+                        span Research
+                      li.funds-disribution__list-item.green(data-index="5")
+                        b="10% "
+                        span Reserve
 
-            //.money-line-wrap
-              .money-line
-                .money-line__dot.active
-                  span.money-line__money 2M
-                  .money-line__dot-cloud
-                    p 2 million
-                    p.money-line__dot-cloud-title Beta version launch
-                    p Irregular events markets adding
-                .money-line__dot
-                  span.money-line__money 3M
-                  .money-line__dot-cloud
-                    p 2 million
-                    p.money-line__dot-cloud-title Beta version launch
-                    p Irregular events markets adding
-                .money-line__dot
-                  span.money-line__money 5M
-                  .money-line__dot-cloud
-                    p 2 million
-                    p.money-line__dot-cloud-title Beta version launch
-                    p Irregular events markets adding
-                .money-line__dot
-                  span.money-line__money 10M
-                  .money-line__dot-cloud
-                    p 2 million
-                    p.money-line__dot-cloud-title Beta version launch
-                    p Irregular events markets adding
-                .money-line__dot
-                  span.money-line__money 15M
-                  .money-line__dot-cloud
-                    p 2 million
-                    p.money-line__dot-cloud-title Beta version launch
-                    p Irregular events markets adding
-                .money-line__dot
-                  span.money-line__money 25M
-                  .money-line__dot-cloud
-                    p 2 million
-                    p.money-line__dot-cloud-title Beta version launch
-                    p Irregular events markets adding
-                .money-line__dot
-                  span.money-line__money 30M
-                  .money-line__dot-cloud
-                    p 2 million
-                    p.money-line__dot-cloud-title Beta version launch
-                    p Irregular events markets adding
-                .money-line__dot
-                  span.money-line__money 40M
-                  .money-line__dot-cloud
-                    p 2 million
-                    p.money-line__dot-cloud-title Beta version launch
-                    p Irregular events markets adding
-                .money-line__dot
-                  span.money-line__money 50M
-                  .money-line__dot-cloud
-                    p 2 million
-                    p.money-line__dot-cloud-title Beta version launch
-                    p Irregular events markets adding
-                .money-line__dot
-                  span.money-line__money 70M
-                  .money-line__dot-cloud
-                    p 2 million
-                    p.money-line__dot-cloud-title Beta version launch
-                    p Irregular events markets adding
-                .money-line__dot
-                  span.money-line__money 94M
-                  .money-line__dot-cloud
-                    p 2 million
-                    p.money-line__dot-cloud-title Beta version launch
-                    p Irregular events markets adding
-
-      #round2
-        .row
-          .col-lg-6.betex-token__pre-sale-col
-            .betex-token__detail-item
-              p.betex-token__detail-item-title Start of the pre-sale round 2:
-              p 01.12.2017 at 14:00 GMT
-            .betex-token__detail-item
-              p.betex-token__detail-item-title End of the pre-sale round 2:
-              p 31.12.2017 at 14:00 GMT or 1,500,000 of BETEX tokens are sold out
-            .betex-token__detail-item
-              p.betex-token__detail-item-title Pre-sale round 2 BETEX token price:
-              p $2.50
-            .betex-token__detail-item
-              p.betex-token__detail-item-title Max amount of tokens to be sold:
-              p 1,500,000 out of 10,000,000 (15%)
-            .betex-token__detail-item
-              p.betex-token__detail-item-title Pre-sale round 2 Hard cap:
-              p $ 3,750,000
-            .betex-token__detail-item
-              p.betex-token__detail-item-title Min purchase amount:
-              p 5,000 BETEX
-            //.betex-token__detail-item.betex-token__detail-item_half
-              .betex-token__detail-item-wrap
-                p.betex-token__detail-item-title Min cap:
-                p $ 500,000
-              .betex-token__detail-item-wrap
-                p.betex-token__detail-item-title Max cap:
-                p $ 1,500,000
-          .col-lg-6
-            .funds-disribution
-              .funds-disribution__title-block.accordion-caption.open
-                p.funds-disribution__title-mob Funds distribution
-                  i.funds-disribution__title-mob-icon.accordion-caption__icon.dropdown-icon
-                  //svg.funds-disribution__title-mob-icon.accordion-caption__icon(width="32px", height="32px")
-                    use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#dropdown")
-              .funds-disribution__wrap.open
-                .funds-disribution__chart#funds-disribution
-                //img.funds-disribution__chart(src="img/home-page/token-chart.png", alt="token-chart")
-                .funds-disribution__descript
-                  p.funds-disribution__descript-title Funds Distribution
-                  ul.funds-disribution__list
-                    li.funds-disribution__list-item.blue(data-index="0")
-                      b="40% "
-                      span Platform Development
-                    li.funds-disribution__list-item.red(data-index="1")
-                      b="15% "
-                      span Marketing
-                    li.funds-disribution__list-item.grey(data-index="2")
-                      b="15% "
-                      span Legal Support
-                    li.funds-disribution__list-item.light-blue(data-index="3")
-                      b="15% "
-                      span Operational Costs
-                    li.funds-disribution__list-item.yellow(data-index="4")
-                      b="5% "
-                      span Research
-                    li.funds-disribution__list-item.orange(data-index="5")
-                      b="10% "
-                      span Reserve
-              //.funds-disribution__line
-                .funds-disribution__line-item
-                  span.funds-disribution__line-info +20%
-                  .funds-disribution__line-dot
-                    span.funds-disribution__line-date 9 oct
-                .funds-disribution__line-item
-                  span.funds-disribution__line-info +10%
-                  .funds-disribution__line-dot
-                    span.funds-disribution__line-date 10 oct
-                .funds-disribution__line-item
-                  span.funds-disribution__line-info No bonus
-                  .funds-disribution__line-dot
-                    span.funds-disribution__line-date 13 oct
-                .funds-disribution__line-item
-                  .funds-disribution__line-dot
-                    span.funds-disribution__line-date 16 oct
+                //.funds-disribution__line
+                  .funds-disribution__line-item
+                    span.funds-disribution__line-info +20%
+                    .funds-disribution__line-dot
+                      span.funds-disribution__line-date 9 oct
+                  .funds-disribution__line-item
+                    span.funds-disribution__line-info +10%
+                    .funds-disribution__line-dot
+                      span.funds-disribution__line-date 10 oct
+                  .funds-disribution__line-item
+                    span.funds-disribution__line-info No bonus
+                    .funds-disribution__line-dot
+                      span.funds-disribution__line-date 13 oct
+                  .funds-disribution__line-item
+                    .funds-disribution__line-dot
+                      span.funds-disribution__line-date 16 oct
 
 
 

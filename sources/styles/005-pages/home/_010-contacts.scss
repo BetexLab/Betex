@@ -1,0 +1,51 @@
+.contacts{
+  padding: 68px 0 40px;
+  @include mq(1024){
+    padding: 68px 0 193px;
+  }
+  &__title{
+    @include font-size(24);
+    @include mq(768){
+      margin-left: 10px;
+      @include font-size(48);
+    }
+  }
+  &__soc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0 0;
+    @include mq(768){
+      padding: 57px 0 0;
+    }
+    &-link{
+      margin: auto;
+      a{
+        display: block;
+        overflow: hidden;
+        &:hover{
+          opacity: .7;
+        }
+      }
+    }
+  }
+  @include mq(768){
+    .subscribe-form{
+      margin-left: 10px;
+    }
+  }
+}
+.subscribe-title{
+  @include font-size(14);
+  font-weight: $weight-bold;
+  color: #171623;
+  transition: 1s 2s;
+  padding: 27px 0 0;
+  line-height: 1.75;
+  @include mq(768){
+    @include font-size(16);
+    margin-left: 10px;
+    line-height: 1.2;
+    padding: 23px 0 13px;
+  }
+}

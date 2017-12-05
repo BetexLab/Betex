@@ -1,13 +1,12 @@
 .business-model{
   padding: 50px 0 0;
-  background-image: linear-gradient(180deg, #eef1f5 0%, #fff 100%);
+  background-image: linear-gradient(180deg, #f6f7fa 0%, #ffffff 100%);
   overflow: hidden;
   overflow-x: hidden;
   &__title{
-    margin-left: 8px;
   }
   &__text{
-    padding: 18px 8px 0px;
+    padding: 20px 0 0;
     line-height: 1.75;
     letter-spacing: -0.005em;
   }
@@ -23,8 +22,14 @@
   }
   @media (min-width: 1024px){
     &__text {
-      padding: 41px 100px 0 14px;
+      padding: 33px 100px 0 10px;
+      p:not(:first-of-type){
+        margin-top: 23px;
+      }
     }
+  }
+  @include mq(1023, max){
+    margin-bottom: 70px;
   }
   @media (max-width: 768px){
     &__text{
@@ -34,14 +39,14 @@
  }
 
 .payouts{
-  padding: 65px 0 0;
+  padding: 103px 0 0;
   //height: 100vh;
   //min-height: 800px;
   //max-height: 800px;
   //height: 500px;
   height: 800px;
   opacity: 0;
-  transition: .5s .5s;
+  transition: 0s 0s;
   position: relative;
   &.visible{
     opacity: 1;
@@ -141,27 +146,29 @@
   @media (min-width: 1024px) {
     &__replay,
     &__play{
-      display: flex;
-      align-items: center;
-      position: fixed;
-      width: 221px;
+      position: absolute;
+      width: 220px;
+      height: 46px;
       left: 50%;
-      bottom: 50px;
+      top: -5px;
       z-index: 99;
       transform: translate(-50%, 0);
-      background-image: linear-gradient(-180deg, #F8F9FB 0%, #F0F3F8 1%, #EEF1F5 100%);
-      border: 1px solid #E7E8EE ;
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.09);
-      border-radius: 100px;
-      padding: 4px;
-      transition: .7s linear;
+      visibility: visible;
+      //background-image: linear-gradient(-180deg, #F8F9FB 0%, #F0F3F8 1%, #EEF1F5 100%);
+      //border: 1px solid #E7E8EE ;
+      //box-shadow: 0 4px 8px 0 rgba(0,0,0,0.09);
+      //border-radius: 100px;
+      //padding: 4px;
+      //transition: .7s linear;
       span{
-        margin-left: 20px;
-        @include font-size(14);
-        color: #3f4fc9;
+        //margin-left: 20px;
+        //@include font-size(14);
+        //color: #3f4fc9;
       }
       &.hidden{
-        bottom: -100px;
+        //bottom: -100px;
+        //opacity: 0;
+        visibility: hidden;
       }
       .step-4 &{
         //transition: .5s 0s;
@@ -742,7 +749,7 @@ $investor-delay-4: ($investor-duration/100) * 75; //3
   max-width: 320px;
   height: 493px;
   position: relative;
-  margin: 22px auto 0;
+  margin: 31px auto 0;
   &__title{
     font-weight: $weight-bold;
     max-width: 227px;
@@ -909,13 +916,16 @@ $investor-delay-4: ($investor-duration/100) * 75; //3
     border-radius: 50%;
     position: relative;
     z-index: 1;
+    span{
+      padding-top: 2px;
+    }
   }
   &__elucidation{
-    width: 208px;
-    height: 208px;
+    width: 216px;
+    height: 216px;
     border: 1px dashed rgba(63, 79, 201, .3);
     border-radius: 50%;
-    margin: 43px auto 50px;
+    margin: 57px auto 50px;
     position: relative;
     &-bubble{
       width: 48px;
@@ -924,30 +934,28 @@ $investor-delay-4: ($investor-duration/100) * 75; //3
       display: flex;
       justify-content: center;
       align-items: center;
+      align-content: center;
       border-radius: 50%;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate3d(-50%,-50%,0);
       &:nth-child(1){
-        transform: translate3d(-50%,-252%,0);
+        transform: translate3d(-200%, -208%, 0);
       }
       &:nth-child(2){
-        transform: translate3d(160%, -50%, 0);
+        transform: translate3d(-200%, 105%, 0);
       }
       &:nth-child(3){
-        transform: translate3d(-250%, -50%, 0);
+        transform: translate3d(115%, -208%, 0);
       }
       &:nth-child(4){
-        //transform: translate3d(-173%, 147%, 0);
-        transform: translate3d(-50%, 160%, 0);
-      }
-      &:nth-child(5){
-        transform: translate3d(67%, 147%, 0);
+        transform: translate3d(120%, 105%, 0);
       }
     }
     &-perc{
       color: #fff;
+      padding-top: 2px;
     }
     &-title{
       position: absolute;
@@ -963,7 +971,7 @@ $investor-delay-4: ($investor-duration/100) * 75; //3
 }
 
 .payouts-mob{
-  margin-top: 26px;
+  margin-top: 45px;
   border-top: 1px solid #d8d8d8;
   @media (min-width: 1024px) {
     display: none;

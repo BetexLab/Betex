@@ -1,4 +1,4 @@
-.btn{
+/*.btn{
   font-weight: $weight-bold;
   color: #fff;
   background-image: linear-gradient(to top, #0eb955 0%, #5bd488 100%);
@@ -19,11 +19,53 @@
     @include font-size(10);
     border-radius: 4px;
   }
+}*/
+.btn{
+  font-weight: $weight-bold;
+  text-align: center;
+  border-radius: 5px;
+  transition: all .3s linear;
+  border: 1px solid #13bb58;
+  width: 118px;
+  height: 32px;
+  color: #13bb58;
+  @include mq(768){
+    width: 165px;
+    height: 45px;
+    @include font-size(16);
+  }
+  @include mq(768, max){
+    @include font-size(12);
+  }
+  &_green{
+    color: #fff;
+    //background: #0eb955;
+    background-image: linear-gradient(to top, #0eb955 0%, #5bd488 100%);
+    /*&:hover{
+      color: #13bb58;
+      background: #fff;
+    }*/
+  }
+  &_large{
+    width: 262px;
+  }
+  &.btn_desktop{
+    @include mq(992, max){
+      display: none;
+    }
+  }
 }
 a.btn{
+  padding-top: 2px;
   display: flex;
   justify-content: center;
   align-items: center;
+  /*display: table;
+  line-height: 1.5;
+  span{
+    display: table-cell;
+    vertical-align: middle;
+  }*/
 }
 
 .link-doc{
@@ -48,26 +90,6 @@ a.btn{
     margin: 0 0 0 23px;
   }
 }
-
-.slick-arrow{
-  text-indent: -10000px;
-  @extend .i-dropdown;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto 0;
-  z-index: 1;
-  transition: .3s;
-  &.slick-prev{
-  }
-  &.slick-next{
-    transform: rotate(180deg);
-  }
-  &.slick-disabled{
-    opacity: 0;
-  }
-}
-
 .dropdown-icon{
   @extend .i-dropdown;
 }

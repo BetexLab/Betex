@@ -2,13 +2,19 @@ section.main-block
   .container
     .row
       .col-lg-6.main-block__descript.loading
+        p.main-block__sup-title Powered by Ethereum smart contracts
         h1.main-block__title Peer-to-peer binary options platform
-        p.main-block__sub-title Powered by ethereum smart contracts
 
+        p.timer-title Pre-sale Round 1 is Live
         #timer.timer
 
-        p.subscribe-title Sign up for timely alerts and announcements
-        #mc_embed_signup
+        .main-block__btn-group
+          //a(href="#").btn.btn_green#go-subscribe Subscribe
+          a(href="#").btn.btn_green.contribute-full-popup_open Contribute
+          a(href="./betex-wp.pdf", target="_blank", rel="nofollow", onclick="gtag('event', 'Whitepaper', {'event_category': 'Whitepaper', 'event_action': 'button'});").btn Whitepaper
+
+        //p.subscribe-title Sign up for timely alerts and announcements
+        //#mc_embed_signup
           form(action="https://betexlab.us17.list-manage.com/subscribe/post?u=ce2f1a570b79c42d276394303&amp;id=c79a7c3818",
           method="post",
           id="mc-embedded-subscribe-form",
@@ -21,10 +27,10 @@ section.main-block
               button.subscribe-form__submit.btn.btn_default(type="submit", onsubmit="gtag('event', 'subscribe', {'event_category': 'email', 'event_action': 'send'});return true") Subscribe
 
         .main-block__img-mob-wrap
-          img.main-block__img-mob(src="img/home-page/main-block_mob.png", alt="tablet")
+          img.main-block__img-mob(src="img/home-page/main-block.png", alt="tablet")
 
         //.main-block__links
           a(href="./go-pro.pdf", target="_blank", rel="nofollow").main-block__link.link-doc Terms of Tokens Sale
           a(href="./go-pro.pdf", target="_blank", rel="nofollow").main-block__link.link-doc Whitepaper
   .main-block__img-wrap.loading
-    img.main-block__img(src="img/home-page/main-block.png", alt="binary-platform", data-start="top: 67px", data-500-start="top: 200px")
+    img.main-block__img(src="img/home-page/main-block.png", alt="binary-platform", data-start="top: 67px", data-500-start="top: 150px")

@@ -1,12 +1,23 @@
 .detail-info{
   &__item{
-    padding: 0 10px 32px 10px;
+    padding: 0 0 49px;
+    @include mq(768){
+      padding: 0 10px 32px;
+    }
+    @include mq(767, max){
+      &:last-of-type{
+        //padding-bottom: 0;
+      }
+    }
     &-title{
-      padding: 15px 0 11px;
+      padding: 11px 0 5px;
       margin: 0;
       @include font-size(16);
       @extend %t_bold;
       line-height: 1.4;
+      @include mq(768){
+        padding: 15px 0 11px;
+      }
     }
     &-text{
       margin: 0;
@@ -18,7 +29,7 @@
       min-height: 34px;
       stroke: #38393c;
       svg{
-        transition: transform .4s ease-out;
+        transition: transform .4s cubic-bezier(0.49, 0.02, 0.07, 1.04);
       }
       .stroke-gray {
         stroke: #b8bbbe;
@@ -40,9 +51,9 @@
    }
   @media (min-width: 768px){
     &__item{
-      padding: 0 60px 77px 10px;
+      padding: 0 110px 60px 10px;
       &-title{
-        padding: 5px 0 17px;
+        padding: 10px 0 17px;
         @include font-size(20);
         @include line-height(28, 20);
       }
@@ -54,8 +65,8 @@
       }
     }
     &__container{
-      padding-top: 67px;
-      padding-bottom: 5px;
+      padding-top: 55px;
+      padding-bottom: 132px;
       border-top: 2px solid #d8d8d8;
     }
   }
@@ -78,6 +89,7 @@
   }
 
   @media (max-width: 767px) {
+    padding-bottom: 47px;
     &__row{
       padding-top: 32px;
       border-top: 2px solid #d8d8d8;

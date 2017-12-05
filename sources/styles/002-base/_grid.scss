@@ -20,7 +20,7 @@ $bootstrap4: true;
   $flex-box: true; // Currently, columns are only with flexbox. Please not enter "false" !
   $pull: false;
   $push: false;
-  $offset: false;
+  $offset: true;
 
   html {
     box-sizing: border-box;

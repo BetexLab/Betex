@@ -2,6 +2,7 @@ a {
 	text-decoration: none;
 	color: inherit;
 	transition: all $transition-time;
+  outline: none;
 }
 h1,
 .t_h1 {
@@ -113,23 +114,22 @@ b{
 
 .title-line{
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   &__line{
     content: '';
     position: absolute;
-    bottom: -20px;
+    bottom: -10px;
     left: 0;
-    //width: 107px;
-    //width: 163px;
     width: 107px;
-    height: 2px;
-    background: #dcdcdc;
+    height: 1px;
+    background: $primary;
   }
   @include mq(768){
-    margin-bottom: 33px;
+    margin-bottom: 24px;
     &__line{
+      height: 2px;
       width: 0;
-      bottom: -33px;
+      bottom: -24px;
       background: $primary;
     }
   }
