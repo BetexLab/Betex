@@ -892,9 +892,11 @@
   box-shadow: 0 8px 16px #ecedf5;
   border-radius: 5px;
   border: 1px solid #f1f1f1;
+  //padding: 24px 0 0;
   padding: 24px 0;
   margin: 9px 0 0;
   @include mq(768){
+    //padding: 48px 0 0;
     padding: 48px 0;
     margin: 40px 0 0;
   }

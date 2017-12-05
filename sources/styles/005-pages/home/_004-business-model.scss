@@ -916,6 +916,9 @@ $investor-delay-4: ($investor-duration/100) * 75; //3
     border-radius: 50%;
     position: relative;
     z-index: 1;
+    span{
+      padding-top: 2px;
+    }
   }
   &__elucidation{
     width: 216px;
@@ -931,6 +934,13 @@ $investor-delay-4: ($investor-duration/100) * 75; //3
       display: flex;
       justify-content: center;
       align-items: center;
+      //align-content: center;
+
+      //display: table;
+
+      //line-height: 48px;
+      text-align: center;
+
       border-radius: 50%;
       position: absolute;
       top: 50%;
@@ -951,6 +961,23 @@ $investor-delay-4: ($investor-duration/100) * 75; //3
     }
     &-perc{
       color: #fff;
+      padding-top: 4px;
+
+      //display: table-cell;
+      //vertical-align: middle;
+      //text-align: center;
+
+      //line-height: 20px;
+      //vertical-align: middle;
+      //display: inline-block;
+
+      /*position: absolute;
+      top: 0;
+      width: 100%;
+      height: 15px;
+      left: 0;
+      bottom: 0;
+      margin: auto 0;*/
     }
     &-title{
       position: absolute;

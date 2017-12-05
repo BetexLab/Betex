@@ -1,5 +1,6 @@
 .main-block{
   position: relative;
+  overflow: hidden;
   min-height: 480px;
   &__title{
     letter-spacing: -0.009em;
@@ -49,9 +50,11 @@
   }
   &__btn-group{
     display: flex;
+    align-items: center;
     transition: 1s 2s;
     .btn{
-      &:not(:first-of-type){
+      //padding: 8px 0;
+      &:not(:first-child){
         margin-left: 10px;
         @include mq(768){
           margin-left: 25px;
@@ -82,6 +85,7 @@
     }
   }
   @media (min-width: 1024px) {
+    padding-bottom: 178px;
     &__links{
       padding: 73px 0 0;
     }

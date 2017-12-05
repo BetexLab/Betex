@@ -43,7 +43,8 @@ section.betex-token#token-sale
             b="Attention! "
             | Only qualified investors who have completed the KYC/AML process will have access to the Betex Token pre-sale.
       .col-12
-        //a.betex-token__btn.btn(href="mailto:kyc@betexlab.com?subject=Become an investor") Contribute
+        //button.betex-token__btn.btn.contribute-full-popup_open Invest
+        a(href="mailto:kyc@betexlab.com?subject=Invest").betex-token__btn.btn Invest
         //a.betex-token__btn(href="./go-pro.pdf", target="_blank", rel="nofollow", onclick="gtag('event', 'download', {'event_category': 'pdf', 'event_action': 'download-terms'}); return true").btn.btn_large Terms of Tokens Sale
 
     #token-tab.tabgroup
@@ -69,59 +70,80 @@ section.betex-token#token-sale
                       span.progress__line-min 0
                       span.progress__line-max 500,000
       #round2
-        .row
-          .col-lg-5.betex-token__detail-col
-            each key, item in detailCol2
-              .betex-token__detail-item
-                p.betex-token__detail-item-title=item
-                p=key
-          .col-lg-7
-            .funds-disribution
-              .funds-disribution__title-block.accordion-caption.open
-                p.funds-disribution__title-mob Funds distribution
-                  i.funds-disribution__title-mob-icon.accordion-caption__icon.dropdown-icon
-                  //svg.funds-disribution__title-mob-icon.accordion-caption__icon(width="32px", height="32px")
-                    use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#dropdown")
-              .funds-disribution__wrap.open
-                .funds-disribution__chart#funds-disribution
-                //img.funds-disribution__chart(src="img/home-page/token-chart.png", alt="token-chart")
-                .funds-disribution__descript
-                  p.funds-disribution__descript-title Funds Distribution
-                  ul.funds-disribution__list
-                    li.funds-disribution__list-item.yellow(data-index="0")
-                      b="40% "
-                      span Platform Development
-                    li.funds-disribution__list-item.red(data-index="1")
-                      b="15% "
-                      span Marketing
-                    li.funds-disribution__list-item.blue(data-index="2")
-                      b="15% "
-                      span Legal Support
-                    li.funds-disribution__list-item.grey(data-index="3")
-                      b="15% "
-                      span Operational Costs
-                    li.funds-disribution__list-item.light-blue(data-index="4")
-                      b="5% "
-                      span Research
-                    li.funds-disribution__list-item.green(data-index="5")
-                      b="10% "
-                      span Reserve
-              //.funds-disribution__line
-                .funds-disribution__line-item
-                  span.funds-disribution__line-info +20%
-                  .funds-disribution__line-dot
-                    span.funds-disribution__line-date 9 oct
-                .funds-disribution__line-item
-                  span.funds-disribution__line-info +10%
-                  .funds-disribution__line-dot
-                    span.funds-disribution__line-date 10 oct
-                .funds-disribution__line-item
-                  span.funds-disribution__line-info No bonus
-                  .funds-disribution__line-dot
-                    span.funds-disribution__line-date 13 oct
-                .funds-disribution__line-item
-                  .funds-disribution__line-dot
-                    span.funds-disribution__line-date 16 oct
+        .betex-token__detail
+          .row
+            .col-lg-5.betex-token__detail-col
+              each key, item in detailCol2
+                .betex-token__detail-item
+                  p.betex-token__detail-item-title=item
+                  p=key
+            .col-lg-7
+              .funds-disribution
+                .funds-disribution__title-block.accordion-caption.open
+                  p.funds-disribution__title-mob Funds distribution
+                    i.funds-disribution__title-mob-icon.accordion-caption__icon.dropdown-icon
+                    //svg.funds-disribution__title-mob-icon.accordion-caption__icon(width="32px", height="32px")
+                      use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#dropdown")
+                .funds-disribution__wrap.open
+                  .funds-disribution__chart#funds-disribution
+                  //img.funds-disribution__chart(src="img/home-page/token-chart.png", alt="token-chart")
+                  .funds-disribution__descript
+                    p.funds-disribution__descript-title Funds Distribution
+                    ul.tokens-distribution__list
+                      li(data-index="0").funds-item.tokens-distribution__list-item.yellow
+                        b="40% "
+                        span Platform Development
+                      li(data-index="1").funds-item.tokens-distribution__list-item.red
+                        b="15% "
+                        span Marketing
+                      li(data-index="2").funds-item.tokens-distribution__list-item.blue
+                        b="15% "
+                        span Legal Support
+                      li(data-index="3").funds-item.tokens-distribution__list-item.grey
+                        b="15% "
+                        span Operational Costs
+                      li(data-index="4").funds-item.tokens-distribution__list-item.light-blue
+                        b="5% "
+                        span Research
+                      li(data-index="5").funds-item.tokens-distribution__list-item.green
+                        b="10% "
+                        span Reserve
+                    //ul.funds-disribution__list
+                      li.funds-disribution__list-item.yellow(data-index="0")
+                        b="40% "
+                        span Platform Development
+                      li.funds-disribution__list-item.red(data-index="1")
+                        b="15% "
+                        span Marketing
+                      li.funds-disribution__list-item.blue(data-index="2")
+                        b="15% "
+                        span Legal Support
+                      li.funds-disribution__list-item.grey(data-index="3")
+                        b="15% "
+                        span Operational Costs
+                      li.funds-disribution__list-item.light-blue(data-index="4")
+                        b="5% "
+                        span Research
+                      li.funds-disribution__list-item.green(data-index="5")
+                        b="10% "
+                        span Reserve
+
+                //.funds-disribution__line
+                  .funds-disribution__line-item
+                    span.funds-disribution__line-info +20%
+                    .funds-disribution__line-dot
+                      span.funds-disribution__line-date 9 oct
+                  .funds-disribution__line-item
+                    span.funds-disribution__line-info +10%
+                    .funds-disribution__line-dot
+                      span.funds-disribution__line-date 10 oct
+                  .funds-disribution__line-item
+                    span.funds-disribution__line-info No bonus
+                    .funds-disribution__line-dot
+                      span.funds-disribution__line-date 13 oct
+                  .funds-disribution__line-item
+                    .funds-disribution__line-dot
+                      span.funds-disribution__line-date 16 oct
 
 
 

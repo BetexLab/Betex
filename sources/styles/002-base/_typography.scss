@@ -2,6 +2,7 @@ a {
 	text-decoration: none;
 	color: inherit;
 	transition: all $transition-time;
+  outline: none;
 }
 h1,
 .t_h1 {
@@ -120,12 +121,13 @@ b{
     bottom: -10px;
     left: 0;
     width: 107px;
-    height: 2px;
-    background: #dcdcdc;
+    height: 1px;
+    background: $primary;
   }
   @include mq(768){
     margin-bottom: 24px;
     &__line{
+      height: 2px;
       width: 0;
       bottom: -24px;
       background: $primary;

@@ -32,12 +32,14 @@
   @include mq(768){
     width: 165px;
     height: 45px;
+    @include font-size(16);
   }
   @include mq(768, max){
     @include font-size(12);
   }
   &_green{
     color: #fff;
+    //background: #0eb955;
     background-image: linear-gradient(to top, #0eb955 0%, #5bd488 100%);
     /*&:hover{
       color: #13bb58;
@@ -54,9 +56,16 @@
   }
 }
 a.btn{
+  padding-top: 2px;
   display: flex;
   justify-content: center;
   align-items: center;
+  /*display: table;
+  line-height: 1.5;
+  span{
+    display: table-cell;
+    vertical-align: middle;
+  }*/
 }
 
 .link-doc{

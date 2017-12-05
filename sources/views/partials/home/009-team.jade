@@ -39,7 +39,7 @@ section.team#team
           h5.person__name=name
           p.person__status=status
           a(href=teamLink[count], target="_blank", rel="nofollow",
-            onclick="gtag('event', 'team_linkedin', {'event_category': 'click', 'event_action': 'open'});").person__link
+            onclick="gtag('event', 'team_linkedin', {'event_category': 'click', 'event_action': 'open'});return true").person__link
       -count = 1
 
     //p.team__advisors-title Advisors

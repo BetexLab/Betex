@@ -26,7 +26,7 @@
     }
   }
   @media (min-width: 768px){
-    padding: 50px 0 35px;
+    padding: 0 0 35px;
     &__title {
       line-height: 1.5;
     }
@@ -36,7 +36,6 @@
     }
   }
   @media (min-width: 1024px){
-    margin-top: 128px;
     &.loading{
       .main-info__title,
       .main-info__text{
