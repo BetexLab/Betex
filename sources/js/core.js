@@ -666,7 +666,7 @@
 
                 switch(id){
                     case 'name':
-                        var rv_name = /^[a-zA-Zа-яА-Я]+$/;
+                        var rv_name = /^[a-zA-Zа-яА-Я ]+$/;
                         if(val.length > 2 && val != '' && rv_name.test(val)){
                             $(this).closest('.contribute-form__field').addClass('not_error').removeClass('error');
                         }else

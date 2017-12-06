@@ -39,7 +39,8 @@
   margin: 0 auto;
   padding: 33px 0 0;
   @include mq(768){
-    padding: 55px 0 0;
+    //padding: 55px 0 0;
+    padding: 10px 0 0;
   }
   @include mq(767, max){
     .easy-autocomplete-container{
