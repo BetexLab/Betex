@@ -728,6 +728,9 @@
                             // $form.find('[type="submit"]').removeAttr('disabled');
                             // $form.append('<span class="response-text">' + response + '</span>');
                             // $('label').removeClass('focus');
+                            $('#contribute-full-popup').popup('hide');
+                            history.pushState("", document.title, window.location.pathname);
+                            $('html').find('body').attr('style','').find('.header').attr('style','');  // add scroll
                         }
                     });
                     return true;
