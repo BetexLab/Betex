@@ -112,7 +112,7 @@ header.header
       .contribute-full-popup__close
       p.contribute-full-popup__title Invest
 
-      form#contribute-form(action="", method='post').contribute-form
+      form#contribute-form(method='post').contribute-form
         .contribute-form__field
           label(for="name").contribute-form__label Full name
           input#name(type="text", name="name", placeholder="Full name").contribute-form__input.required
@@ -122,9 +122,9 @@ header.header
           span.error-message Incorrect format
           i.error-icon
         .contribute-form__field
-          label(for="amount").contribute-form__label Invested amount
+          label(for="invested_amount").contribute-form__label Invested amount
           .contribute-form__input-group
-            input#amount(type="number", name="amount", placeholder="0,5").contribute-form__input.in-group.required
+            input#invested_amount(type="number", name="invested_amount", placeholder="0,5").contribute-form__input.in-group.required
             .contribute-form__currency
               ul.currency-list
                 li.currency-list__item.current BTC

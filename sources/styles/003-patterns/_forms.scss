@@ -11,9 +11,9 @@
     justify-content: space-between;
   }
   &__input{
-    background:transparent;
+    background: #fff;
     @include font-size(14);
-    padding: 0 6px;
+    padding: 0 15px;
     @include mq(768){
       border: none;
       width: calc(100% - 165px);
@@ -141,6 +141,8 @@
     min-width: 65px;
     height: 48px;
     position: relative;
+    top: -1px;
+    right: -1px;
     @include mq(768){
       min-width: 79px;
     }
@@ -169,7 +171,6 @@
     justify-content: center;
     line-height: 1.5;
     @include mq(768){
-      height: 45px;
       font-weight: $weight-bold;
     }
     @include mq(767, max){

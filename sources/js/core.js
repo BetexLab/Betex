@@ -659,7 +659,7 @@
                 $('#contribute-full-popup').popup('show');
             }
             // .unbind()
-            $('.contribute-form__input#name, .contribute-form__input#email, .contribute-form__input#amount, .contribute-form__input#country').blur( function(){
+            $('.contribute-form__input#name, .contribute-form__input#email, .contribute-form__input#invested_amount, .contribute-form__input#country').blur( function(){
                 var id = $(this).attr('id'),
                     val = $(this).val(),
                     count = 0;
@@ -683,7 +683,7 @@
                             $(this).closest('.contribute-form__field').removeClass('not_error').addClass('error');
                         }
                         break;
-                    case 'amount':
+                    case 'invested_amount':
                         var rv_amount = /^[0-9]+/;
                         if(val.length > 0 && val != '' && rv_amount.test(val)){
                             $(this).closest('.contribute-form__field').addClass('not_error').removeClass('error');
@@ -704,27 +704,38 @@
                 }
             });
             $('form#contribute-form').submit(function(e){
-
+                e.preventDefault();
 
                 var $form = $(this);
+                var formResponse = {
+                    name: $($form).find('#name').val(),
+                    email: $($form).find('#email').val(),
+                    invested_amount: $($form).find('#invested_amount').val(),
+                    country: $($form).find('#country').val()
+                };
+                // console.log(formResponse);
 
-                if($('.not_error').length == 4){
-                    /*$.ajax({
-                        url: '../send.php',
+                // return false;
+
+                if($('.not_error').length == 4) {
+
+                    $.ajax({
+                        url: 'https://betexlab.com/sendmail',
                         type: 'post',
-                        data: $(this).serialize(),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        data: formResponse,
                         beforeSend: function(xhr, textStatus){
-                            $form.find('[type="submit"]').attr('disabled','disabled');
+                            // $form.find('[type="submit"]').attr('disabled','disabled');
                         },
                         success: function(response){
                             // $form.find('[type="text"], textarea').val('');
                             // $form.find('[type="submit"]').removeAttr('disabled');
                             // $form.append('<span class="response-text">' + response + '</span>');
-                            $('label').removeClass('focus');
+                            // $('label').removeClass('focus');
                         }
-                    });*/
-                    console.log('ok');
-                    // return true;
+                    });
+                    return true;
                 } else {
                     e.preventDefault();
                     $('.contribute-form__input.required').closest('.contribute-form__field').not($('.not_error')).addClass('error');
