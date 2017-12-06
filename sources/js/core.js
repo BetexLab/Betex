@@ -723,11 +723,12 @@
                     $.ajax({
                         url: 'https://betexlab.com/sendmail',
                         type: 'post',
-                        contentType: "application/json; charset=utf-8",
+                        contentType: "application/json",
                         dataType: "json",
                         data: formResponse,
                         beforeSend: function(xhr, textStatus){
                             // $form.find('[type="submit"]').attr('disabled','disabled');
+                            console.log(formResponse);
                         },
                         success: function(response){
                             // $form.find('[type="text"], textarea').val('');
