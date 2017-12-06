@@ -707,19 +707,13 @@
                 e.preventDefault();
 
                 var $form = $(this);
-                /*var formResponse = {
+                var formResponse = JSON.stringify({
                     'name': $($form).find('#name').val(),
                     'email': $($form).find('#email').val(),
                     'invested_amount': $($form).find('#invested_amount').val(),
                     'country': $($form).find('#country').val()
-                };*/
-                var formResponse = {"name":"Alexey Koshlatyy","email":"alexey.koshlatyy@gmail.com","invested_amount":"test2","country":"Ukraine"};
-
-                // console.log(formResponse);
-                // return false;
-
+                });
                 if($('.not_error').length == 4) {
-
                     $.ajax({
                         url: 'https://betexlab.com/sendmail',
                         type: 'post',
@@ -727,8 +721,7 @@
                         dataType: "json",
                         data: formResponse,
                         beforeSend: function(xhr, textStatus){
-                            // $form.find('[type="submit"]').attr('disabled','disabled');
-                            console.log(formResponse);
+
                         },
                         success: function(response){
                             // $form.find('[type="text"], textarea').val('');
