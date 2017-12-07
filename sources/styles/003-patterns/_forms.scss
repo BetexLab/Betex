@@ -149,6 +149,18 @@
     }
   }
 }
+.success-message{
+  display: flex;
+  justify-content: center;
+  color: #44c96c;
+  font-weight: $weight-bold;
+  margin: 0 0 20px;
+  visibility: hidden;
+  transition: .3s;
+  svg{
+    margin-right: 5px;
+  }
+}
 
 .currency-list{
   min-height: 100%;
@@ -196,3 +208,44 @@
     }
   }
 }
+
+/*
+.btn_h {
+  overflow: hidden;
+  background: none;
+  border: 3px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+  display: block;
+  font-size: 1.6em;
+  font-weight: bold;
+  margin: 1em auto;
+  padding: 2em 6em;
+  position: relative;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  &:after,
+  &:before{
+    background: #fff;
+    content: '';
+    position: absolute;
+    z-index: -1;
+  }
+  &:after{
+    transition: all 0.3s;
+    height: 100%;
+    left: -35%;
+    top: 0;
+    transform: skew(50deg);
+    transition-duration: 0.6s;
+    transform-origin: top left;
+    width: 0;
+  }
+  &:hover{
+    color: #2ecc71;
+    &:after{
+      height: 100%;
+      width: 135%;
+    }
+  }
+}*/

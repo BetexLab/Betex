@@ -711,6 +711,7 @@
                     'name': $($form).find('#name').val(),
                     'email': $($form).find('#email').val(),
                     'invested_amount': $($form).find('#invested_amount').val(),
+                    'currency': $('#contribute-form').find('.currency-list__item.current').text(),
                     'country': $($form).find('#country').val()
                 });
                 if($('.not_error').length == 4) {
@@ -728,9 +729,12 @@
                             // $form.find('[type="submit"]').removeAttr('disabled');
                             // $form.append('<span class="response-text">' + response + '</span>');
                             // $('label').removeClass('focus');
-                            $('#contribute-full-popup').popup('hide');
-                            history.pushState("", document.title, window.location.pathname);
-                            $('html').find('body').attr('style','').find('.header').attr('style','');  // add scroll
+                            $('.success-message').css({'visibility':'visible'});
+                            setTimeout(function() {
+                                $('#contribute-full-popup').popup('hide');
+                                history.pushState("", document.title, window.location.pathname);
+                                $('html').find('body').attr('style','').find('.header').attr('style','');  // add scroll
+                            }, 2000);
                         }
                     });
                     return true;
