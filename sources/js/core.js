@@ -574,10 +574,6 @@
             //single accordion
             $('.betex-token__more').on('click', function() {
                 $(this).toggleClass('open').siblings('.row').slideToggle()
-            })
-
-            $('.accordion-caption').on('click', function(){
-                $(this).toggleClass('open').next('div').toggleClass('open').slideToggle()
             });
 
             $('.accordion__wrap:not(.open)').find('.accordion__content').hide();

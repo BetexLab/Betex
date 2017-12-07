@@ -29,6 +29,20 @@
   width: 118px;
   height: 32px;
   color: #13bb58;
+  overflow: hidden;
+  //background: none;
+  position: relative;
+  span{
+    position: relative;
+    z-index: 2;
+  }
+  &:after,
+  &:before{
+    background: #fff;
+    content: '';
+    position: absolute;
+    z-index: 1;
+  }
   @include mq(768){
     width: 165px;
     height: 45px;
@@ -37,14 +51,53 @@
   @include mq(768, max){
     @include font-size(12);
   }
+  &_default{
+    &:after{
+      transition: all 0.3s;
+      height: 100%;
+      left: -35%;
+      top: 0;
+      transform: skew(50deg);
+      transition-duration: 0.6s;
+      transform-origin: top left;
+      width: 0;
+      background-image: linear-gradient(to top, #3ac153 0%, #65e67e 100%);
+    }
+    &:hover{
+      border-color: #65e67e;
+      color: #fff;
+      &:after{
+        height: 100%;
+        width: 135%;
+      }
+    }
+  }
   &_green{
     color: #fff;
-    //background: #0eb955;
     background-image: linear-gradient(to top, #0eb955 0%, #5bd488 100%);
-    /*&:hover{
-      color: #13bb58;
-      background: #fff;
+    transition: all .3s;
+    //background: red;
+    /*&:after{
+      transition: all 0.3s;
+      left: -35%;
+      top: 0;
+      transform: skew(50deg);
+      transition-duration: 0.6s;
+      transform-origin: top left;
+      width: 135%;
+      height: 100%;
+      //background: #3FC85A;
+      background: linear-gradient(to top, #0eb955 0%, #5bd488 100%);
     }*/
+    &:hover{
+      //color: #13bb58;
+      //background: #3FC85A;
+      border-color: transparent;
+      background-image: linear-gradient(to top, #3ac153 0%, #65e67e 100%)
+      /*&:after{
+        width: 0%;
+      }*/
+    }
   }
   &_large{
     width: 262px;
@@ -93,3 +146,49 @@ a.btn{
 .dropdown-icon{
   @extend .i-dropdown;
 }
+
+/*.btn_h {
+  overflow: hidden;
+  background: none;
+  position: relative;
+  &:after,
+  &:before{
+    background: #fff;
+    content: '';
+    position: absolute;
+    z-index: -1;
+  }
+  &:after{
+    transition: all 0.3s;
+    height: 100%;
+    left: -35%;
+    top: 0;
+    transform: skew(50deg);
+    transition-duration: 0.6s;
+    transform-origin: top left;
+    width: 0;
+    background-image: linear-gradient(0deg, #21A357 0%, #5BD488 100%);
+  }
+  &:hover{
+    color: #fff;
+    &:after{
+      height: 100%;
+      width: 135%;
+    }
+  }
+}*/
+
+/**
+это на незалитом
+
+background-image: linear-gradient(0deg, #21A357 0%, #5BD488 100%);
+border-radius: 5px;
+
+это градиент для ховера залитой кнопки (контрибьют которая)
+
+background: #3FC85A ;
+border: 1px solid #13BB58 ;
+border-radius: 5px;
+
+Это для анимации заливки ( как в референсе )
+ */

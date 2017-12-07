@@ -65,10 +65,12 @@
               g
                 path#Fill-1(d='M21.554,0.0008 L21.554,5.6498 L43.108,16.7738 L43.108,11.1238 L21.554,0.0008 Z M21.554,0.0008 L0,11.1238 L0,16.7738 L21.554,5.6498 L21.554,0.0008 Z M21.554,11.2988 L43.108,22.4228 L43.108,16.7738 L21.554,5.6498 L21.554,11.2988 Z M21.554,5.6498 L0,16.7738 L0,22.4228 L21.554,11.2988 L21.554,5.6498 Z M21.554,16.9468 L43.108,28.0718 L43.108,22.4228 L21.554,11.2988 L21.554,16.9468 Z M21.554,11.2988 L0,22.4228 L0,28.0718 L21.554,16.9468 L21.554,11.2988 Z', fill='url(#linearGradient-1)')
                 path#Fill-3(d='M21.554,22.4228 L43.108,11.2988 L43.108,16.9468 L21.554,28.0718 L21.554,22.4228 Z M0,16.9468 L0,11.2988 L21.554,22.4228 L21.554,28.0718 L0,16.9468 Z M43.108,16.9468 L43.108,22.5968 L21.554,33.7218 L21.554,28.0718 L43.108,16.9468 Z M0,22.5968 L0,16.9468 L21.554,28.0718 L21.554,33.7218 L0,22.5968 Z M43.108,22.5968 L43.108,28.2458 L21.554,39.3708 L21.554,33.7218 L43.108,22.5968 Z M0,28.2458 L0,22.5968 L21.554,33.7218 L21.554,39.3708 L0,28.2458 Z', fill='url(#linearGradient-2)', style='mix-blend-mode: multiply;')
-    a(href="./betex-wp.pdf", target="_blank", rel="nofollow", onclick="gtag('event', 'download', {'event_category': 'pdf', 'event_action': 'download-whitepaper'}); return true").btn.contribute-full-popup__btn Whitepaper
+    a(href="./betex-wp.pdf", target="_blank", rel="nofollow", onclick="gtag('event', 'download', {'event_category': 'pdf', 'event_action': 'download-whitepaper'}); return true").btn.btn_default.contribute-full-popup__btn
+      span Whitepaper
   .contribute-full-popup__wrap
     .contribute-full-popup__close
-    p.contribute-full-popup__title Invest
+    p.contribute-full-popup__title
+      span Invest
 
     form#contribute-form(method='post').contribute-form
       .contribute-form__field
@@ -95,4 +97,4 @@
         svg(width="16px", height="16px")
           use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#success")
         | Email successfully sent
-      input(type="submit", value="Invest", onclick="gtag('event', 'Invest', {'event_category': 'Invest', 'event_action': 'button'});").contribute-form__submit.btn.btn_green
+      button(type="submit", onclick="gtag('event', 'Invest', {'event_category': 'Invest', 'event_action': 'button'});").contribute-form__submit.btn.btn_green Invest

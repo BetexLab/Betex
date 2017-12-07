@@ -25,12 +25,18 @@
     @include font-size(16);
     width: 100%;
     font-weight: $weight-bold;
-    color: #20b44b;
     cursor: pointer;
     line-height: 1;
+    color: #20b44b;
+    &:not(.active){
+      &:hover{
+        color: #3be27a;
+      }
+    }
     &.active {
       background: linear-gradient(to top, #0eb955 0%, #5bd488 100%);
       color: #fff;
+      cursor: default;
     }
   }
   &__tabs-link{
@@ -39,7 +45,12 @@
     height: 100%;
     text-align: center;
     padding: 10px 0;
-    transition: none;
+    //transition: none;
+    position: relative;
+    z-index: 2;
+    .betex-token__tabs-item.active &{
+      cursor: default;
+    }
   }
 
   &__detail{
@@ -851,12 +862,12 @@
       }
     }
     &__wrap{
-      border-bottom: 1px solid #d8d8d8;
+      //border-bottom: 1px solid #d8d8d8;
       order: 1;
 
     }
     &__title-block{
-      border-bottom: 1px solid #d8d8d8;
+      //border-bottom: 1px solid #d8d8d8;
       order: 2;
     }
     &__title-mob{
@@ -895,6 +906,7 @@
   //padding: 24px 0 0;
   padding: 24px 0;
   margin: 9px 0 0;
+  background: #fff;
   @include mq(768){
     //padding: 48px 0 0;
     padding: 48px 0;

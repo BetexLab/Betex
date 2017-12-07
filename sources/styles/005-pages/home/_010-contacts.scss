@@ -1,7 +1,7 @@
 .contacts{
   padding: 68px 0 40px;
   @include mq(1024){
-    padding: 68px 0 193px;
+    padding: 68px 0 190px;
   }
   &__title{
     @include font-size(24);
@@ -16,7 +16,7 @@
     align-items: center;
     padding: 30px 0 0;
     @include mq(768){
-      padding: 57px 0 0;
+      padding: 84px 0 0;
     }
     &-link{
       margin: auto;
