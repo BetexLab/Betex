@@ -729,6 +729,8 @@
                             // $form.find('[type="submit"]').removeAttr('disabled');
                             // $form.append('<span class="response-text">' + response + '</span>');
                             // $('label').removeClass('focus');
+                        },
+                        complete: function () {
                             $('.success-message').css({'visibility':'visible'});
                             setTimeout(function() {
                                 $('#contribute-full-popup').popup('hide');
