@@ -183,7 +183,7 @@
     flex-direction: column;
     text-align: center;
     @include font-size(24);
-    margin-right: 25px;
+    margin: 0 12px;
     span{
       @include font-size(10);
       color: color('grey', 1);
@@ -196,7 +196,7 @@
     height: 137px;
     &__item{
       @include font-size(48);
-      margin-right: 42px;
+      margin: 0 21px;
       span{
         padding: 10px 0;
         @include font-size(16);
