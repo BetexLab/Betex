@@ -120,12 +120,12 @@
   }
   &__submit{
     width: 100%;
+    margin: 20px 0 0;
     @include mq(768) {
       @include font-size(16);
     }
     @include mq(767, max){
       @include font-size(14);
-      margin: 8px 0 0;
       height: 40px;
     }
   }
@@ -160,11 +160,24 @@
   justify-content: center;
   color: #44c96c;
   font-weight: $weight-bold;
-  margin: 0 0 20px;
+  margin: 0;
   visibility: hidden;
   transition: .3s;
   svg{
     margin-right: 5px;
+  }
+}
+.error-send{
+  display: none;
+  color: #FF505A;
+  font-weight: $weight-bold;
+  margin: 0;
+  transition: color .3s;
+  text-align: center;
+  line-height: 1.5;
+  width: 100%;
+  &:hover{
+    color: #44c96c;
   }
 }
 

@@ -715,25 +715,26 @@
                         url: 'https://betexlab.com/sendmail',
                         type: 'post',
                         contentType: "application/json",
-                        dataType: "json",
+                        // dataType: "json",
                         data: formResponse,
-                        beforeSend: function(xhr, textStatus){
-
+                        success: function(response, textStatus){
+                            console.log('success', response, textStatus);
+                            if(response != 'Message sent!') {
+                                $('.error-send').slideUp();
+                                return false;
+                            }else {
+                                $('.success-message').css({'visibility':'visible'});
+                                setTimeout(function() {
+                                    $('#contribute-full-popup').popup('hide');
+                                    history.pushState("", document.title, window.location.pathname);
+                                    $('html').find('body').attr('style','').find('.header').attr('style','');  // add scroll
+                                }, 2000);
+                            }
                         },
-                        success: function(response){
-                            // $form.find('[type="text"], textarea').val('');
-                            // $form.find('[type="submit"]').removeAttr('disabled');
-                            // $form.append('<span class="response-text">' + response + '</span>');
-                            // $('label').removeClass('focus');
+                        error: function (xhr, textStatus) {
+                            $('.error-send').slideUp();
+                            console.log('error', textStatus);
                         },
-                        complete: function () {
-                            $('.success-message').css({'visibility':'visible'});
-                            setTimeout(function() {
-                                $('#contribute-full-popup').popup('hide');
-                                history.pushState("", document.title, window.location.pathname);
-                                $('html').find('body').attr('style','').find('.header').attr('style','');  // add scroll
-                            }, 2000);
-                        }
                     });
                     return true;
                 } else {
