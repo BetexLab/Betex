@@ -720,7 +720,7 @@
                         success: function(response, textStatus){
                             console.log('success', response, textStatus);
                             if(response != 'Message sent!') {
-                                $('.error-send').slideUp();
+                                $('.error-send').slideDown();
                                 return false;
                             }else {
                                 $('.success-message').css({'visibility':'visible'});
