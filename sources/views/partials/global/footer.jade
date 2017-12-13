@@ -98,6 +98,9 @@
           use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#success")
         | Email successfully sent
       a(href="mailto:kyc@betexlab.com?subject=Invest").error-send
-        | Something went wrong. Please send email to
-        span=" kyc@betexlab.com"
+        b Something went wrong.
+        br
+        | Please send email to
+        =" "
+        span="kyc@betexlab.com"
       button(type="submit", onclick="gtag('event', 'Invest', {'event_category': 'Invest', 'event_action': 'button'});").contribute-form__submit.btn.btn_green Invest

@@ -720,7 +720,7 @@
                         success: function(response, textStatus){
                             console.log('success', response, textStatus);
                             if(response != 'Message sent!') {
-                                $('.error-send').slideDown();
+                                $('.error-send').slideUp();
                                 return false;
                             }else {
                                 $('.success-message').css({'visibility':'visible'});
@@ -736,24 +736,6 @@
                             console.log('error', textStatus);
                         },
                     });
-                    /*$.ajax({
-                        url: '../send.php',
-                        type: 'post',
-                        data: $(this).serialize(),
-                        success: function(response, textStatus){
-                            console.log('success', response, textStatus);
-                            $('.success-message').css({'visibility':'visible'});
-                            setTimeout(function() {
-                                $('#contribute-full-popup').popup('hide');
-                                history.pushState("", document.title, window.location.pathname);
-                                $('html').find('body').attr('style','').find('.header').attr('style','');  // add scroll
-                            }, 2000);
-                        },
-                        error: function (xhr, textStatus) {
-                            $('.error-send').slideDown();
-                            console.log('error', textStatus);
-                        },
-                    });*/
                     return true;
                 } else {
                     e.preventDefault();

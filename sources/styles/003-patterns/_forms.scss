@@ -169,18 +169,21 @@
 }
 .error-send{
   display: none;
-  color: #FF505A;
-  font-weight: $weight-bold;
   margin: 0;
   transition: color .3s;
   text-align: center;
   line-height: 1.5;
   width: 100%;
+  b{
+    color: #FF505A;
+    font-weight: $weight-bold;
+  }
   span{
     color: #44c96c;
-  }
-  &:hover{
-    color: #44c96c;
+    text-decoration: underline;
+    &:hover{
+      text-decoration: none;
+    }
   }
 }
 
