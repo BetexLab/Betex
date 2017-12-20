@@ -904,13 +904,20 @@
   border-radius: 5px;
   border: 1px solid #f1f1f1;
   //padding: 24px 0 0;
-  padding: 24px 0;
+  padding: 24px 0 0;
   margin: 9px 0 0;
   background: #fff;
   @include mq(768){
     //padding: 48px 0 0;
-    padding: 48px 0;
+    padding: 48px 0 0;
     margin: 40px 0 0;
+  }
+  &__continue{
+    text-align: center;
+    line-height: 1.4;
+    @include mq(767, max) {
+      @include font-size(14);
+    }
   }
   &__title{
     text-align: center;

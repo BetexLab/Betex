@@ -42,7 +42,7 @@
             };
 
             //timer
-            let countDownDate = new Date("Dec 20, 2017 16:00:00").getTime();
+            let countDownDate = new Date("Jan 09, 2018 00:00:00").getTime();
 
             let x = setInterval(() => {
                 let now = new Date().getTime();
