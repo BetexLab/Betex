@@ -1,6 +1,3 @@
-.roadmap-title{
-  margin-left: 5px;
-}
 .roadmap{
   @include mq(1024){
     padding-bottom: 140px;
@@ -12,10 +9,29 @@
 .roadmap-slider{
   //height: 500px;
   &-for{
+    position: relative;
     @include mq(767, max){
       margin-left: -15px;
       margin-right: -15px;
       width: calc(100% + 30px);
+    }
+    &:after,
+    &:before{
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      z-index: 2;
+    }
+    &:after{
+      bottom: 0;
+      background-image: linear-gradient(180deg, rgba(255, 255, 255, .3) 0%, #fff 100%);
+    }
+    &:before{
+      top: 0;
+      background-image: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, .3) 100%);
     }
     &__item{
       @include mq(1023, max){

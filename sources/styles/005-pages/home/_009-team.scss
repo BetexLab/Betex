@@ -95,8 +95,10 @@
         position: absolute;
         top: 0;
         left: 0;
-        transition: transform 1s;
+        //transition: transform 1s, filter .4s;
+        transition: all 1s ease-in-out;
         will-change: transform;
+        filter: grayscale(80%);
         transform: scale(1, 1) translateZ(0);
       }
     }
@@ -107,6 +109,7 @@
         }
       }
       .person__photo-img{
+        filter: grayscale(0%);
         transform: scale(1.2, 1.2) translateZ(0);
       }
     }

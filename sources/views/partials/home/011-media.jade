@@ -1,0 +1,17 @@
+-
+  var media = [
+    ['ccn',         'https://www.cryptocoinsnews.com/betex-first-p2p-binary-option-announces-transparent-platform-development-private-sale/',           'cryptocoinsnews'],
+    ['fintech',     'http://fintechnews.sg/15145/blockchain/first-p2p-binary-options-platform-powered-smart-contracts-launches-private-pre-sale/',      'fintechnews'],
+    ['btc-manager', 'https://btcmanager.com/betex-derivatives-trading-based-blockchain-technology/',                                                    'btcmanager'],
+    ['coin-idol',   'https://coinidol.com/binary-options-platform-powered-by-smart-contracts-launches-pre-sale/',                                       'coinidol'],
+    ['bitcoin',     'https://news.bitcoin.com/pr-betex-the-first-p2p-binary-options-platform-powered-by-smart-contracts-launches-a-private-pre-sale/',  'news.bitcoin']
+  ]
+
+section.media#media
+  .container
+    h3.media__title.title-line Media
+      span.title-line__line(data--20-bottom="width: 0px" data--200-bottom="width: 118px")
+    .row.media__row
+      - for(var i = 0; i < media.length; i++)
+        a(href=media[i][1], target="_blank", rel="nofollow", title=media[i][2]).media__logo
+          img(src="img/home-page/media_" + media[i][0] + '.png', alt=media[i][2])

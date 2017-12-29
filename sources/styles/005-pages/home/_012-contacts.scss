@@ -6,7 +6,7 @@
   &__title{
     @include font-size(24);
     @include mq(768){
-      margin-left: 10px;
+      //margin-left: 10px;
       @include font-size(48);
     }
   }
@@ -31,7 +31,7 @@
   }
   @include mq(768){
     .subscribe-form{
-      margin-left: 10px;
+      //margin-left: 10px;
     }
   }
 }
@@ -44,7 +44,7 @@
   line-height: 1.75;
   @include mq(768){
     @include font-size(16);
-    margin-left: 10px;
+    //margin-left: 10px;
     line-height: 1.2;
     padding: 23px 0 13px;
   }

@@ -1,0 +1,37 @@
+-
+  var card = [
+    ['', 'Malta', '07 December 2017', 'https://malta.bc.events/en'],
+    ['', 'Dubai', '08 January 2018', 'https://dibs.ae/']
+  ]
+
+section.events#events
+  .container
+    h3.events__title.title-line Events
+      span.title-line__line(data--20-bottom="width: 0px" data--200-bottom="width: 118px")
+    //.row.events__row
+    .events-slider
+      a(href="https://dibs.ae/", target="_blank", rel="nofollow").events__card
+        p.events__card-title Dubai International Blockchain Summit 2018
+        .events__card-info
+          p.events__card-detail
+            svg(width="18px", height="18px")
+              use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#calendar")
+            span 08 January 2018
+          p.events__card-detail
+            svg(width="18px", height="18px")
+              use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#location")
+            span Dubai, United Arab Emirates
+          span.events__card-more Learn more
+
+      a(href="https://malta.bc.events/en", target="_blank", rel="nofollow").events__card
+        p.events__card-title Blockchain & Bitcoin Conference
+        .events__card-info
+          p.events__card-detail
+            svg(width="18px", height="18px")
+              use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#calendar")
+            span 07 December 2017
+          p.events__card-detail
+            svg(width="18px", height="18px")
+              use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#location")
+            span Malta
+          span.events__card-more Learn more

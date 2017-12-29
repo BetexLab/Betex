@@ -1,0 +1,107 @@
+.events{
+  padding: 102px 0 30px;
+  @include mq(768){
+    padding: 67px 0 60px;
+  }
+  &__title{
+    @extend %font-size-48;
+  }
+  &__row{
+    margin-left: -12px;
+    margin-right: -12px;
+    padding-top: 40px;
+  }
+  &__card{
+    margin: 0 12px;
+    min-height: 325px;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: .5s;
+    //padding: 39px 20px 45px;
+    padding: 40px 24px 45px;
+    box-shadow: 0 4px 8px #ececf1;
+    background: #fff;
+    border-radius: 5px;
+    @include mq(768){
+      padding: 52px 25px 40px;
+      min-height: 357px;
+      &:hover{
+        box-shadow: 0 0 47px rgba(167, 191, 203, 0.5);
+      }
+    }
+    @include mq(767, max) {
+      &.slick-current{
+        box-shadow: 0 16px 32px rgba(5, 12, 112, 0.12);
+      }
+    }
+    &-title{
+      color: #171623;
+      font-weight: $weight-bold;
+      margin: 0;
+      @include line-height(24, 16);
+      @include mq(768){
+        @include font-size(24);
+        @include line-height(32, 24);
+      }
+    }
+    &-info{}
+    &-detail{
+      padding: 0 0 14px;
+      margin: 0;
+      display: flex;
+      //align-items: center;
+      line-height: 1.2;
+      @include mq(767, max){
+        @include font-size(14);
+      }
+      &:last-of-type{
+        padding: 0 0 30px;
+      }
+      svg{
+        margin-right: 10px;
+      }
+      span{
+        line-height: 1.4;
+      }
+    }
+    &-more{
+      font-weight: $weight-bold;
+      border-bottom: 2px solid #15bc5a;
+      transition: .3s;
+      &:hover{
+        border-color: transparent;
+      }
+    }
+  }
+  &-slider{
+    margin: 0 -32px;
+    padding: 40px 20px;
+    .slick-list{
+      overflow: visible;
+    }
+    .slick-dots{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      bottom: 3px;
+      left: 0;
+      width: 100%;
+      .slick-active{
+        button{
+          background: #7c8af3;
+        }
+      }
+      button{
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin: 0 6px;
+        padding: 0;
+        text-indent: -10000px;
+        background: #d8d8d8;
+      }
+    }
+  }
+}
