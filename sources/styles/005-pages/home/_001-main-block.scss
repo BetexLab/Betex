@@ -177,6 +177,7 @@
       font-weight: $weight-bold;
       margin: 48px 0 0;
       transition: 1s 2s;
+      line-height: 1.5;
     }
     @include mq(991, max){
       display: none;
