@@ -49,6 +49,13 @@
    &__link{
      margin-bottom: 10px;
    }
+   &__complete{
+     transition: 1s 2s;
+     max-width: 90%;
+     margin-left: 0;
+     line-height: 1.5;
+     font-weight: $weight-bold;
+   }
    &__btn-group{
      display: flex;
      align-items: center;
@@ -137,7 +144,8 @@
          .timer,
          .subscribe-title,
          .timer-title,
-         .main-block__btn-group{
+         .main-block__btn-group,
+         .main-block__complete{
            opacity: 0;
            transform: translate3d(0,20px,0);
          }
@@ -154,6 +162,9 @@
      &__sub-title{
        line-height: 1.5;
        max-width: 70%;
+     }
+     &__complete{
+       @include font-size(14);
      }
    }
    @media (max-width: 499px) {

@@ -28,9 +28,9 @@ section.betex-token#token-sale
       h2.betex-token__title.title-line Betex Token pre-sale
         span.title-line__line(data--20-bottom="width: 0px" data--200-bottom="width: 118px")
       ul.tabs.betex-token__tabs-caption(data-tabgroup='token-tab')
-        li.betex-token__tabs-item.active
-          a.betex-token__tabs-link(href='#round1') Round 1
         li.betex-token__tabs-item
+          a.betex-token__tabs-link(href='#round1') Round 1
+        li.betex-token__tabs-item.active
           a.betex-token__tabs-link(href='#round2') Round 2
 
     .row.betex-token__row
@@ -48,38 +48,70 @@ section.betex-token#token-sale
         //a.betex-token__btn(href="./go-pro.pdf", target="_blank", rel="nofollow", onclick="gtag('event', 'download', {'event_category': 'pdf', 'event_action': 'download-terms'}); return true").btn.btn_large Terms of Tokens Sale
 
     #token-tab.tabgroup
-      #round1.active
+      #round1
 
         .betex-token__detail
           .row
-            .col-lg-6.betex-token__detail-col
+            .col-lg-5.betex-token__detail-col
               each key, item in detailCol
+                .betex-token__detail-item
+                  p.betex-token__detail-item-title=item
+                  p=key
+            .col-lg-7
+              .funds-disribution
+                .funds-disribution__title-block
+                  p.funds-disribution__title-mob Funds distribution
+                    //i.funds-disribution__title-mob-icon.accordion-caption__icon.dropdown-icon
+                    //svg.funds-disribution__title-mob-icon.accordion-caption__icon(width="32px", height="32px")
+                      use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#dropdown")
+                .funds-disribution__wrap
+                  .funds-disribution__chart#funds-disribution
+                  //img.funds-disribution__chart(src="img/home-page/token-chart.png", alt="token-chart")
+                  .funds-disribution__descript
+                    p.funds-disribution__descript-title Funds Distribution
+                    ul.tokens-distribution__list
+                      li(data-index="0").funds-item.tokens-distribution__list-item.yellow
+                        b="40% "
+                        span Platform Development
+                      li(data-index="1").funds-item.tokens-distribution__list-item.red
+                        b="15% "
+                        span Marketing
+                      li(data-index="2").funds-item.tokens-distribution__list-item.blue
+                        b="15% "
+                        span Legal Support
+                      li(data-index="3").funds-item.tokens-distribution__list-item.grey
+                        b="15% "
+                        span Operational Costs
+                      li(data-index="4").funds-item.tokens-distribution__list-item.light-blue
+                        b="5% "
+                        span Research
+                      li(data-index="5").funds-item.tokens-distribution__list-item.green
+                        b="10% "
+                        span Reserve
+              p.betex-token__completed The first round has been successfully completed with $1,000,000 raised.
+      #round2.active
+        .betex-token__detail
+          .row
+            .col-lg-6.betex-token__detail-col
+              each key, item in detailCol2
                 .betex-token__detail-item
                   p.betex-token__detail-item-title=item
                   p=key
             .col-lg-6
               .progress
-                p.progress__title Pre-sale Round 1 is Live
+                p.progress__title Pre-sale Round 2 is Live
                 #timer2.progress__timer
-                .progress__line-block
+                //.progress__line-block
                   .progress__line-block-wrap
                     p.progress__continue The 1st pre-sale round is extended to January 8th, 2018 due to the longer KYC/AML processing and contributors' requests.
+                    //p.progress__continue The first round has been successfully completed with $1,000,000 raised.
                     //p.progress__line-title Round 1 funding progress
                     //.progress__line
                       .progress__line-passed
                     //.progress__line-values
                       span.progress__line-min 0
                       span.progress__line-max 500,000
-      #round2
-        .betex-token__detail
-          .row
-            .col-lg-5.betex-token__detail-col
-              each key, item in detailCol2
-                .betex-token__detail-item
-                  p.betex-token__detail-item-title=item
-                  p=key
-            .col-lg-7
-              .funds-disribution
+              //.funds-disribution
                 .funds-disribution__title-block
                   p.funds-disribution__title-mob Funds distribution
                     //i.funds-disribution__title-mob-icon.accordion-caption__icon.dropdown-icon

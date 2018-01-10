@@ -102,6 +102,19 @@
        }
      }
    }
+   &__completed{
+     line-height: 1.5;
+     //max-width: 360px;
+     padding: 0 10px;
+     margin-left: 0;
+     margin-top: 0;
+     @include mq(768){
+       margin-top: 25px;
+     }
+     @include mq(767, max){
+       @include font-size(14);
+     }
+   }
 
    /*.tabgroup{
      overflow: hidden;
@@ -900,13 +913,11 @@
   box-shadow: 0 8px 16px #ecedf5;
   border-radius: 5px;
   border: 1px solid #f1f1f1;
-  //padding: 24px 0 0;
-  padding: 24px 0 0;
+  padding: 24px 0;
   margin: 9px 0 0;
   background: #fff;
   @include mq(768){
-    //padding: 48px 0 0;
-    padding: 48px 0 0;
+    padding: 48px 0;
     margin: 40px 0 0;
   }
   &__continue{
