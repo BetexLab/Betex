@@ -4,10 +4,13 @@
     padding: 102px 0 125px;
   }
   &__row{
-    justify-content: space-between;
+    justify-content: center;
     padding-top: 15px;
+    @include mq(1024){
+      margin: 0 -3.5vw;
+    }
     @include mq(768){
-      flex-wrap: nowrap;
+      justify-content: space-between;
       padding-top: 45px;
     }
   }
@@ -15,21 +18,26 @@
     @extend %font-size-48;
   }
   &__logo{
-    padding: 3px 5px;
-    max-width: 165px;
+    padding: 5px 0 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    @include mq(767, max){
-      width: 50%;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
+    flex: 0 1 25%;
+    &:nth-of-type(4n+ 1){
+      //justify-content: flex-start;
+    }
+    &:nth-of-type(4n+ 4){
+      //justify-content: flex-end;
+    }
+    @include mq(767, max) {
+      margin: 0 auto;
+      padding-left: 10px;
+      padding-right: 10px;
     }
     img{
       max-width: 108px;
       @include mq(768){
-        max-width: 100%;
+        max-width: 200px;
       }
     }
   }
