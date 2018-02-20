@@ -60,6 +60,7 @@
      display: flex;
      align-items: center;
      transition: 1s 2s;
+     margin-top: 10px;
      .btn{
        //padding: 8px 0;
        &:not(:first-child){
@@ -86,7 +87,7 @@
        //padding: 28px 0;
      }
      &__descript{
-       padding: 73px 7% 0 0;
+       padding: 73px 10% 0 0;
      }
      &__link{
        //margin-bottom: 24px;

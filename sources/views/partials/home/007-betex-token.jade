@@ -1,39 +1,76 @@
 -
-  //  var detailCol = {
-  //    'Start of whitelist register':'23.10.2017 at 14:00 GMT',
-  //    'End of whitelist registration:': '28.10.2017 at 14:00 GMT',
-  //    'Start of crowdsale for whitelisted addresses:': '01.11.2017 at 14:00 GMT',
-  //    'Start of crowdsale for all without limits:': '03.11.2017 at 14:00 GMT',
-  //    'End of crowdsale:': '01.12.2017 at 14:00 GMT or once Max Cap is reached'
-  //  },
-  var detailCol = {
-    'Start of pre-sale round 1:': '04.12.17 at 14:00 GMT',
-    'End of pre-sale round 1:': '08.01.18 at 14:00 GMT or 500,000 of BETEX tokens are sold out',
-    'Pre-sale round 1 BETEX token price:': '$2.00 Max amount of tokens to be sold: 500,000 out of 10,000,000 (5%)',
-    'Pre-sale round 1 hard cap:': '$ 1,000,000',
-    'Min purchase amount:': '15,000 BETEX'
-  },
-  detailCol2 = {
-    'Start of pre-sale round 2:': '10.01.18 at 14:00 GMT',
-    'End of pre-sale round 2:': '18.02.18 at 14:00 GMT or 1,500,000 of BETEX tokens are sold out',
-    'Pre-sale round 2 BETEX token price:': '$2.50',
-    'Max amount of tokens to be sold:': '1,500,000 out of 10,000,000 (15%)',
-    'Pre-sale round 2 hard cap:': '$ 3,750,000',
-    'Min purchase amount:': '5,000 BETEX'
-  }
+  var preSale = [
+    {
+      name: 'Start of pre-sale round 1:',
+      value: '04.12.17 at 14:00 GMT' },
+    {
+      name: 'End of pre-sale round 1:',
+      value: '08.01.18 at 14:00 GMT'},
+    {
+      name: 'Pre-sale round 1 BETEX token price:',
+      value: '$2.00'},
+    {
+      name: 'Max amount of tokens to be sold:',
+      value: '500,000 out of 10,000,000 (5%) (sold out)'},
+    {
+      name: 'Pre-sale round 1 hard cap:',
+      value: '$ 1,000,000'},
+    {
+      name: 'Min purchase amount:',
+      value: '15,000 BETEX'},
+    {
+      name: 'Start of pre-sale round 2:',
+      value: '10.01.18 at 14:00 GMT'},
+    {
+      name: 'End of pre-sale round 2:',
+      value: '18.02.18 at 14:00 GMT'},
+    {
+      name: 'Pre-sale round 2 BETEX token price:',
+      value: '$2.50'},
+    {
+      name: 'Max amount of tokens to be sold:',
+      value: '1,500,000 out of 10,000,000 (15%) (completed)'},
+    {
+      name: 'Pre-sale round 2 hard cap:',
+      value: '$ 3,750,000'},
+    {
+      name: 'Min purchase amount:',
+      value: '5,000 BETEX'}
+  ],
+  mainIco = [
+    {
+    name: 'Start of ICO:',
+    value: '20.02.18 at 20:00 GMT'},
+    {
+    name: 'End of ICO:',
+    value: '4,000,000 of BETEX tokens are sold out'},
+    {
+    name: 'ICO BETEX token price:',
+    value: 'Starts from $3.00. The price increase will be linear, meaning that each and every token will be a bit more expensive compared to the previous one.'},
+    {
+    name: 'Max amount of tokens to be sold:',
+    value: '4,000,000 out of 10,000,000 (40%)'},
+    {
+    name: 'ICO hard cap:',
+    value: '$ 212,000,000'},
+    {
+    name: 'Min purchase amount:',
+    value: '$1,000'}
+  ]
 
 section.betex-token#token-sale
   .container
     .betex-token__header
-      h2.betex-token__title.title-line Betex Token pre-sale
+      h2.betex-token__title.title-line Betex ICO
         span.title-line__line(data--20-bottom="width: 0px" data--200-bottom="width: 118px")
       ul.tabs.betex-token__tabs-caption(data-tabgroup='token-tab')
         li.betex-token__tabs-item
-          a.betex-token__tabs-link(href='#round1') Round 1
+          a.betex-token__tabs-link(href='#pre-sale') Pre-Sale
+            //span.betex-token__round-completed Completed
         li.betex-token__tabs-item.active
-          a.betex-token__tabs-link(href='#round2') Round 2
+          a.betex-token__tabs-link(href='#main-ico') Main ICO
 
-    .row.betex-token__row
+    //.row.betex-token__row
       .col-lg-6
         .betex-token__text
           p Betex Token pre-sale will be carried out in 2 stages. Tokens will be issued in accordance with SAFT agreement after the pre-sale, once they are  generated and registered.
@@ -44,19 +81,26 @@ section.betex-token#token-sale
             | Only qualified investors who have completed the KYC/AML process will have access to the Betex Token pre-sale.
       .col-12
         button.betex-token__btn.btn.btn_green.contribute-full-popup_open Invest
+      /***********************************************************************/
         //a(href="mailto:kyc@betexlab.com?subject=Invest").betex-token__btn.btn Invest
         //a.betex-token__btn(href="./go-pro.pdf", target="_blank", rel="nofollow", onclick="gtag('event', 'download', {'event_category': 'pdf', 'event_action': 'download-terms'}); return true").btn.btn_large Terms of Tokens Sale
 
     #token-tab.tabgroup
-      #round1
+      #pre-sale
 
         .betex-token__detail
           .row
+            .col-lg-6
+              .betex-token__text
+                p Betex Token pre-sale had been carried out in 2 stages and successfully closed. Tokens will be issued in accordance with SAFT agreement, once they are generated and registered.
+            .col-lg-6
+            .col-12
+              button.betex-token__btn.btn.btn_green.contribute-full-popup_open Buy Tokens
             .col-lg-5.betex-token__detail-col
-              each key, item in detailCol
+              each item in preSale
                 .betex-token__detail-item
-                  p.betex-token__detail-item-title=item
-                  p=key
+                  p.betex-token__detail-item-title=item.name
+                  p=item.value
             .col-lg-7
               .funds-disribution
                 .funds-disribution__title-block
@@ -89,16 +133,26 @@ section.betex-token#token-sale
                         b="10% "
                         span Reserve
               p.betex-token__completed The first round has been successfully completed with $1,000,000 raised.
-      #round2.active
+      #main-ico.active
         .betex-token__detail
           .row
-            .col-lg-6.betex-token__detail-col
-              each key, item in detailCol2
-                .betex-token__detail-item
-                  p.betex-token__detail-item-title=item
-                  p=key
             .col-lg-6
-              .progress
+              .betex-token__text
+                p Betex main ICO is Live. Tokens will be issued in accordance with SAFT agreement, once they are generated and registered
+            .col-lg-6
+              .betex-token__text
+                p
+                  b="Attention! "
+                  | To participate in the Betex ICO, the participants should complete KYC procedure in the personal proﬁle.
+            .col-12
+              button.betex-token__btn.btn.btn_green.contribute-full-popup_open Buy Tokens
+            .col-lg-6.betex-token__detail-col
+              each item in mainIco
+                .betex-token__detail-item
+                  p.betex-token__detail-item-title=item.name
+                  p=item.value
+            .col-lg-6
+              //.progress
                 p.progress__title Pre-sale Round 2 is Live
                 #timer2.progress__timer
                 //.progress__line-block
@@ -111,78 +165,3 @@ section.betex-token#token-sale
                     //.progress__line-values
                       span.progress__line-min 0
                       span.progress__line-max 500,000
-              //.funds-disribution
-                .funds-disribution__title-block
-                  p.funds-disribution__title-mob Funds distribution
-                    //i.funds-disribution__title-mob-icon.accordion-caption__icon.dropdown-icon
-                    //svg.funds-disribution__title-mob-icon.accordion-caption__icon(width="32px", height="32px")
-                      use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#dropdown")
-                .funds-disribution__wrap
-                  .funds-disribution__chart#funds-disribution
-                  //img.funds-disribution__chart(src="img/home-page/token-chart.png", alt="token-chart")
-                  .funds-disribution__descript
-                    p.funds-disribution__descript-title Funds Distribution
-                    ul.tokens-distribution__list
-                      li(data-index="0").funds-item.tokens-distribution__list-item.yellow
-                        b="40% "
-                        span Platform Development
-                      li(data-index="1").funds-item.tokens-distribution__list-item.red
-                        b="15% "
-                        span Marketing
-                      li(data-index="2").funds-item.tokens-distribution__list-item.blue
-                        b="15% "
-                        span Legal Support
-                      li(data-index="3").funds-item.tokens-distribution__list-item.grey
-                        b="15% "
-                        span Operational Costs
-                      li(data-index="4").funds-item.tokens-distribution__list-item.light-blue
-                        b="5% "
-                        span Research
-                      li(data-index="5").funds-item.tokens-distribution__list-item.green
-                        b="10% "
-                        span Reserve
-                    //ul.funds-disribution__list
-                      li.funds-disribution__list-item.yellow(data-index="0")
-                        b="40% "
-                        span Platform Development
-                      li.funds-disribution__list-item.red(data-index="1")
-                        b="15% "
-                        span Marketing
-                      li.funds-disribution__list-item.blue(data-index="2")
-                        b="15% "
-                        span Legal Support
-                      li.funds-disribution__list-item.grey(data-index="3")
-                        b="15% "
-                        span Operational Costs
-                      li.funds-disribution__list-item.light-blue(data-index="4")
-                        b="5% "
-                        span Research
-                      li.funds-disribution__list-item.green(data-index="5")
-                        b="10% "
-                        span Reserve
-
-                //.funds-disribution__line
-                  .funds-disribution__line-item
-                    span.funds-disribution__line-info +20%
-                    .funds-disribution__line-dot
-                      span.funds-disribution__line-date 9 oct
-                  .funds-disribution__line-item
-                    span.funds-disribution__line-info +10%
-                    .funds-disribution__line-dot
-                      span.funds-disribution__line-date 10 oct
-                  .funds-disribution__line-item
-                    span.funds-disribution__line-info No bonus
-                    .funds-disribution__line-dot
-                      span.funds-disribution__line-date 13 oct
-                  .funds-disribution__line-item
-                    .funds-disribution__line-dot
-                      span.funds-disribution__line-date 16 oct
-
-
-
-    //.join-block
-      .join-block__title Join to crowdsale
-      .join-block__wrap
-        a(href="#").btn.btn_default Contribute
-        a(href="./go-pro.pdf", target="_blank", rel="nofollow").link-doc Terms of Tokens Sale
-

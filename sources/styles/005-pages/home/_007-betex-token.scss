@@ -1,45 +1,45 @@
 .betex-token{
-   background-image: linear-gradient(180deg, #f6f7fa 0%, #ffffff 100%);
-   padding: 48px 0 0;
+  background-image: linear-gradient(180deg, #f6f7fa 0%, #ffffff 100%);
+  padding: 48px 0 0;
+  overflow: hidden;
+  &__header{
+   display: flex;
+   justify-content: space-between;
+  }
+  &__title{}
+  &__text{
+   line-height: 1.75;
+   padding: 0 14px 19px 8px;
+   letter-spacing: -0.005em;
+  }
+  &__tabs-caption{
+   width: 270px;
+   margin: 30px auto 24px;
+   height: 37px;
+   border: 1px solid #20b44b;
+   border-radius: 5px;
+   display: flex;
    overflow: hidden;
-   &__header{
-     display: flex;
-     justify-content: space-between;
-   }
-   &__title{}
-   &__text{
-     line-height: 1.75;
-     padding: 0 14px 19px 8px;
-     letter-spacing: -0.005em;
-   }
-   &__tabs-caption{
-     width: 270px;
-     margin: 30px auto 24px;
-     height: 37px;
-     border: 1px solid #20b44b;
-     border-radius: 5px;
-     display: flex;
-     overflow: hidden;
-   }
-   &__tabs-item{
-     @include font-size(16);
-     width: 100%;
-     font-weight: $weight-bold;
-     cursor: pointer;
-     line-height: 1;
-     color: #20b44b;
-     &:not(.active){
-       &:hover{
-         color: #3be27a;
-       }
-     }
-     &.active {
-       background: linear-gradient(to top, #0eb955 0%, #5bd488 100%);
-       color: #fff;
-       cursor: default;
+  }
+  &__tabs-item{
+   @include font-size(16);
+   width: 100%;
+   font-weight: $weight-bold;
+   cursor: pointer;
+   line-height: 1;
+   color: #20b44b;
+   &:not(.active){
+     &:hover{
+       color: #3be27a;
      }
    }
-   &__tabs-link{
+   &.active {
+     background: linear-gradient(to top, #0eb955 0%, #5bd488 100%);
+     color: #fff;
+     cursor: default;
+   }
+  }
+  &__tabs-link{
      display: block;
      width: 100%;
      height: 100%;
@@ -52,6 +52,14 @@
        cursor: default;
      }
    }
+  &__round-completed{
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    bottom: 3px;
+    @include font-size(11);
+  }
 
    &__detail{
      //border-top: 1px solid #d8d8d8;

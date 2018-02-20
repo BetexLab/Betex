@@ -118,7 +118,7 @@
             $('.roadmap-slider-for').slick({
                 slidesToShow: 1,
                 slidesToScroll: 1,
-                initialSlide: 4,
+                initialSlide: 5,
                 vertical: true,
                 // verticalSwiping: true,
                 swipe: false,
@@ -147,7 +147,7 @@
             $('.roadmap-slider-nav').slick({
                 slidesToShow: 1,
                 slidesToScroll: 1,
-                initialSlide: 4,
+                initialSlide: 5,
                 focusOnSelect: true,
                 centerMode: true,
                 vertical: true,
